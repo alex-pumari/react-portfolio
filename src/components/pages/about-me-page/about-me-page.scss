@@ -1,0 +1,35 @@
+@use "../../../styles/index.scss" as i;
+
+.about-me-page {
+  @extend %page;
+  @extend %layout-center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+
+    width: 90%;
+    position: relative;
+  }
+
+  &__text {
+    color: i.$black-900;
+  }
+
+  &__blob {
+    transform: scaleX(-1);
+    position: absolute;
+
+    &--1 {
+      bottom: 0;
+      right: -1px;
+      width: 35%;
+    }
+    &--2 {
+      top: 0;
+      left: 0;
+      width: 50%;
+    }
+  }
+}

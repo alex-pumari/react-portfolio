@@ -1,0 +1,37 @@
+@use "../../../styles/index.scss" as i;
+
+.contact-page {
+  @extend %page;
+  @extend %layout-stack;
+
+  gap: 1.5em;
+
+  &__title {
+    color: i.$black-900;
+    font-size: 1.2em;
+  }
+
+  &__buttons {
+    @extend %layout-row;
+
+    gap: 2em;
+  }
+
+  &__pattern, &__blob {
+    position: absolute;
+  }
+  
+  &__pattern {
+    top: 6em;
+    right: 8%;
+    transform: translateY(-50%);
+    color: i.$violet-800;
+  }
+  &__blob {
+    width: 65%;
+    bottom: 0;
+    left: 0;
+    transform: scale(-1, -1);
+    pointer-events: none;
+  }
+}

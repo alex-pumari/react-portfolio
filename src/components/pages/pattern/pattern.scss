@@ -1,0 +1,52 @@
+@use "../../../styles/index.scss";
+
+.pattern {
+  @extend %layout-row;
+
+  &--gap {
+    &-sm {
+      gap: 0.4em;
+    }
+    &-md {
+      gap: .8em;
+    }
+    &-lg {
+      gap: 1.2em;
+    }
+  }
+
+  &__shape {
+    border: 1px solid currentColor;
+
+    &--circle {
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+
+    &--sm {
+      width: 1.5em;
+    }
+
+    &--md {
+      width: 2.8em;
+    }
+
+    &--lg {
+      width: 3.2em;
+    }
+
+    &--stroke {
+      &-sm {
+        border-width: 0.125em;
+      }
+
+      &-md {
+        border-width: 0.25em;
+      }
+
+      &-lg {
+        border-width: 0.375em;
+      }
+    }
+  }
+}

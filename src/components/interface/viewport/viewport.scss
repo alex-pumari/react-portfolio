@@ -1,0 +1,19 @@
+@use "../../../styles/index.scss" as i;
+
+.viewport {
+  @extend %layout-center;
+
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+
+  background-color: i.$gray-550;
+
+  &--full-screen {
+    position: relative;
+    overflow-y: auto;
+
+    @extend %border-3d;
+    @extend %shadow-raised;
+  }
+}

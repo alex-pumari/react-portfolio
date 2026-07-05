@@ -1,0 +1,35 @@
+@use "../abstracts/placeholders";
+
+/* ======================================================
+   Global Styles
+   ====================================================== */
+.only-desktop {
+  display: flex;
+}
+
+.only-mobile {
+  display: none;
+}
+
+@media (max-width: 630px) {
+  .only-desktop {
+    display: none;
+  }
+
+  .only-mobile {
+    display: flex;
+  }
+}
+
+#root {
+  @extend %layout-stack;
+}
+
+.icon {
+  object-fit: contain;
+
+  &--md {
+    width: 1.9em;
+    height: 1.9em;
+  }
+}

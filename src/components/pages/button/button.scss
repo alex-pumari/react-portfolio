@@ -1,0 +1,31 @@
+@use "../../../styles/index.scss" as i;
+
+.viewport {
+  .button {
+    @extend %layout-center;
+    gap: 1em;
+
+    width: 12em;
+    border: none !important;
+    padding: .8em .5em;
+    border-radius: 1em;
+    
+    background-color: i.$violet-800;
+    box-shadow: none !important;
+    color: i.$white-900;
+    font-weight: bold;
+    font-size: 1em;
+    padding: .6em .8em;
+
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+
+    &:hover {
+      background-color: i.$violet-700;
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+# dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# build output
+dist
+build
+coverage
+
+# git
+.git
+.gitignore
+
+# docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# env files
+.env
+.env.*
+!.env.example
+
+# editor / OS
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# docs
+README.md
+readme
+CNAME
+
+# tests
+tests
+__tests__
+*.test.*
+*.spec.*

@@ -1,0 +1,53 @@
+{
+  "name": "react-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "docker compose up",
+    "test": "docker compose exec frontend npm run test:container",
+    "lint": "docker compose exec frontend npm run lint:container",
+    "storybook": "docker compose exec frontend npm run storybook:container",
+
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist",
+    "build-storybook": "storybook build",
+
+    "test:container": "vitest --project unit --run",
+    "lint:container": "eslint .",
+    "storybook:container": "storybook dev -p 6006 --host",
+    "dev:container": "vite --host"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.3",
+    "@eslint/js": "^9.21.0",
+    "@storybook/addon-a11y": "^10.1.2",
+    "@storybook/addon-docs": "^10.1.2",
+    "@storybook/addon-onboarding": "^10.1.2",
+    "@storybook/addon-vitest": "^10.1.2",
+    "@storybook/react-vite": "^10.1.2",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "@vitest/browser-playwright": "^4.0.14",
+    "@vitest/coverage-v8": "^4.0.14",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-storybook": "^10.1.2",
+    "gh-pages": "^6.3.0",
+    "globals": "^15.15.0",
+    "jsdom": "^27.4.0",
+    "playwright": "^1.57.0",
+    "sass": "^1.89.2",
+    "storybook": "^10.1.2",
+    "typescript": "^5.9.3",
+    "vite": "^6.2.0",
+    "vitest": "^4.0.14"
+  }
+}

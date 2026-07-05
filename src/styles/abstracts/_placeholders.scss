@@ -1,0 +1,65 @@
+/* ======================================================
+   Placeholders
+   ====================================================== */
+%border-3d {
+  border: 2px solid;
+  border-top-color: var(--color-border-light);
+  border-left-color: var(--color-border-light);
+  border-right-color: var(--color-border-dark);
+  border-bottom-color: var(--color-border-dark);
+}
+
+%shadow-raised {
+  box-shadow:
+    inset -1px -1px 0 var(--color-shadow-light),
+    inset  1px  1px 0 var(--color-border-medium);
+}
+
+%shadow-sunken {
+  box-shadow:
+    inset  1px  1px 0 var(--color-shadow-light),
+    inset -1px -1px 0 var(--color-shadow-dark);
+}
+
+%page {
+  width: 40em;
+  height: 25em;
+  padding: 1em 3em;
+  position: relative;
+
+  background-color: white;
+  cursor: default;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+
+/* ======================================================
+   Layouts
+   ====================================================== */
+%layout-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%layout-stack {
+  @extend %layout-center;
+  flex-direction: column;
+}
+
+%layout-row {
+  @extend %layout-center;
+  flex-direction: row;
+}
+
+%layout-row-spread {
+  @extend %layout-row;
+  justify-content: space-between;
+}
+
+%layout-stack-spread {
+  @extend %layout-stack;
+  justify-content: space-between;
+}
