@@ -6,16 +6,18 @@ Portfolio personal tipo PowerPoint. React 19 + Vite 6 + SCSS + SWC.
 
 | Comando | Qué hace |
 |---------|----------|
-| `npm run dev` | Docker Compose up (Vite en :5173, Storybook en :6006) |
-| `npm run build` | `vite build` (directo, no Docker) |
-| `npm run test` | `docker compose exec frontend npm run test:container` |
-| `npm run test:container` | `vitest --project unit --run` (solo unit, no browser tests) |
-| `npm run lint` | `docker compose exec frontend npm run lint:container` |
-| `npm run lint:container` | `eslint .` (chequea `.ts/.tsx`, no `.js/.jsx`) |
+| `npm run dev` | Docker Compose up (Vite en :5173) |
+| `npm run dev:container` | `vite --host` (dentro del contenedor) |
+| `npm run build` | `vite build` |
+| `npm run test` | `vitest --project unit --run` |
+| `npm run test:unit` | `vitest --project unit --run` (alias) |
+| `npm run test:storybook` | `vitest --project storybook --run` |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | `eslint .` (chequea `.ts/.tsx`, no `.js/.jsx`) |
+| `npm run storybook` | `storybook dev -p 6006 --host` |
 | `npm run deploy` | `npm run build && gh-pages -d dist` |
-| `npm run storybook` | `docker compose exec frontend npm run storybook:container` |
 
-**Importante**: `npm run test` solo corre el proyecto "unit" de Vitest. Storybook tests requieren `npx vitest --project storybook`.
+**Importante**: `npm run test` y `test:unit` solo corren el proyecto "unit" de Vitest. `test:storybook` corre los tests browser con Playwright + Chromium.
 
 ## Toolchain quirks
 
@@ -65,7 +67,6 @@ index.html → src/main.tsx → App.tsx
 - Tests unitarios con Vitest + jsdom, co-located: `src/**/*.test.ts`
 - Tests para draggable, lógica de README parsing, utilidades.
 - Sin stories de Storybook todavía (solo config presente).
-- Los tests no corren automáticamente con `npm run test` fuera de Docker. Para correr local: `npx vitest --project unit`.
 
 ## Deployment
 

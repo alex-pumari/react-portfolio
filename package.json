@@ -5,17 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "docker compose up",
-    "test:unit": "vitest --project unit --run",
-    "lint": "docker compose exec frontend npm run lint:container",
-    "storybook": "docker compose exec frontend npm run storybook:container",
+    "dev:container": "vite --host",
     "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist",
-    "build-storybook": "storybook build",
-    "test:container": "vitest --project unit --run",
-    "lint:container": "eslint .",
-    "storybook:container": "storybook dev -p 6006 --host",
-    "dev:container": "vite --host"
+    "test": "vitest --project unit --run",
+    "test:unit": "vitest --project unit --run",
+    "test:storybook": "vitest --project storybook --run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "storybook": "storybook dev -p 6006 --host",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
