@@ -1,1 +1,1 @@
-export * from "./trackbar.js"
+export * from "./trackbar.js";

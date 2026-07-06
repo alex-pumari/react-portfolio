@@ -7,5 +7,5 @@ export function calculateDelta(
   return {
     x: current.x - start.x,
     y: current.y - start.y,
-  }
+  };
 }

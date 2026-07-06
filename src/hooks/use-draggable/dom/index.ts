@@ -1,3 +1,3 @@
-export * from "./get-transform.js"
-export * from "./set-transform.js"
-export * from "./drag-styles.js"
+export * from "./get-transform.js";
+export * from "./set-transform.js";
+export * from "./drag-styles.js";

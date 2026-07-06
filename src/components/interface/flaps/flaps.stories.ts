@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Flaps } from "./flaps.js"
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Flaps } from "./flaps.js";
 
 const meta = {
   title: "Components/Interface/Flaps",
@@ -7,9 +7,9 @@ const meta = {
     parameters: {
     layout: "fullscreen"
   },
-} satisfies Meta<typeof Flaps>
+} satisfies Meta<typeof Flaps>;
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof meta>
 
@@ -22,4 +22,4 @@ export const regular: Story = {
     ],
     selectedFlap: "File",
   }
-}
+};

@@ -3,13 +3,13 @@ export function extractBulletPoints(section: string): string[] {
     .split("\n")
     .map(line => line.trim())
     .filter(isBulletPoint)
-    .map(cleanBulletPoint)
+    .map(cleanBulletPoint);
 }
 
 function isBulletPoint(line: string): boolean {
-  return line.startsWith("-")
+  return line.startsWith("-");
 }
 
 function cleanBulletPoint(line: string): string {
-  return line.replace(/^-+\s*/, "").trim()
+  return line.replace(/^-+\s*/, "").trim();
 }

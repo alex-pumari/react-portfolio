@@ -1,4 +1,4 @@
-import { getSizeInEm, type IconProps } from "./icon.js"
+import { getSizeInEm, type IconProps } from "./icon.js";
 
 export function DownloadIcon({ className, size = "md" } : IconProps) {
   return (
@@ -10,5 +10,5 @@ export function DownloadIcon({ className, size = "md" } : IconProps) {
         fill='currentColor'
       />
     </svg>
-  )
+  );
 }

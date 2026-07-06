@@ -1,5 +1,5 @@
-import { Flap } from "../flap/flap.js"
-import "./flaps.scss"
+import { Flap } from "../flap/flap.js";
+import "./flaps.scss";
 
 interface FlapsProps<Value> {
   flaps: readonly Value[]
@@ -16,11 +16,11 @@ export function Flaps<Value extends string | number>({ flaps, selectedFlap, onCh
             value={flap}
             selected={flap === selectedFlap}
             onClick={() => {
-              if (onChange && flap !== selectedFlap) onChange?.(flap)
+              if (onChange && flap !== selectedFlap) onChange?.(flap);
             }}
           />
         ))}
       </ul>
     </> 
-  )
+  );
 }

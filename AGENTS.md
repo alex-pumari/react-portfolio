@@ -11,7 +11,7 @@ Portfolio personal tipo PowerPoint. React 19 + Vite 6 + SCSS + SWC.
 | `npm run test` | `docker compose exec frontend npm run test:container` |
 | `npm run test:container` | `vitest --project unit --run` (solo unit, no browser tests) |
 | `npm run lint` | `docker compose exec frontend npm run lint:container` |
-| `npm run lint:container` | `eslint .` (solo chequea `.js/.jsx`, NO `.ts/.tsx`) |
+| `npm run lint:container` | `eslint .` (chequea `.ts/.tsx`, no `.js/.jsx`) |
 | `npm run deploy` | `npm run build && gh-pages -d dist` |
 | `npm run storybook` | `docker compose exec frontend npm run storybook:container` |
 
@@ -20,7 +20,7 @@ Portfolio personal tipo PowerPoint. React 19 + Vite 6 + SCSS + SWC.
 ## Toolchain quirks
 
 - **`verbatimModuleSyntax`** + **`nodenext`**: todos los imports `.ts` usan extensión `.js` (ej: `from "./foo.js"`)
-- **ESLint no cubre `.ts/.tsx`**: `eslint.config.ts` solo apunta a `**/*.{js,jsx}`. Archivos TypeScript no tienen linting.
+- **ESLint now covers `.ts/.tsx`**: `eslint.config.ts` usa `defineConfig` (API no-deprecated) + `typescript-eslint` recommended + `react-hooks` + `react-refresh` + `storybook` + `semi: always` + `quotes: double`. Archivos TypeScript tienen linting completo.
 - **Dos proyectos Vitest**: "unit" (jsdom) y "storybook" (browser/playwright + Chromium). Config en `vite.config.ts`.
 - **Dos componentes `Button`**: `components/interface/button/` (Win98-style) y `components/pages/button/` (rounded purple). No confundir.
 - **Barrel exports**: `logic/index.ts` re-exporta `repository-readme-content/index.ts`, que re-exporta `parse-repository-readme-content.ts` — potencial circular dependency. Preferir imports directos.

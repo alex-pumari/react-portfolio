@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { MenuButton } from "./menu-button.js"
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { MenuButton } from "./menu-button.js";
 
 const meta = {
   title: "Components/Interface/MenuButton",
@@ -15,9 +15,9 @@ const meta = {
       "Pizza",
     ]
   },
-} satisfies Meta<typeof MenuButton>
+} satisfies Meta<typeof MenuButton>;
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof meta>
 
@@ -37,7 +37,7 @@ export const open: Story = {
       <MenuButton {...{...args, direction: "top-right" }}/>
     </div>
   )
-}
+};
 
 export const closed: Story = {
   render: (args) => (
@@ -46,11 +46,11 @@ export const closed: Story = {
       <MenuButton {...{...args, direction: "top"}}/>
     </div>
   )
-}
+};
 
 export const withFormat: Story = {
   args: {
     renderItem: item => `1Kg - ${item}`,
     initialIsOpen: true,
   }
-}
+};

@@ -1,9 +1,9 @@
-import type { Direction } from "../types/direction.js"
+import type { Direction } from "../types/direction.js";
 
 export function getChevronIcon(isOpen: boolean, direction: Direction): string {
-  const isOpeningDownward = direction.startsWith("bottom")
+  const isOpeningDownward = direction.startsWith("bottom");
 
-  if (isOpen) return isOpeningDownward ? "▲" : "▼"
+  if (isOpen) return isOpeningDownward ? "▲" : "▼";
 
-  return isOpeningDownward ? "▼" : "▲"
+  return isOpeningDownward ? "▼" : "▲";
 }

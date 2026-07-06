@@ -1,4 +1,4 @@
-import type { Coordinates } from "../../types/index.js"
+import type { Coordinates } from "../../types/index.js";
 
 export function calculateNewPosition(
   startElement: Coordinates,
@@ -7,5 +7,5 @@ export function calculateNewPosition(
   return {
     x: startElement.x + delta.x,
     y: startElement.y + delta.y,
-  }
+  };
 }

@@ -1,5 +1,5 @@
-import { getSizeInEm } from "./icon.js"
-import type { IconProps } from "./icon.js"
+import { getSizeInEm } from "./icon.js";
+import type { IconProps } from "./icon.js";
 
 export function LinkedinIcon({ className, size = "md" } : IconProps) {
   return (
@@ -12,5 +12,5 @@ export function LinkedinIcon({ className, size = "md" } : IconProps) {
         c35.5,0,63.3,23,63.3,72.4V508.1z"
       />
     </svg>
-  )
+  );
 }

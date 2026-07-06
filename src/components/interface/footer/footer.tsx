@@ -1,30 +1,30 @@
-import { useEffect } from "react"
-import type { Page, ZoomValue } from "../../../types/index.js"
-import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
-import { joinClasses, setElementZoom } from "../../../logic/index.js"
-import { useFullScreenContext, usePageContext, useZoomContext } from "../../../contexts/index.js"
-import { SlideIcon } from "../../icons/index.js"
-import { ZOOM_VALUES } from "../../../config/constants.js"
-import "./footer.scss"
+import { useEffect } from "react";
+import type { Page, ZoomValue } from "../../../types/index.js";
+import { Button, Stepper, Trackbar, MenuButton } from "../index.js";
+import { joinClasses, setElementZoom } from "../../../logic/index.js";
+import { useFullScreenContext, usePageContext, useZoomContext } from "../../../contexts/index.js";
+import { SlideIcon } from "../../icons/index.js";
+import { ZOOM_VALUES } from "../../../config/constants.js";
+import "./footer.scss";
 
 interface FooterProps {
   isHidden?: boolean
 }
 
 function renderItem<ItemType> (item: ItemType): string {
-  return `${item} %`
+  return `${item} %`;
 }
 
 export function Footer({ isHidden = false }: FooterProps) {
-  const { page, setPage } = usePageContext()
-  const { zoom, setZoom } = useZoomContext()
-  const { toggleFullScreen } = useFullScreenContext()
+  const { page, setPage } = usePageContext();
+  const { zoom, setZoom } = useZoomContext();
+  const { toggleFullScreen } = useFullScreenContext();
 
   useEffect(() => {
-    const viewport = document.querySelector<HTMLElement>("#viewport")
+    const viewport = document.querySelector<HTMLElement>("#viewport");
 
-    if(viewport) setElementZoom(viewport, zoom)
-  }, [zoom])
+    if(viewport) setElementZoom(viewport, zoom);
+  }, [zoom]);
 
   return (
     <footer className={joinClasses("footer", isHidden && "footer--hidden")}>
@@ -56,5 +56,5 @@ export function Footer({ isHidden = false }: FooterProps) {
         </Button>
       </div>
     </footer>
-  )
+  );
 }

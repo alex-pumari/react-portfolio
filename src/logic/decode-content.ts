@@ -5,7 +5,7 @@ export const decode = {
    * @returns {string} The decoded string.
   */
   base64(content: string): string {
-    return atob(content)
+    return atob(content);
   },
 
   /**
@@ -15,9 +15,9 @@ export const decode = {
   */
   utf8(content: string): string {
     const bytes = Uint8Array.from(content, character => 
-      character.charCodeAt(0) as number
-    )
-    return new TextDecoder("utf-8").decode(bytes)
+      character.charCodeAt(0)
+    );
+    return new TextDecoder("utf-8").decode(bytes);
   },
 
 
@@ -28,9 +28,9 @@ export const decode = {
   */
   url(content: string): string {
     try {
-      return decodeURIComponent(content)
+      return decodeURIComponent(content);
     } catch {
-      return content
+      return content;
     }
   }
-}
+};

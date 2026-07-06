@@ -1,9 +1,9 @@
-import type { RepositoryReadme } from "../../types/index.js"
-import { extractBadges, extractFirstSection, extractImagePath } from "../index.js"
-import { extractTitle, extractVideoUrl, extractLearnings } from "../index.js"
+import type { RepositoryReadme } from "../../types/index.js";
+import { extractBadges, extractFirstSection, extractImagePath } from "../index.js";
+import { extractTitle, extractVideoUrl, extractLearnings } from "../index.js";
 
 export function parseRepositoryReadmeContent(readmeContent: string): RepositoryReadme {
-  const section = extractFirstSection(readmeContent)
+  const section = extractFirstSection(readmeContent);
 
   return {
     title: extractTitle(section),
@@ -11,5 +11,5 @@ export function parseRepositoryReadmeContent(readmeContent: string): RepositoryR
     imagePath: extractImagePath(section),
     videoUrl: extractVideoUrl(section),
     learnings: extractLearnings(section),
-  }
+  };
 }

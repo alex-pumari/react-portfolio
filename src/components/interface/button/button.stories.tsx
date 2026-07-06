@@ -1,6 +1,6 @@
-import portfolioIcon from "../../../assets/img/icon-portfolio.png"
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Button } from "./button.js"
+import portfolioIcon from "../../../assets/img/icon-portfolio.png";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Button } from "./button.js";
 
 const meta = {
   title: "Components/Interface/Button",
@@ -11,14 +11,14 @@ const meta = {
   args: {
     children: "Btn!",
   },
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Button>;
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof meta>
 
-const sizes = ["sm", "md", "lg"] as const
-const directions = ["column", "row"] as const
+const sizes = ["sm", "md", "lg"] as const;
+const directions = ["column", "row"] as const;
 
 export const row: Story = {
   render: args => (
@@ -28,7 +28,7 @@ export const row: Story = {
       ))}
     </div>
   ),
-}
+};
 
 export const column: Story = {
   render: args => (
@@ -38,13 +38,13 @@ export const column: Story = {
       ))}
     </div>
   ),
-}
+};
 
 export const disabled: Story = {
   args: {
     disabled: true,
   }
-}
+};
 
 export const withIcon: Story = {
   render: args => (
@@ -61,4 +61,4 @@ export const withIcon: Story = {
         ))}
     </div>
   ),
-}
+};

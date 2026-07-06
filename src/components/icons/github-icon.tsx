@@ -1,5 +1,5 @@
-import { getSizeInEm } from "./icon.js"
-import type { IconProps } from "./icon.js"
+import { getSizeInEm } from "./icon.js";
+import type { IconProps } from "./icon.js";
 
 export function GithubIcon({ className, size = "md" } : IconProps) {
   return (
@@ -15,5 +15,5 @@ export function GithubIcon({ className, size = "md" } : IconProps) {
         </g>
       </g>
     </svg>
-  )
+  );
 }

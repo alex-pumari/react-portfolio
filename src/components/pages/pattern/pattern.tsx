@@ -1,6 +1,6 @@
-import type { Size } from "../../../types/index.js"
-import { joinClasses } from "../../../logic/join-classes.js"
-import "./pattern.scss"
+import type { Size } from "../../../types/index.js";
+import { joinClasses } from "../../../logic/join-classes.js";
+import "./pattern.scss";
 
 interface PatternProps {
   shape: "circle"
@@ -19,21 +19,21 @@ export function Pattern({
     "pattern",
     `pattern--gap-${gap}`,
     className
-  )
+  );
   const shapeClasses = joinClasses(
     "pattern__shape",
     `pattern__shape--${shape}`,
     `pattern__shape--${size}`,
     `pattern__shape--stroke-${strokeWidth}`,
-  )
+  );
   
-  const shapes = []
+  const shapes = [];
 
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       shapes.push(
         <div className={shapeClasses} key={`${row}-${col}`} />
-      )
+      );
     }
   }
 
@@ -41,5 +41,5 @@ export function Pattern({
     <div className={patternClasses}>
       {shapes}
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { joinClasses, getNextInRange } from "../../../logic/index.js"
-import { Button } from "../button/index.js"
-import "./stepper.scss"
+import { joinClasses, getNextInRange } from "../../../logic/index.js";
+import { Button } from "../button/index.js";
+import "./stepper.scss";
 
 export interface StepperProps {
   value: number
@@ -23,26 +23,26 @@ export function Stepper ({
   infinite = false,
   disabled,
 }: StepperProps) {
-  const canDecrease = !disabled && (infinite || value > min)
-  const canIncrease = !disabled && (infinite || value < max)
+  const canDecrease = !disabled && (infinite || value > min);
+  const canIncrease = !disabled && (infinite || value < max);
   const labelContent: string = isFunction(label)
     ? label(value, max, min)
-    : label ?? `${value} / ${max}`
+    : label ?? `${value} / ${max}`;
 
 
   const handleDecrease = () => {
-    if (disabled) return
+    if (disabled) return;
 
-    const newValue = getNextInRange({ min, max, value, step: -1, wrap: infinite })
-    if(newValue !== value) onChange?.(newValue)
-  }
+    const newValue = getNextInRange({ min, max, value, step: -1, wrap: infinite });
+    if(newValue !== value) onChange?.(newValue);
+  };
 
   const handleIncrease = () => {
-    if (disabled) return
+    if (disabled) return;
 
-    const newValue = getNextInRange({ min, max, value, step: 1, wrap: infinite })
-    if(newValue !== value) onChange?.(newValue)
-  }
+    const newValue = getNextInRange({ min, max, value, step: 1, wrap: infinite });
+    if(newValue !== value) onChange?.(newValue);
+  };
 
   return (
     <div className={joinClasses("stepper", className)}>
@@ -66,9 +66,9 @@ export function Stepper ({
           ▶
         </Button>
     </div>
-  )
+  );
 }
 
 function isFunction (value: any): value is Function {
-  return typeof value === "function"
+  return typeof value === "function";
 }

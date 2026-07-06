@@ -1,16 +1,16 @@
-import { describe, test, expect } from "vitest"
-import { getPointerCoords } from "./get-pointer-coords.js"
+import { describe, test, expect } from "vitest";
+import { getPointerCoords } from "./get-pointer-coords.js";
 
 describe("get-pointer-coords", () => {
   test("should return correct coordinates for a MouseEvent", () => {
     const mockMouseEvent = {
       clientX: 100,
       clientY: 200,
-    } as unknown as MouseEvent
+    } as unknown as MouseEvent;
 
-    const coords = getPointerCoords(mockMouseEvent)
-    expect(coords).toEqual({ x: 100, y: 200 })
-  })
+    const coords = getPointerCoords(mockMouseEvent);
+    expect(coords).toEqual({ x: 100, y: 200 });
+  });
 
   test("should return correct coordinates for a TouchEvent", () => {
     const mockTouchEvent = {
@@ -21,11 +21,11 @@ describe("get-pointer-coords", () => {
         },
       ],
       changedTouches: [],
-    } as unknown as TouchEvent
+    } as unknown as TouchEvent;
 
-    const coords = getPointerCoords(mockTouchEvent)
-    expect(coords).toEqual({ x: 50, y: 150 })
-  })
+    const coords = getPointerCoords(mockTouchEvent);
+    expect(coords).toEqual({ x: 50, y: 150 });
+  });
 
   test("should return correct coordinates from changedTouches if touches is empty", () => {
     const mockTouchEvent = {
@@ -36,19 +36,19 @@ describe("get-pointer-coords", () => {
           clientY: 125,
         },
       ],
-    } as unknown as TouchEvent
+    } as unknown as TouchEvent;
 
-    const coords = getPointerCoords(mockTouchEvent)
-    expect(coords).toEqual({ x: 75, y: 125 })
-  })
+    const coords = getPointerCoords(mockTouchEvent);
+    expect(coords).toEqual({ x: 75, y: 125 });
+  });
 
   test("should return { x: 0, y: 0 } if no touches or changedTouches exist in a TouchEvent", () => {
     const mockTouchEvent = {
       touches: [],
       changedTouches: [],
-    } as unknown as TouchEvent
+    } as unknown as TouchEvent;
 
-    const coords = getPointerCoords(mockTouchEvent)
-    expect(coords).toEqual({ x: 0, y: 0 })
-  })
-})
+    const coords = getPointerCoords(mockTouchEvent);
+    expect(coords).toEqual({ x: 0, y: 0 });
+  });
+});

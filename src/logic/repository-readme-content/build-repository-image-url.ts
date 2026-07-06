@@ -1,4 +1,4 @@
-import { GITHUB_IMAGE_BASE_URL } from "../../config/constants.js"
+import { GITHUB_IMAGE_BASE_URL } from "../../config/constants.js";
 
 interface RepositoryDetails {
   fullName: string
@@ -6,7 +6,7 @@ interface RepositoryDetails {
 }
 
 export function buildRepositoryImageUrl({ fullName, imagePath }: RepositoryDetails): string {
-  if (!imagePath) throw new Error()
+  if (!imagePath) throw new Error();
 
-  return `${GITHUB_IMAGE_BASE_URL}/${fullName}/refs/heads/main/${imagePath}`
+  return `${GITHUB_IMAGE_BASE_URL}/${fullName}/refs/heads/main/${imagePath}`;
 }

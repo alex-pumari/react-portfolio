@@ -13,17 +13,17 @@ export function getNextInRange({
   step = 1,
   wrap = false,
 }: GetNextInRangeOptions): number {
-  const next = value + step
+  const next = value + step;
 
   if (!wrap) {
-    if (next > max) return max
-    if (next < min) return min
+    if (next > max) return max;
+    if (next < min) return min;
     
-    return next
+    return next;
   }
 
-  if (next > max) return min
-  if (next < min) return max
+  if (next > max) return min;
+  if (next < min) return max;
 
-  return next
+  return next;
 }

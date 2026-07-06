@@ -1,1 +1,1 @@
-export * from "./flaps.js"
+export * from "./flaps.js";

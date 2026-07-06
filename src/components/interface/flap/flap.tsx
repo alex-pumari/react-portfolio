@@ -1,5 +1,5 @@
-import { joinClasses } from "../../../logic/index.js"
-import "./flap.scss"
+import { joinClasses } from "../../../logic/index.js";
+import "./flap.scss";
 
 interface FlapProps<Value> {
   value: Value
@@ -13,9 +13,9 @@ export function Flap<Value extends string | number> (
   const flapClasses: string = joinClasses(
     "flap",
     selected && "flap--selected",
-  )
+  );
 
   return (
     <li className={flapClasses} onClick={() => onClick?.(value)}>{value}</li>
-  )
+  );
 }

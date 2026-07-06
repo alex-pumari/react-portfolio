@@ -1,5 +1,5 @@
-import { joinClasses } from "../../../logic/index.js"
-import "./item.scss"
+import { joinClasses } from "../../../logic/index.js";
+import "./item.scss";
 
 interface ItemProps<ItemType> {
   value: ItemType
@@ -11,8 +11,8 @@ export function Item<ItemType extends string | number> ({ value, selected, onCli
   const itemClasses = joinClasses(
     "item",
     selected && "item--selected"
-  )
+  );
   return (
     <li className={itemClasses} onClick={() => onClick?.(value)}>{value}</li>
-  )
+  );
 }

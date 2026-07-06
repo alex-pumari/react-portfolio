@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { RepositoryDetails } from "../../../types/index.js";
-import { RepositoryCard, Subtitle } from "../index.js"
-import "./repositories-page.scss"
+import { RepositoryCard, Subtitle } from "../index.js";
+import "./repositories-page.scss";
 import { getRepositoriesDetails } from "../../../use-cases/get-repository-details.js";
 import { githubService } from "../../../services/github-service.js";
 import { useDraggable } from "../../../hooks/index.js";
@@ -103,28 +103,28 @@ const repositories: RepositoryDetails[] = [
     ],
     "imageUrl": "https://raw.githubusercontent.com/AlexRubenPumari/react-product-calculator/refs/heads/main/readme/img1.jpg"
   }
-]
+];
 
 export function RepositoriesPage() {
-  const repositoriesPageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false })
+  const repositoriesPageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false });
   
   useEffect(() => {
-    const repositoriesPage = repositoriesPageRef.current
-    if (!repositoriesPage) return
+    const repositoriesPage = repositoriesPageRef.current;
+    if (!repositoriesPage) return;
 
-    const handleWheel = (e: WheelEvent) => e.stopPropagation()
-    const eventOptions = { passive: false }
+    const handleWheel = (e: WheelEvent) => e.stopPropagation();
+    const eventOptions = { passive: false };
 
-    repositoriesPage.addEventListener("wheel", handleWheel, eventOptions)
+    repositoriesPage.addEventListener("wheel", handleWheel, eventOptions);
 
-    return () => repositoriesPage.removeEventListener("wheel", handleWheel)
-  }, [])
+    return () => repositoriesPage.removeEventListener("wheel", handleWheel);
+  }, []);
 
   return (
     <div
       className="repositories-page"
       ref={repositoriesPageRef}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1em' }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1em" }}
     >
       <Subtitle>Proyectos</Subtitle>
       <ul>
@@ -132,5 +132,5 @@ export function RepositoriesPage() {
       </ul>
       {repositories.map(repository => <RepositoryCard key={repository.id} repository={repository} />)}
     </div>
-  )
+  );
 }

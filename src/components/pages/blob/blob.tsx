@@ -1,6 +1,6 @@
-import { joinClasses } from "../../../logic/index.js"
-import type { Size } from "../../../types/index.js"
-import "./blob.scss"
+import { joinClasses } from "../../../logic/index.js";
+import type { Size } from "../../../types/index.js";
+import "./blob.scss";
 
 export interface BlobProps {
   size?: Size
@@ -9,7 +9,7 @@ export interface BlobProps {
 }
 
 export function Blob ({ className, size = "md", shape = "a" }: BlobProps) {
-  const blobClasses = joinClasses("blob", `blob--${size}`, className)
+  const blobClasses = joinClasses("blob", `blob--${size}`, className);
 
   if(shape === "a") {
     return (
@@ -21,7 +21,7 @@ export function Blob ({ className, size = "md", shape = "a" }: BlobProps) {
           />
         </g>
       </svg>
-    )
+    );
   }
 
   if(shape === "b") {
@@ -34,7 +34,7 @@ export function Blob ({ className, size = "md", shape = "a" }: BlobProps) {
           />
         </g>
       </svg>
-    )
+    );
   }
 
   if(shape === "c") {
@@ -47,6 +47,6 @@ export function Blob ({ className, size = "md", shape = "a" }: BlobProps) {
           />
         </g>
       </svg>
-    )
+    );
   }
 }

@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { joinClasses } from "../../../logic/join-classes.js"
-import "./image.scss"
+import { useState } from "react";
+import { joinClasses } from "../../../logic/join-classes.js";
+import "./image.scss";
 
 interface ImageProps {
   src: string
@@ -10,7 +10,7 @@ interface ImageProps {
 }
 
 export function Image({ src, alt, title, className }: ImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className={joinClasses("image__container", className)}>
@@ -24,5 +24,5 @@ export function Image({ src, alt, title, className }: ImageProps) {
         onLoad={() => setIsLoaded(true)}
       />
     </div>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { useDraggable } from "../../../hooks/index.js"
-import { Blob, Subtitle } from "../index.js"
-import "./about-me-page.scss"
+import { useDraggable } from "../../../hooks/index.js";
+import { Blob, Subtitle } from "../index.js";
+import "./about-me-page.scss";
 
 export function AboutMePage() {
-  const pageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false })
+  const pageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false });
   return (
     <div className="about-me-page" ref={pageRef}>
       <div className="about-me-page__content">
@@ -21,5 +21,5 @@ export function AboutMePage() {
       <Blob shape="a" className="about-me-page__blob about-me-page__blob--1" />
       <Blob shape="b" className="about-me-page__blob about-me-page__blob--2" />
     </div>
-  )
+  );
 }

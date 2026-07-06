@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Blob } from "./blob.js"
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Blob } from "./blob.js";
 
-const sizes = ["sm", "md", "lg"] as const
+const sizes = ["sm", "md", "lg"] as const;
 
 const meta = {
   title: "Components/Pages/Blob",
@@ -9,9 +9,9 @@ const meta = {
     parameters: {
     layout: "centered"
   },
-} satisfies Meta<typeof Blob>
+} satisfies Meta<typeof Blob>;
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof meta>
 
@@ -19,16 +19,16 @@ export const shapeA: Story = {
   args: {
     shape: "a",
   },
-}
+};
 
 export const shapeB: Story = {
   args: {
     shape: "b",
   },
-}
+};
 
 export const shapeC: Story = {
   args: {
     shape: "c",
   },
-}
+};

@@ -1,6 +1,6 @@
-import type { ReactNode } from "react"
-import { joinClasses } from "../../../logic/index.js"
-import "./button.scss"
+import type { ReactNode } from "react";
+import { joinClasses } from "../../../logic/index.js";
+import "./button.scss";
 
 interface ButtonProps {
   className?: string
@@ -18,5 +18,5 @@ export function Button ({
     >
       {children}
     </button>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { describe, test, expect, vi } from "vitest"
-import { getTransform } from "./get-transform.js"
+import { describe, test, expect, vi } from "vitest";
+import { getTransform } from "./get-transform.js";
 
 describe("get-transform", () => {
   test("should return the correct transform data from an element", () => {
-    const mockElement = document.createElement("div")
+    const mockElement = document.createElement("div");
     
     Object.defineProperty(window, "getComputedStyle", {
       value: vi.fn(() => ({
@@ -11,11 +11,11 @@ describe("get-transform", () => {
       }))
     });
 
-    const transformData = getTransform(mockElement)
+    const transformData = getTransform(mockElement);
 
     expect(transformData).toEqual({
       scale: 1.5,
       position: { x: 100, y: 200 },
-    })
-  })
-})
+    });
+  });
+});

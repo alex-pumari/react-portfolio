@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react'
-import { getRepositories } from '../services/repositories'
+import { useState, useEffect } from 'react';
+import { getRepositories } from '../services/repositories';
 
 export function useRepositories() {
-  const [repositories, setRepositories] = useState([])
+  const [repositories, setRepositories] = useState([]);
   useEffect(() => {
     getRepositories()
       .then(repositories => {
-        console.log(repositories)
-        setRepositories(repositories)
+        console.log(repositories);
+        setRepositories(repositories);
       })
       .catch(error => {
-        console.log(error)
-        setRepositories([])
-      })
-  }, [])
-  return { repositories }
+        console.log(error);
+        setRepositories([]);
+      });
+  }, []);
+  return { repositories };
 }

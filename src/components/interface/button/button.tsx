@@ -1,7 +1,7 @@
-import type { ReactNode } from "react"
-import type { Size } from "../../../types/index.js"
-import { joinClasses } from "../../../logic/index.js"
-import "./button.scss"
+import type { ReactNode } from "react";
+import type { Size } from "../../../types/index.js";
+import { joinClasses } from "../../../logic/index.js";
+import "./button.scss";
 
 interface ButtonProps {
   children: ReactNode
@@ -21,7 +21,7 @@ export function Button(
     size === "sm" && "button--sm",
     size === "md" && "button--md",
     size === "lg" && "button--lg",
-  )
+  );
 
   return (
     <button
@@ -31,5 +31,5 @@ export function Button(
     >
       {children}
     </button>
-  )
+  );
 }

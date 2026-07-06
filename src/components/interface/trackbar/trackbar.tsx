@@ -1,6 +1,6 @@
-import { Button } from "../index.js"
-import { joinClasses } from "../../../logic/index.js"
-import "./trackbar.scss"
+import { Button } from "../index.js";
+import { joinClasses } from "../../../logic/index.js";
+import "./trackbar.scss";
 
 interface TrackbarProps {
   value: number
@@ -40,5 +40,5 @@ export function Trackbar(
         +
       </Button>
     </div>
-  )
+  );
 }

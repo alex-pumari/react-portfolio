@@ -1,7 +1,7 @@
-import type { GitHubRepository, Repository } from "../types/index.js"
+import type { GitHubRepository, Repository } from "../types/index.js";
 
 export function formatRepositories (githubRepositories: GitHubRepository[]): Repository[] {
-  return githubRepositories.map(toRepository)
+  return githubRepositories.map(toRepository);
 }
 
 function toRepository ({ id, full_name, html_url, homepage, description }: GitHubRepository): Repository {
@@ -11,5 +11,5 @@ function toRepository ({ id, full_name, html_url, homepage, description }: GitHu
     githubUrl: html_url,
     pageUrl: homepage,
     description,
-  }
+  };
 }

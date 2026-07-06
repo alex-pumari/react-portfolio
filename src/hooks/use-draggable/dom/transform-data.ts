@@ -1,4 +1,4 @@
-import type { Coordinates } from "../../../types/coordinates.js"
+import type { Coordinates } from "../../../types/coordinates.js";
 
 export interface TransformData {
   position: Coordinates

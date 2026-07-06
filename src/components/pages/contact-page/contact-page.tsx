@@ -1,10 +1,10 @@
-import { useDraggable } from "../../../hooks/index.js"
-import { GithubIcon, LinkedinIcon } from "../../icons/index.js"
-import { Blob, Button, Pattern } from "../index.js"
-import "./contact-page.scss"
+import { useDraggable } from "../../../hooks/index.js";
+import { GithubIcon, LinkedinIcon } from "../../icons/index.js";
+import { Blob, Button, Pattern } from "../index.js";
+import "./contact-page.scss";
 
 export function ContactPage() {
-  const pageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false })
+  const pageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false });
   return (
     <div className="contact-page" ref={pageRef}>
       <h2 className="contact-page__title">¡Quedo a la espera de tu mensaje!</h2>
@@ -26,5 +26,5 @@ export function ContactPage() {
         className="contact-page__pattern"
       />
     </div>
-  )
+  );
 }

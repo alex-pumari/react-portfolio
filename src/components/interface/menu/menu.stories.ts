@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { Menu } from "./menu.js"
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Menu } from "./menu.js";
 
 const meta = {
   title: "Components/Interface/Menu",
@@ -14,16 +14,16 @@ const meta = {
       { value: "Milk" },
     ],
   }
-} satisfies Meta<typeof Menu>
+} satisfies Meta<typeof Menu>;
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const regular: Story = {}
+export const regular: Story = {};
 
 export const withSelectedItem: Story = {
   args: {
     selectedItem: "Milk",
   }
-}
+};

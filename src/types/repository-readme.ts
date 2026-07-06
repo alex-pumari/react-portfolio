@@ -1,4 +1,4 @@
-import type { Badge } from "./badge.js"
+import type { Badge } from "./badge.js";
 
 export interface RepositoryReadme {
   title: string | null
