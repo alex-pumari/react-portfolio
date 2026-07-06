@@ -28,4 +28,11 @@ describe("change-theme", () => {
     expect(document.querySelector).toHaveBeenCalledWith(":root");
     expect(setAttributeMock).toHaveBeenCalledWith("data-scheme", "light");
   });
+
+  test("should not crash when root element is missing", () => {
+    vi.spyOn(document, "querySelector").mockReturnValue(null);
+
+    expect(() => changeTheme("Dark")).not.toThrow();
+    expect(setAttributeMock).not.toHaveBeenCalled();
+  });
 });
