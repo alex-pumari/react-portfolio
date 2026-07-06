@@ -33,12 +33,12 @@ export function joinClasses(...args: Argument[]): string {
   return result.join(" ");
 }
 
-function isString (arg: any): arg is string {
+function isString (arg: unknown): arg is string {
   return typeof arg === "string";
 }
-function isNumber (arg: any): arg is number {
+function isNumber (arg: unknown): arg is number {
   return typeof arg === "number";
 }
-function isObject (arg: any): arg is Record<string, unknown> {
+function isObject (arg: unknown): arg is Record<string, unknown> {
   return typeof arg === "object";
 }

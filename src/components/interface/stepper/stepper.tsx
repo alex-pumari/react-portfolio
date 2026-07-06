@@ -69,6 +69,6 @@ export function Stepper ({
   );
 }
 
-function isFunction (value: any): value is Function {
+function isFunction (value: unknown): value is (...args: unknown[]) => unknown {
   return typeof value === "function";
 }

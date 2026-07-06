@@ -20,9 +20,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const regular: Story = {};
+export const Regular: Story = {};
 
-export const withSelectedItem: Story = {
+export const WithSelectedItem: Story = {
   args: {
     selectedItem: "Milk",
   }

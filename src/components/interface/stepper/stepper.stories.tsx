@@ -19,15 +19,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const regular: Story = {};
+export const Regular: Story = {};
 
-export const customLabel: Story = {
+export const CustomLabel: Story = {
   args: {
-    label: (value, max, _min) => `Page ${value} of ${max}`
+    label: (value, max) => `Page ${value} of ${max}`
   }
 };
 
-export const disabled: Story = {
+export const Disabled: Story = {
   args: {
     disabled: true
   }

@@ -8,3 +8,4 @@ export * from "./change-theme.js";
 export * from "./calculate-zoom.js";
 export * from "./repository-readme-content/index.js";
 export * from "./set-element-zoom.js";
+export * from "./get.size-in-em.js";

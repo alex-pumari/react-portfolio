@@ -18,13 +18,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const atMinValue: Story = {
+export const AtMinValue: Story = {
   args: {
     value: 60,
   }
 };
 
-export const atMaxValue: Story = {
+export const AtMaxValue: Story = {
   args: {
     value: 140,
   }

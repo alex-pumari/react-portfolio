@@ -1,22 +1,8 @@
-import type { Size } from "../../types/index.js";
+import type { Size } from "../../types/size.js";
 
 export interface IconProps {
   size?: Size
   className?: string
-}
-
-type EmValue = `${number}em`
-export function getSizeInEm(size: Size): EmValue {
-  switch (size) {
-    case "sm":
-      return "0.5em";
-    case "md":
-      return "1em";
-    case "lg":
-      return "1.5em";
-    default:
-      return size;
-  }
 }
 
 export function IconSun({ className } : IconProps) {

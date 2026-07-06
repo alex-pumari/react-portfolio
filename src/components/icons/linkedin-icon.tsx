@@ -1,5 +1,5 @@
-import { getSizeInEm } from "./icon.js";
-import type { IconProps } from "./icon.js";
+import { getSizeInEm } from "../../logic/get.size-in-em.js";
+import { type IconProps } from "./icon.js";
 
 export function LinkedinIcon({ className, size = "md" } : IconProps) {
   return (

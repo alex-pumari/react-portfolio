@@ -1,4 +1,5 @@
-import { getSizeInEm, type IconProps } from "./icon.js";
+import { getSizeInEm } from "../../logic/get.size-in-em.js";
+import { type IconProps } from "./icon.js";
 
 export function DownloadIcon({ className, size = "md" } : IconProps) {
   return (

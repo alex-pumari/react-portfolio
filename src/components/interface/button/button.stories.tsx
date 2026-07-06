@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 const sizes = ["sm", "md", "lg"] as const;
 const directions = ["column", "row"] as const;
 
-export const row: Story = {
+export const Row: Story = {
   render: args => (
     <div style={{ display: "flex", gap: "1em" }}>
       {sizes.map(size => (
@@ -30,7 +30,7 @@ export const row: Story = {
   ),
 };
 
-export const column: Story = {
+export const Column: Story = {
   render: args => (
     <div style={{ display: "flex", gap: "1em" }}>
       {sizes.map(size => (
@@ -40,13 +40,13 @@ export const column: Story = {
   ),
 };
 
-export const disabled: Story = {
+export const Disabled: Story = {
   args: {
     disabled: true,
   }
 };
 
-export const withIcon: Story = {
+export const WithIcon: Story = {
   render: args => (
     <div style={{ display: "flex", gap: "1em" }}>
       {directions.map(direction => (

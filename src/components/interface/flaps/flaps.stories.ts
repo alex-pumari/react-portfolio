@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const regular: Story = {
+export const Regular: Story = {
   args: {
     flaps: [
       "File",

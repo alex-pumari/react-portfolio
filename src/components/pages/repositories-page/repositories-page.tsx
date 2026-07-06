@@ -1,8 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import type { RepositoryDetails } from "../../../types/index.js";
 import { RepositoryCard, Subtitle } from "../index.js";
 import "./repositories-page.scss";
+// TODO: usar con githubService para datos dinámicos
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { getRepositoriesDetails } from "../../../use-cases/get-repository-details.js";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { githubService } from "../../../services/github-service.js";
 import { useDraggable } from "../../../hooks/index.js";
 
@@ -118,7 +121,7 @@ export function RepositoriesPage() {
     repositoriesPage.addEventListener("wheel", handleWheel, eventOptions);
 
     return () => repositoriesPage.removeEventListener("wheel", handleWheel);
-  }, []);
+  }, [repositoriesPageRef]);
 
   return (
     <div

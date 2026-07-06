@@ -21,7 +21,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>
 
-export const open: Story = {
+export const Open: Story = {
   args: {
     initialIsOpen: true,
   },
@@ -39,7 +39,7 @@ export const open: Story = {
   )
 };
 
-export const closed: Story = {
+export const Closed: Story = {
   render: (args) => (
     <div style={{ display: "flex", gap: "10em" }}>
       <MenuButton {...{...args, direction: "bottom"}}/>
@@ -48,7 +48,7 @@ export const closed: Story = {
   )
 };
 
-export const withFormat: Story = {
+export const WithFormat: Story = {
   args: {
     renderItem: item => `1Kg - ${item}`,
     initialIsOpen: true,

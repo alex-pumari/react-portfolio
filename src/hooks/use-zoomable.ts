@@ -12,6 +12,12 @@ export function useZoomable<ZoomableElement extends HTMLElement = HTMLElement>(
   { ref, isTouchDevice, onZoomIn, onZoomOut, threshold = 15 }: UseZoomableOptions<ZoomableElement>
 ) {
   const lastPinchDistance = useRef<number | null>(null);
+  const onZoomInRef = useRef(onZoomIn);
+  onZoomInRef.current = onZoomIn;
+  const onZoomOutRef = useRef(onZoomOut);
+  onZoomOutRef.current = onZoomOut;
+  const thresholdRef = useRef(threshold);
+  thresholdRef.current = threshold;
 
   useEffect(() => {
     const element = ref.current;
@@ -19,11 +25,15 @@ export function useZoomable<ZoomableElement extends HTMLElement = HTMLElement>(
 
     const emitZoom = (delta: number) => {
       const amount = Math.abs(delta);
-      const isSignificantZoom = amount >= threshold;
+      const isSignificantZoom = amount >= thresholdRef.current;
       if (!isSignificantZoom) return;
 
       const isZoomInGesture = delta > 0;
-      isZoomInGesture ? onZoomIn?.(amount) : onZoomOut?.(amount);
+      if (isZoomInGesture) {
+        onZoomInRef.current?.(amount);
+      } else {
+        onZoomOutRef.current?.(amount);
+      }
     };
 
     const handleTouchstart = (e: TouchEvent) => {
@@ -80,7 +90,7 @@ export function useZoomable<ZoomableElement extends HTMLElement = HTMLElement>(
         document.removeEventListener("wheel", handleWheel);
       }
     };
-  }, []);
+  }, [isTouchDevice, ref]);
 }
 
 function getPinchDistance(touches: TouchList): number {
