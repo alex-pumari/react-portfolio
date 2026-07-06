@@ -20,7 +20,7 @@ export function IndexPage () {
             <br />
             Frontend
           </h2>
-          <Button onClick={() => window.open(cv, "_blank")}>
+          <Button onClick={() => window.open(cv, "_blank", "noopener,noreferrer")}>
             <DownloadIcon size="lg"/>
             <span>Descargar CV</span>
           </Button>

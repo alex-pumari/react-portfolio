@@ -9,11 +9,11 @@ export function ContactPage() {
     <div className="contact-page" ref={pageRef}>
       <h2 className="contact-page__title">¡Quedo a la espera de tu mensaje!</h2>
       <div className="contact-page__buttons">
-        <Button onClick={() => window.open("https://github.com/AlexRubenPumari", "_blank")}>
+        <Button onClick={() => window.open("https://github.com/alex-pumari", "_blank", "noopener,noreferrer")}>
           <GithubIcon size="lg" />
           <span>Mi Github</span>
         </Button>
-        <Button onClick={() => window.open("https://www.linkedin.com/in/alex-pumari-diaz/", "_blank")}>
+        <Button onClick={() => window.open("https://www.linkedin.com/in/alex-pumari", "_blank", "noopener,noreferrer")}>
           <LinkedinIcon size="lg" />
           <span>Mi LinkedIn</span>
         </Button>

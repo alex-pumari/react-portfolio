@@ -25,7 +25,7 @@ export function Header ({ isCompact = false }: HeaderProps) {
     {
       label: "Ver CV",
       imgPath: cvIcon,
-      onClick: () => window.open(cv, "_blank"),
+      onClick: () => window.open(cv, "_blank", "noopener,noreferrer"),
     },
     {
       label: "Ver Proyectos",
@@ -35,12 +35,12 @@ export function Header ({ isCompact = false }: HeaderProps) {
     {
       label: "Mi GitHub",
       imgPath: githubIcon,
-      onClick: () => window.open("https://github.com/AlexRubenPumari", "_blank"),
+      onClick: () => window.open("https://github.com/alex-pumari", "_blank", "noopener,noreferrer"),
     },
     {
       label: "Mi LinkedIn",
       imgPath: linkedinIcon,
-      onClick: () => window.open("https://www.linkedin.com/in/alex-pumari-diaz/", "_blank"),
+      onClick: () => window.open("https://www.linkedin.com/in/alex-pumari", "_blank", "noopener,noreferrer"),
     },
   ];
 
