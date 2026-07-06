@@ -6,7 +6,7 @@ interface PageContextType {
   setPage: (page: Page) => void
 }
 
-export const PageContext = createContext<PageContextType>({ page: 1, setPage: () => {} });
+export const PageContext = createContext<PageContextType | null>(null);
 
 export function usePageContext(): PageContextType {
   const context = useContext(PageContext);

@@ -7,9 +7,7 @@ interface ZoomContextType {
   setZoom: Dispatch<SetStateAction<ZoomValue>>
 }
 
-export const ZoomContext = createContext<ZoomContextType>(
-  { zoom: 100, setZoom: () => {} }
-);
+export const ZoomContext = createContext<ZoomContextType | null>(null);
 
 export function useZoomContext(): ZoomContextType {
   const context = useContext(ZoomContext);

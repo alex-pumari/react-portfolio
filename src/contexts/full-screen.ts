@@ -5,9 +5,7 @@ interface FullScreenContextType {
   toggleFullScreen: () => void
 }
 
-export const FullScreenContext = createContext<FullScreenContextType>(
-  { isFullScreen: false, toggleFullScreen: () => {} }
-);
+export const FullScreenContext = createContext<FullScreenContextType | null>(null);
 
 export function useFullScreenContext(): FullScreenContextType {
   const context = useContext(FullScreenContext);
