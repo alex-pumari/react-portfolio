@@ -198,6 +198,12 @@ names were being swallowed silently.
 
 Use the body only when it adds useful context.
 
+The body must be:
+
+* lowercase only
+* bullet points (`- ` prefix each line)
+* no trailing punctuation on bullet items
+
 The body may describe:
 
 * important implementation details
