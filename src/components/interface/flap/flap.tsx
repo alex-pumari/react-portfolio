@@ -16,6 +16,6 @@ export function Flap<Value extends string | number> (
   );
 
   return (
-    <li className={flapClasses} onClick={() => onClick?.(value)}>{value}</li>
+    <li className={flapClasses} role="tab" aria-selected={selected} onClick={() => onClick?.(value)}>{value}</li>
   );
 }

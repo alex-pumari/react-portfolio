@@ -9,10 +9,12 @@ interface ButtonProps {
   direction?: "row" | "column"
   onClick?: () => void
   disabled?: boolean
+  ariaExpanded?: boolean
+  ariaHaspopup?: "listbox"
 }
 
 export function Button(
-  { children, direction = "row", size = "md", onClick, disabled }: ButtonProps
+  { children, direction = "row", size = "md", onClick, disabled, ariaExpanded, ariaHaspopup }: ButtonProps
 ) {
   const btnClasses = joinClasses(
     "button",
@@ -28,6 +30,8 @@ export function Button(
       className={btnClasses}
       onClick={onClick}
       disabled={disabled}
+      aria-expanded={ariaExpanded}
+      aria-haspopup={ariaHaspopup}
     >
       {children}
     </button>

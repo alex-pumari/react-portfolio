@@ -9,7 +9,7 @@ interface FlapsProps<Value> {
 export function Flaps<Value extends string | number>({ flaps, selectedFlap, onChange } : FlapsProps<Value>) {
   return (
     <>
-      <ul className="flaps">
+      <ul className="flaps" role="tablist" aria-label="Navigation tabs">
         {flaps.map((flap: Value) => (
           <Flap
             key={flap}

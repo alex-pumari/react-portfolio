@@ -41,7 +41,7 @@ export function MenuButton<const ItemType extends string | number>({
 
   return (
     <div className="menu-button" ref={ref}>
-      <Button size="lg" onClick={() => setOpen(isOpen => !isOpen)}>
+      <Button size="lg" onClick={() => setOpen(isOpen => !isOpen)} ariaExpanded={isOpen} ariaHaspopup="listbox">
         <span>{label}</span><span>{chevronIcon}</span>
       </Button>
       {isOpen && (

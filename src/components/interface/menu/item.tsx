@@ -13,6 +13,6 @@ export function Item<ItemType extends string | number> ({ value, selected, onCli
     selected && "item--selected"
   );
   return (
-    <li className={itemClasses} onClick={() => onClick?.(value)}>{value}</li>
+    <li className={itemClasses} role="option" aria-selected={selected} onClick={() => onClick?.(value)}>{value}</li>
   );
 }

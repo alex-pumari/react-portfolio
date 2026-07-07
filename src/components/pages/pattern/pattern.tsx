@@ -38,7 +38,7 @@ export function Pattern({
   }
 
   return (
-    <div className={patternClasses}>
+    <div className={patternClasses} aria-hidden={true}>
       {shapes}
     </div>
   );

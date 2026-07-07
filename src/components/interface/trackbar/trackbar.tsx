@@ -8,11 +8,12 @@ interface TrackbarProps {
   max: number
   step: number
   className?: string
+  ariaLabel?: string
   onChange?: (newValue: number) => void
 }
 
 export function Trackbar(
-  { value, min, max, step, className, onChange }: TrackbarProps
+  { value, min, max, step, className, ariaLabel, onChange }: TrackbarProps
 ) {
   return (
     <div className={joinClasses("trackbar", className)}>
@@ -31,6 +32,7 @@ export function Trackbar(
         max={max}
         step={step}
         value={value}
+        aria-label={ariaLabel}
       />
       <Button
         size="sm"

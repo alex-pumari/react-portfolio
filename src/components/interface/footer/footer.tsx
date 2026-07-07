@@ -49,6 +49,7 @@ export function Footer({ isHidden = false }: FooterProps) {
           min={60}
           max={140}
           step={20}
+          ariaLabel="Zoom"
           onChange={newValue => setZoom(newValue as ZoomValue)}
         />
         <Button size="sm" onClick={toggleFullScreen}>

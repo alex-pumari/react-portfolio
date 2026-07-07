@@ -16,7 +16,7 @@ export function Menu<const ItemType extends string | number> ({
   const menuClasses: string = joinClasses("menu", className);
 
   return (
-    <ul className={menuClasses}>
+    <ul className={menuClasses} role="listbox">
       {items.map((item) => (
         <Item
           key={item}
