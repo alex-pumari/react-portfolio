@@ -21,9 +21,9 @@ export function Footer({ isHidden = false }: FooterProps) {
   const { toggleFullScreen } = useFullScreenContext();
 
   useEffect(() => {
-    const viewport = document.querySelector<HTMLElement>("#viewport");
+    const stageViewport = document.querySelector<HTMLElement>("#viewport-stage");
 
-    if(viewport) setElementZoom(viewport, zoom);
+    if(stageViewport) setElementZoom(stageViewport, zoom);
   }, [zoom]);
 
   return (

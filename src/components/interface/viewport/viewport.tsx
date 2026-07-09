@@ -29,13 +29,14 @@ export function Viewport({ page, isFullScreen = false }: ViewportProps) {
   return (
     <div
       className={joinClasses("viewport", isFullScreen && "viewport--full-screen" )}
-      id="viewport"
       ref={viewportRef}
     >
-      {page === 1 && <IndexPage />}
-      {page === 2 && <AboutMePage />}
-      {page === 3 && <RepositoriesPage />}
-      {page === 4 && <ContactPage />}
+      <div id="viewport-stage">
+        {page === 1 && <IndexPage />}
+        {page === 2 && <AboutMePage />}
+        {page === 3 && <RepositoriesPage />}
+        {page === 4 && <ContactPage />}
+      </div>
     </div>
   );
 }
