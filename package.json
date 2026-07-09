@@ -10,8 +10,8 @@
     "test": "vitest --project unit --run",
     "test:unit": "vitest --project unit --run",
     "test:storybook": "vitest --project storybook --run",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
+    "check:types": "tsc --noEmit",
+    "check:code": "eslint .",
     "storybook": "storybook dev -p 6006 --host",
     "deploy": "npm run build && gh-pages -d dist"
   },
