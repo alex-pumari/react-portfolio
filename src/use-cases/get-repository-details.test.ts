@@ -11,7 +11,7 @@ describe("get-repositories-details", () => {
 
     const mockGithubService: GithubService = {
       getRepositories: vi.fn().mockResolvedValue(mockRepositories),
-      getRepositoryReadmeContent: vi.fn().mockResolvedValue("# Title")
+      getRepositoryReadmeContent: vi.fn().mockResolvedValue("# Title\n\n![screenshot](readme/screenshot.png)")
     };
 
     const result = await getRepositoriesDetails({
