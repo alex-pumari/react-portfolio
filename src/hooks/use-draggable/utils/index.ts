@@ -1,4 +1,9 @@
-export * from "./get-pointer-coords.js";
-export const isTouchEvent = (e: unknown): e is TouchEvent => "touches" in e;
-export const isMultiTouch = (e: unknown) => "touches" in e && (e as TouchEvent).touches.length > 1;
-export const isSingleTouch = (e: unknown) => "touches" in e && (e as TouchEvent).touches.length === 1;
+import { getPointerCoords, isTouchEvent } from "./get-pointer-coords.js";
+
+export { getPointerCoords, isTouchEvent };
+
+export const isMultiTouch = (e: unknown) =>
+  isTouchEvent(e) && e.touches.length > 1;
+
+export const isSingleTouch = (e: unknown) =>
+  isTouchEvent(e) && e.touches.length === 1;

@@ -9,9 +9,9 @@ const meta = {
   },
   args: {
     items: [
-      { value: "Apple" },
-      { value: "Orange" },
-      { value: "Milk" },
+      "Apple",
+      "Orange",
+      "Milk",
     ],
   }
 } satisfies Meta<typeof Menu>;

@@ -25,7 +25,7 @@ export function Stepper ({
 }: StepperProps) {
   const canDecrease = !disabled && (infinite || value > min);
   const canIncrease = !disabled && (infinite || value < max);
-  const labelContent: string = isFunction(label)
+  const labelContent: string = typeof label === "function"
     ? label(value, max, min)
     : label ?? `${value} / ${max}`;
 
@@ -67,8 +67,4 @@ export function Stepper ({
         </Button>
     </div>
   );
-}
-
-function isFunction (value: unknown): value is (...args: unknown[]) => unknown {
-  return typeof value === "function";
 }

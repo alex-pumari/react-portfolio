@@ -5,6 +5,8 @@ import storybook from "eslint-plugin-storybook";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
 
+type FlatEslintConfig = Parameters<typeof defineConfig>[0];
+
 const storybookConfigs = storybook.configs["flat/recommended"];
 
 export default defineConfig([
@@ -38,6 +40,6 @@ export default defineConfig([
   // - https://github.com/storybookjs/storybook/issues/34468
   // - https://github.com/storybookjs/storybook/issues/32405
   //
-  // Remove this cast once the upstream typing issue is fixed.
-  ...(storybookConfigs as Parameters<typeof defineConfig>[0][]),
+  // Remove the double cast once upstream fixes the typing.
+  ...(storybookConfigs as unknown as FlatEslintConfig[]),
 ]);
