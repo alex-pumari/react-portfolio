@@ -4,9 +4,9 @@ import type { FC, InputHTMLAttributes } from "react";
 import "./text-input.scss";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  error?: string;
-  hint?: string;
+  label?: string | undefined;
+  error?: string | undefined;
+  hint?: string | undefined;
 }
 
 export const TextInput: FC<TextInputProps> = ({
