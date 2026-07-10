@@ -1,0 +1,79 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+
+.pixel-input {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    width: 100%;
+
+    &--error {
+      .pixel-input__field {
+        border-color: $color-danger;
+        border-top-color: $color-danger;
+        border-left-color: $color-danger;
+      }
+      .pixel-input__label {
+        color: darken($color-danger, 10%);
+      }
+    }
+  }
+
+  &__label {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $color-on-surface;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    font-family: $font-family-mono;
+    font-size: $font-size-md;
+    padding: $space-sm;
+    color: $color-on-surface;
+    outline: none;
+    
+    @include retro-inset-behavior;
+
+    &:focus {
+      border-color: $color-outline;
+      background-color: lighten($color-surface-highest, 4%);
+    }
+
+    &:disabled {
+      background-color: $color-surface-dim;
+      color: $color-on-surface-variant;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: $color-outline;
+      opacity: 0.7;
+    }
+  }
+
+  &__error-message, &__hint-message {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    margin: 0;
+    margin-top: 2px;
+  }
+
+  &__error-message {
+    color: darken($color-danger, 10%);
+    font-weight: $font-weight-bold;
+  }
+
+  &__hint-message {
+    color: $color-on-surface-variant;
+  }
+}
