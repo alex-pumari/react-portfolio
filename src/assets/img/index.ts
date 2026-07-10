@@ -1,5 +1,0 @@
-export { default as cvIcon } from "./icon-cv.png";
-export { default as githubIcon } from "./icon-github.png";
-export { default as linkedinIcon } from "./icon-linkedin.png";
-export { default as portfolioIcon } from "./icon-portfolio.png";
-export { default as profile } from "./profile.jpg";

@@ -1,2 +1,1 @@
-export * from "./img/index.js";
-export { default as cv } from "./pdf/cv.pdf";
+export { default as cv } from "./pdf/cv.pdf"; // TODO: update CV
