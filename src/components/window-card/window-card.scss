@@ -1,0 +1,104 @@
+@import "../../styles/tokens";
+
+.window-card {
+  background-color: $color-surface;
+  border: $border-width-thin solid $color-on-surface;
+  border-radius: $border-radius-sharp;
+  box-shadow: 6px 6px 0px 0px $color-on-surface;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    background-color: $color-primary;
+    color: $color-on-primary;
+    padding: $space-sm $space-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: $border-width-thin solid $color-on-surface;
+    user-select: none;
+  }
+
+  &__title {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__controls {
+    display: flex;
+    gap: $space-xs;
+  }
+
+  &__control-btn { // TODO: improve control buttons styles
+    width: 14px;
+    height: 14px;
+    border: $border-width-thin solid $color-on-primary;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+
+    &:hover {
+      background-color: rgba($color-on-primary, 0.2);
+    }
+
+    &--close {
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 2px;
+        background-color: $color-on-primary;
+        top: 4px;
+        left: 1px;
+      }
+      &::before { transform: rotate(45deg); }
+      &::after { transform: rotate(-45deg); }
+    }
+
+    &--minimize {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 2px;
+        background-color: $color-on-primary;
+        bottom: 2px;
+        left: 2px;
+      }
+    }
+
+    &--maximize {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border: 1px solid $color-on-primary;
+        top: 2px;
+        left: 2px;
+      }
+    }
+  }
+
+  &__content {
+    padding: $space-md;
+    flex: 1;
+    color: $color-on-surface;
+    font-family: $font-family-mono;
+    font-size: $font-size-md;
+  }
+
+  &__footer {
+    background-color: $color-surface-highest;
+    border-top: $border-width-thin solid $color-on-surface;
+    padding: $space-sm $space-md;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
