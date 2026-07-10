@@ -1,0 +1,44 @@
+@import "./tokens";
+
+@mixin retro-push-behavior($shadow-color, $offset: 4px) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: $border-width-thin solid $color-on-surface;
+  border-radius: $border-radius-sharp;
+  box-shadow: $offset $offset 0px 0px $shadow-color;
+  transform: translate(0, 0);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: lighten($color-surface-highest, 2%);
+  }
+
+  &:active:not(:disabled) {
+    transform: translate($offset, $offset);
+    box-shadow: 0px 0px 0px 0px transparent;
+  }
+
+  &:focus-visible {
+    outline: 2px dashed $color-outline;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: $color-surface-dim;
+    box-shadow: $offset $offset 0px 0px lighten($shadow-color, 40%);
+  }
+}
+
+@mixin retro-inset-behavior {
+  border: $border-width-thin solid $color-outline;
+  border-top-color: $color-on-surface;
+  border-left-color: $color-on-surface;
+  border-right-color: $color-surface-highest;
+  border-bottom-color: $color-surface-highest;
+  background-color: $color-surface;
+  border-radius: $border-radius-sharp;
+}

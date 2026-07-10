@@ -1,0 +1,59 @@
+// ==========================================================
+// COLOR SYSTEM
+// ==========================================================
+
+// surface colors
+$color-surface: #fcf8f8;
+$color-surface-dim: #ddd9d8;
+$color-surface-highest: #e5e2e1;
+$color-on-surface: #1c1b1b;
+$color-on-surface-variant: #444748;
+$color-outline: #747878;
+
+// semantic colors
+$color-primary: #333434;
+$color-on-primary: #ffffff;
+
+$color-secondary: #50606f;
+$color-on-secondary: #ffffff;
+
+$color-success: #123c1a;
+$color-success-container: #2a532f;
+$color-on-success: #ffffff;
+
+$color-danger: #ba1a1a;
+$color-danger-container: #ffdad6;
+$color-on-danger: #ffffff;
+$color-on-danger-container: #410002;
+
+// ==========================================================
+// TYPOGRAPHY
+// ==========================================================
+
+$font-family-mono: "Space Mono", "JetBrains Mono", "Courier Prime", monospace;
+
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 20px;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// ==========================================================
+// SPACING SCALE
+// ==========================================================
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+
+// ==========================================================
+// BORDERS & SHAPE
+// ==========================================================
+
+$border-width-thin: 2px;
+$border-width-thick: 4px;
+$border-radius-sharp: 0px;
