@@ -32,13 +32,3 @@
     box-shadow: $offset $offset 0px 0px lighten($shadow-color, 40%);
   }
 }
-
-@mixin retro-inset-behavior {
-  border: $border-width-thin solid $color-outline;
-  border-top-color: $color-on-surface;
-  border-left-color: $color-on-surface;
-  border-right-color: $color-surface-highest;
-  border-bottom-color: $color-surface-highest;
-  background-color: $color-surface;
-  border-radius: $border-radius-sharp;
-}

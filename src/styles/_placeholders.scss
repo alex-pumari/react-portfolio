@@ -1,0 +1,34 @@
+@import "./tokens";
+
+%view-container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding: $space-md;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 120px);
+}
+
+%retro-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba($color-outline, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba($color-outline, 0.05) 1px, transparent 1px);
+}
+
+%retro-inset-behavior {
+  border: $border-width-thin solid $color-outline;
+  border-top-color: $color-on-surface;
+  border-left-color: $color-on-surface;
+  border-right-color: $color-surface-highest;
+  border-bottom-color: $color-surface-highest;
+  background-color: $color-surface;
+  border-radius: $border-radius-sharp;
+}
+
+%pixel-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $space-lg;
+}
