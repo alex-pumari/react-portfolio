@@ -1,5 +1,6 @@
 @import "../../styles/tokens";
 @import "../../styles/mixins";
+@import "../../styles/placeholders";
 
 .pixel-input {
   &-wrapper {
@@ -35,14 +36,14 @@
   }
 
   &__field {
+    @extend %retro-inset-behavior;
+
     width: 100%;
     font-family: $font-family-mono;
     font-size: $font-size-md;
     padding: $space-sm;
     color: $color-on-surface;
     outline: none;
-    
-    @include retro-inset-behavior;
 
     &:focus {
       border-color: $color-outline;
