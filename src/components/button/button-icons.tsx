@@ -1,6 +1,5 @@
-import type { FC, SVGProps } from "react";
-
-type IconProps = SVGProps<SVGSVGElement>;
+import type { FC } from "react";
+import type { IconProps } from "../icons/icon-props.js";
 
 export const DownloadIcon: FC<IconProps> = (props) => (
   <svg
