@@ -3,24 +3,25 @@ import type { IconProps } from "./icon-props.js";
 
 export const MailIcon: FC<IconProps> = (props) => {
   return (
-    <svg viewBox="0 0 16 16" shapeRendering="crispEdges" {...props}>
-      <g fill="currentColor">
-        <rect x="1" y="3" width="14" height="1" />
-        <rect x="1" y="4" width="1" height="9" />
-        <rect x="14" y="4" width="1" height="9" />
-        <rect x="1" y="13" width="14" height="1" />
-        <rect x="2" y="4" width="1" height="1" />
-        <rect x="3" y="5" width="1" height="1" />
-        <rect x="4" y="6" width="1" height="1" />
-        <rect x="5" y="7" width="1" height="1" />
-        <rect x="6" y="8" width="1" height="1" />
-        <rect x="7" y="9" width="2" height="1" />
-        <rect x="9" y="8" width="1" height="1" />
-        <rect x="10" y="7" width="1" height="1" />
-        <rect x="11" y="6" width="1" height="1" />
-        <rect x="12" y="5" width="1" height="1" />
-        <rect x="13" y="4" width="1" height="1" />
-      </g>
+    <svg viewBox="0 0 16 16" {...props}>
+      <defs>
+        <mask id="mail-mask">
+          <rect width="16" height="16" fill="white" />
+
+          <path d="M2 4L8 10L14 4" fill="none" stroke="black" strokeWidth="1.5" strokeLinejoin="miter" />
+        </mask>
+      </defs>
+
+      <rect
+        x="1.5"
+        y="3.5"
+        width="13"
+        height="11"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        mask="url(#mail-mask)"
+      />
     </svg>
   );
-}
+};
