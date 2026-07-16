@@ -3,7 +3,7 @@ import type { IconProps } from "./icon-props.js";
 
 export const MailIcon: FC<IconProps> = (props) => {
   return (
-    <svg viewBox="0 0 16 16" {...props}>
+    <svg aria-hidden="true" viewBox="0 0 16 16" {...props}>
       <defs>
         <mask id="mail-mask">
           <rect width="16" height="16" fill="white" />

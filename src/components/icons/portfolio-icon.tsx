@@ -3,7 +3,7 @@ import type { IconProps } from "./icon-props.js";
 
 export const PortfolioIcon: FC<IconProps> = (props) => {
   return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1" {...props}>
+    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1" {...props}>
       <g id="handle">
         <line x1="5" y1="5" x2="5" y2="3" />
         <line x1="11" y1="5" x2="11" y2="3" />
