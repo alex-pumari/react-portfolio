@@ -1,0 +1,157 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+@import "../../styles/placeholders";
+
+.trackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  user-select: none;
+  min-width: 15rem;
+
+  &__value-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: $space-xl;
+    min-width: $space-2xl;
+
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $color-secondary;
+    background-color: $color-surface-dim;
+    box-sizing: border-box;
+    
+    @extend %retro-outset-border;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    flex: 1;
+  }
+
+  &__btn {
+    width: $space-xl;
+    height: $space-xl;
+    background-color: $color-surface;
+    color: $color-on-surface;
+    font-family: $font-family-mono;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    box-sizing: border-box;
+
+    @include retro-push-behavior($color-on-surface, 2px);
+  }
+
+  &__slider-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: $space-xl;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    margin: 0;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    // --- Track - Chrome/Safari/Webkit ---
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8px;
+      box-sizing: border-box;
+      background-color: $color-surface-highest;
+      
+      @extend %retro-outset-border;
+    }
+
+    // --- Thumb - Chrome/Safari/Webkit ---
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+      height: 24px;
+      width: 14px;
+      background-color: $color-surface-dim;
+      border: $border-width-thin solid $color-on-surface;
+      box-shadow: 2px 2px 0px 0px $color-on-surface;
+      border-radius: 0;
+      margin-top: -8px;
+      
+      background-image: linear-gradient(
+        to right, 
+        transparent 5px, 
+        $color-on-surface 5px, 
+        $color-on-surface 7px, 
+        transparent 7px
+      );
+    }
+
+    &:active::-webkit-slider-thumb {
+      background-color: $color-surface-highest;
+      box-shadow: none;
+      transform: translate(1px, 1px);
+    }
+
+    // --- Track - Firefox ---
+    &::-moz-range-track {
+      width: 100%;
+      height: 8px;
+      box-sizing: border-box;
+      background-color: $color-surface-highest;
+
+      @extend %retro-outset-border;
+    }
+
+    // --- Thumb - Firefox ---
+    &::-moz-range-thumb {
+      box-sizing: border-box;
+      height: 24px;
+      width: 14px;
+      background-color: $color-surface-dim;
+      border: $border-width-thin solid $color-on-surface;
+      box-shadow: 2px 2px 0px 0px $color-on-surface;
+      border-radius: 0;
+      background-image: linear-gradient(
+        to right, 
+        transparent 5px, 
+        $color-on-surface 5px, 
+        $color-on-surface 7px, 
+        transparent 7px
+      );
+    }
+
+    &:active::-moz-range-thumb {
+      background-color: $color-surface-highest;
+      box-shadow: none;
+      transform: translate(1px, 1px);
+    }
+  }
+
+  &__ticks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $space-xs;
+    margin-top: $space-xs;
+  }
+
+  &__tick {
+    width: $space-xs / 2;
+    height: $space-xs;
+    background-color: $color-outline;
+  }
+}
