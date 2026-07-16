@@ -1,0 +1,76 @@
+@import "../styles/tokens";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  background-color: $color-surface;
+  border-bottom: $border-width-thin solid $color-on-surface;
+  padding-left: $space-md;
+  padding-right: $space-md;
+  user-select: none;
+  z-index: 20;
+
+  &__nav, &__controls {
+    display: flex;
+    height: 100%;
+  }
+  
+  &__nav {
+    border-left: $border-width-thin solid $color-on-surface;
+  }
+
+  &__nav-item, &__controls-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    transition: background-color 0.1s ease, color 0.1s ease;
+    cursor: pointer;
+  }
+
+  &__nav-item {
+    gap: 0.6rem;
+    padding: 0 $space-lg;
+    border-right: $border-width-thin solid $color-on-surface;
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    color: $color-on-surface-variant;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-on-primary;
+    }
+
+    &--active {
+      background-color: $color-surface-dim;
+      color: $color-on-surface;
+      font-weight: $font-weight-bold;
+      box-shadow: inset 0 -4px 0 0 $color-primary; 
+    }
+
+    &:active {
+      padding-top: $border-width-thin;
+    }
+  }
+
+  &__nav-item-icon, &__controls-icon {
+    height: 1rem;
+  }
+
+  &__controls-button {
+    aspect-ratio: 1 / 1;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-on-primary;
+    }
+    
+    &:active {
+      padding-top: $border-width-thin;
+    }
+  }
+}
