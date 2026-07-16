@@ -27,6 +27,13 @@
   border-radius: $border-radius-sharp;
 }
 
+%retro-outset-border {
+  border-top: $border-width-thin solid $color-outline;
+  border-left: $border-width-thin solid $color-outline;
+  border-bottom: $border-width-thin solid $color-surface-lowest;
+  border-right: $border-width-thin solid $color-surface-lowest;
+}
+
 %pixel-grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
