@@ -1,0 +1,62 @@
+@import "../../styles/tokens";
+@import "../../styles/placeholders";
+
+.home-view {
+  width: min-content;
+  
+  &__content {
+    display: flex;
+    gap: $space-xl;
+    padding: $space-xl $space-2xl;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+  }
+
+  &__title {
+    font-size: clamp($font-size-xl, 5vw, 2.25rem);
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $space-md;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    margin-bottom: $space-sm;
+    font-size: $font-size-md;
+    color: $color-outline;
+    font-weight: $font-weight-bold;
+    letter-spacing: 1px;
+  }
+
+  &__description {
+    flex-grow: 1;
+    font-size: $font-size-lg;
+    color: $color-on-surface-variant;
+    line-height: 1.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: $space-md;
+    flex-wrap: wrap;
+    margin-top: $space-sm;
+  }
+
+  &__image-container {
+    padding: $space-md;
+    padding-bottom: $space-2xl;
+    border: $border-width-thin solid $color-on-surface;
+    box-shadow: $space-xs $space-xs 0px 0px $color-on-surface;
+    background-color: $color-surface;
+  }
+
+  &__image {
+    width: 13.4rem;
+    border: $border-width-thin solid $color-on-surface;
+  }
+}
