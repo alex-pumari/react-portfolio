@@ -1,13 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
 import { Home } from "./home.js";
 
 const meta = {
   title: "Views/Home",
   component: Home,
-  args: {
-    onViewChange: fn(),
-  },
   parameters: {
     layout: "fullscreen",
   },
