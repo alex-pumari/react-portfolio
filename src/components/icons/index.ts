@@ -5,3 +5,5 @@ export * from "./profile-icon.js";
 export * from "./theme-icon.js";
 export * from "./help-icon.js";
 export * from "./fullscreen-icon.js";
+export * from "./location-icon.js";
+export * from "./education-icon.js";
