@@ -1,0 +1,56 @@
+@import '../../styles/tokens';
+@import '../../styles/placeholders';
+
+.about-me-view {
+  &__content {
+    display: flex;
+    gap: $space-xl;
+    padding: $space-xl $space-2xl;
+  }
+
+  &__bio {
+    width: 22rem;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    line-height: 1.6;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    border: $border-width-thin solid $color-on-surface;
+    padding: $space-md;
+    box-shadow: $space-xs $space-xs 0px 0px $color-on-surface;
+  }
+
+  &__info-icon {
+    box-sizing: content-box;
+    width: 1rem;
+    padding: $space-sm;
+    background: $color-on-surface;
+    color: $color-surface;
+  }
+
+  &__info-label {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    color: $color-on-surface-variant;
+    text-transform: uppercase;
+    margin-bottom: $space-xs;
+  }
+
+  &__info-value {
+    font-family: $font-family-mono;
+    font-size: $font-size-md;
+    color: $color-on-surface;
+  }
+}
