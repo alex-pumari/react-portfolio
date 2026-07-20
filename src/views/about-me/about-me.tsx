@@ -1,10 +1,10 @@
-import React from 'react';
-import { WindowCard } from '../../components/window-card/window-card.js';
-import { LocationIcon } from '../../components/icons/location-icon.js';
-import { EducationIcon } from '../../components/icons/education-icon.js';
-import './about-me.scss';
+import type { FC } from "react";
+import { WindowCard } from "../../components/window-card/window-card.js";
+import { LocationIcon } from "../../components/icons/location-icon.js";
+import { EducationIcon } from "../../components/icons/education-icon.js";
+import "./about-me.scss";
 
-export const AboutMe: React.FC = () => {
+export const AboutMe: FC = () => {
   return (
       <WindowCard title="SOBRE_MI.INF" className="about-me-view">
         <div className="about-me-view__content">
