@@ -1,6 +1,7 @@
 import { useState, type FC } from "react";
-import { Trackbar } from "../components/trackbar/trackbar.js";
-import { FullscreenIcon } from "../components/icons/index.js";
+import { Trackbar } from "../../components/trackbar/trackbar.js";
+import { FullscreenIcon } from "../../components/icons/index.js";
+import { GaussPlot } from "./gauss-plot.js";
 import "./footer.scss";
 
 export const Footer: FC = () => {
@@ -8,19 +9,18 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <div className="footer__meta">
-        <span className="footer__status">
-          <span className="footer__status-led" aria-hidden="true" />
-          ACTIVO
+      <section className="footer__status-section">
+        <span className="footer__time-display">
+          00:00:00 AM
         </span>
 
         <div className="footer__telemetry-display">
           <span>CPU:</span>
           <GaussPlot />
         </div>
-      </div>
+      </section>
       
-      <div className="footer__controls">
+      <section className="footer__controls-section">
         <Trackbar
           min={10}
           max={100}
@@ -31,7 +31,7 @@ export const Footer: FC = () => {
         <button className="footer__btn" aria-label="Fullscreen">
           <FullscreenIcon className="footer__btn-icon" />
         </button>
-      </div>
+      </section>
     </footer>
   );
 };
