@@ -1,0 +1,49 @@
+@import "../../styles/tokens";
+
+.gauss-plot {
+  width: 5rem;
+  height: 1rem;
+  position: relative;
+  overflow: hidden;
+
+  &__curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    
+    background-image: repeating-linear-gradient(
+      90deg,
+      $color-secondary 0px,
+      $color-secondary 2px,
+      transparent 2px,
+      transparent 3px
+    );
+    animation: gaussFluctuate 4s steps(12) infinite;
+  }
+}
+
+@keyframes gaussFluctuate {
+  0% {
+    transform: translateX(-25%) translateY(0) scaleY(1);
+  }
+  16% {
+    transform: translateX(-22%) translateY(-2px) scaleY(1.3);
+  }
+  33% {
+    transform: translateX(-28%) translateY(3px) scaleY(0.5);
+  }
+  50% {
+    transform: translateX(-20%) translateY(-1px) scaleY(1.1);
+  }
+  66% {
+    transform: translateX(-26%) translateY(4px) scaleY(0.3);
+  }
+  83% {
+    transform: translateX(-23%) translateY(-3px) scaleY(1.4);
+  }
+  100% {
+    transform: translateX(-25%) translateY(0) scaleY(1);
+  }
+}
