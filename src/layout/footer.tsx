@@ -13,7 +13,11 @@ export const Footer: FC = () => {
           <span className="footer__status-led" aria-hidden="true" />
           ACTIVO
         </span>
-        - v1.0.0
+
+        <div className="footer__telemetry-display">
+          <span>CPU:</span>
+          <GaussPlot />
+        </div>
       </div>
       
       <div className="footer__controls">
