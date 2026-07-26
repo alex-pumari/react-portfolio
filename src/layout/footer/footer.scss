@@ -1,0 +1,63 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+@import "../../styles/placeholders";
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px; 
+  padding-left: $space-md;
+  padding-right: $space-md;
+  background-color: $color-surface-highest; 
+  border-top: $border-width-thin solid $color-on-surface;
+  user-select: none;
+  z-index: 20;
+
+  &__controls-section {
+    height: 100%;
+    padding-left: $space-md;
+
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    @include retro-bevel-border(left);
+  }
+
+  &__btn {
+    width: $space-xl;
+    height: $space-xl;
+    background-color: $color-surface;
+
+    @include retro-push-behavior($color-on-surface, 2px);
+  }
+
+  &__btn-icon {
+    height: 1rem;
+  }
+
+  &__status-section {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: $space-md;
+    gap: $space-sm;
+    
+    @include retro-bevel-border(right);
+  }
+
+  &__time-display, &__telemetry-display {
+    @extend %retro-footer-display;
+  }
+}
+
+%retro-footer-display {
+  height: $space-xl;
+  padding-left: $space-sm;
+  padding-right: $space-sm;
+  
+  @extend %retro-display;
+
+  gap: $space-xs;
+}
