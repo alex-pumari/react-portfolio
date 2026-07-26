@@ -1,0 +1,37 @@
+@import '../../styles/tokens';
+
+.project-card {
+  &__actions {
+    display: flex;
+    gap: $space-sm;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+    &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    gap: $space-md;
+  }
+
+  &__description {
+    line-height: 1.5;
+    margin: 0;
+    font-size: $font-size-md;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+  }
+
+  &__tag-chip {
+    font-family: $font-family-mono;
+    font-size: $font-size-sm;
+    color: $color-secondary;
+    font-weight: $font-weight-bold;
+  }
+}
