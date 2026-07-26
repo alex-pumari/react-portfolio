@@ -32,3 +32,13 @@
     box-shadow: $offset $offset 0px 0px lighten($shadow-color, 40%);
   }
 }
+
+@mixin retro-bevel-border($side: right) {
+  @if $side == right {
+    border-right: 2px solid $color-on-surface;
+    box-shadow: 2px 0 0 $color-surface-lowest;
+  } @else if $side == left {
+    border-left: 2px solid $color-on-surface;
+    box-shadow: -2px 0 0 $color-surface-lowest;
+  }
+}
