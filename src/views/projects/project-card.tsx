@@ -6,11 +6,11 @@ import "./project-card.scss";
 
 interface ProjectCardProps {
   project: Project;
-  isExpanded: boolean;
+  isExpanded?: boolean;
   onToggleExpand: () => void;
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({ project, isExpanded, onToggleExpand }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ project, isExpanded = false, onToggleExpand }) => {
   const hasDemoUrl = !!project.demoUrl;
 
   return (
