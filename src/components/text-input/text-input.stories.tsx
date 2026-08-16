@@ -13,12 +13,22 @@ const meta: Meta<typeof TextInput> = {
     disabled: {
       control: "boolean",
     },
+    multiline: {
+      control: "boolean",
+    },
+    error: {
+      control: "text",
+    },
+    hint: {
+      control: "text",
+    },
   },
   args: {
     label: "Username",
     placeholder: "Enter your username",
     type: "text",
     disabled: false,
+    multiline: false,
   },
 };
 
@@ -85,8 +95,28 @@ export const Search: Story = {
   },
 };
 
+export const Multiline: Story = {
+  args: {
+    label: "Description",
+    multiline: true,
+    placeholder: "I am building a dashboard to manage customer data and track business metrics...",
+    rows: 5,
+    hint: "Maximum 500 characters.",
+  },
+};
+
+export const MultilineWithError: Story = {
+  args: {
+    label: "Description",
+    multiline: true,
+    value: "Short text",
+    error: "Description is too short.",
+  },
+};
+
 export const WithoutLabel: Story = {
   args: {
+    label: "",
     placeholder: "Input without label",
     "aria-label": "Input without label",
   },
@@ -118,6 +148,12 @@ export const FormExample: Story = {
         label="Password"
         type="password"
         error="Password is required."
+      />
+
+      <TextInput
+        label="Bio"
+        placeholder="Frontend developer with 5 years of experience..."
+        multiline
       />
     </div>
   ),
