@@ -22,7 +22,7 @@ export const Layout: FC<LayoutProps> = ({ children, activeView, onViewChange }) 
     <div className="frame">
       <Header menuItems={menuItems} activeView={activeView} onViewChange={onViewChange} />
 
-      <main className="viewport">
+      <main className="viewport" id="viewport">
         <div className="viewport__content">
           {children}
         </div>
