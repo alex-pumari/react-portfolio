@@ -82,6 +82,15 @@
     }
   }
 
+  &--soft {
+    background-color: $color-soft;
+    color: $color-on-soft;
+
+    &:hover:not(:disabled) {
+      background-color: lighten($color-soft, 5%);
+    }
+  }
+
   &__icon {
     display: flex;
     align-items: center;
