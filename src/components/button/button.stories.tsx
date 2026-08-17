@@ -16,6 +16,7 @@ const meta: Meta<typeof Button> = {
         "ghost",
         "success",
         "danger",
+        "soft"
       ],
     },
     size: {
@@ -58,6 +59,13 @@ export const Secondary: Story = {
   args: {
     children: "Secondary",
     variant: "secondary",
+  },
+};
+
+export const Soft: Story = {
+  args: {
+    children: "Soft",
+    variant: "soft",
   },
 };
 

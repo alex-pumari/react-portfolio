@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode, FC } from "react";
 import { joinClasses } from "../../logic/join-classes.js";
 import "./button.scss";
 
-export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger" | "soft";
 export type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
