@@ -1,0 +1,39 @@
+@import '../../styles/tokens';
+
+.contact-view {
+  display: flex;
+  gap: $space-lg;
+
+  &__form {
+    min-height: 100%;
+    width: 45ch;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__form-button {
+    margin-top: auto;
+  }
+
+  &__channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-md;
+  }
+
+  &__channel-button {
+    aspect-ratio: 1 / 1;
+  }
+
+  &__channels-label {
+    border-bottom: $border-width-thin solid $color-on-surface;
+    padding-bottom: $space-sm;
+    margin-bottom: $space-md;
+  }
+
+  &__form-label, &__channels-label {
+    font-size: $font-size-sm;
+  }
+}
