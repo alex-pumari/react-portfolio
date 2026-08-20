@@ -1,0 +1,21 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+
+.icon-button {
+  width: $space-xl;
+  height: $space-xl;
+  padding: 0 !important;
+
+  font-weight: $font-weight-bold;
+  font-family: $font-family-mono;
+
+  @include retro-push-behavior($color-on-surface, 2px);
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 1rem;
+  }
+}
