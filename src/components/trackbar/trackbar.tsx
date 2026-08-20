@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { IconButton } from "../icon-button/icon-button.js";
 import "./trackbar.scss";
 
 export interface TrackbarProps {
@@ -29,15 +30,13 @@ export const Trackbar: FC<TrackbarProps> = ({
       <span className="trackbar__value-display">{value}%</span>
       
       <div className="trackbar__control">
-        <button 
-          className="trackbar__btn" 
+        <IconButton
+          icon={<span>-</span>}
           onClick={handleDecrease}
           disabled={value <= min}
           aria-label="Disminuir"
           title="Disminuir"
-        >
-          -
-        </button>
+        ></IconButton>
         
         <div className="trackbar__slider-wrapper">
           <input
@@ -59,15 +58,13 @@ export const Trackbar: FC<TrackbarProps> = ({
           </div>
         </div>
 
-        <button 
-          className="trackbar__btn" 
+        <IconButton
+          icon={<span>+</span>}
           onClick={handleIncrease}
           disabled={value >= max}
           aria-label="Aumentar"
           title="Aumentar"
-        >
-          +
-        </button>
+        ></IconButton>
       </div>
     </div>
   );
