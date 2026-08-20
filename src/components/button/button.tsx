@@ -5,7 +5,7 @@ import "./button.scss";
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger" | "soft";
 export type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   loading?: boolean;
@@ -38,7 +38,7 @@ export const Button: FC<ButtonProps> = ({
     >
       {loading && <span className={`${baseClass}__loader`} aria-hidden="true">■ </span>}
       {!loading && icon && <span className={`${baseClass}__icon`}>{icon}</span>}
-      <span className={`${baseClass}__label`}>{children}</span>
+      {!!children && <span className={`${baseClass}__label`}>{children}</span>}
     </button>
   );
 };
