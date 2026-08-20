@@ -2,6 +2,7 @@ import { useState, type FC } from "react";
 import { Trackbar } from "../../components/trackbar/trackbar.js";
 import { FullscreenIcon } from "../../components/icons/index.js";
 import { GaussPlot } from "./gauss-plot.js";
+import { IconButton } from "../../components/icon-button/icon-button.js";
 import "./footer.scss";
 
 export const Footer: FC = () => {
@@ -27,10 +28,12 @@ export const Footer: FC = () => {
           value={zoom}
           onChange={setZoom}
         />
-        
-        <button className="footer__btn" aria-label="Fullscreen">
-          <FullscreenIcon className="footer__btn-icon" />
-        </button>
+
+        <IconButton
+          icon={<FullscreenIcon />}
+          title="Pantalla completa"
+          aria-label="Pantalla completa"
+        ></IconButton>
       </section>
     </footer>
   );

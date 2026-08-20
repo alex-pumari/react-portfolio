@@ -25,18 +25,6 @@
     @include retro-bevel-border(left);
   }
 
-  &__btn {
-    width: $space-xl;
-    height: $space-xl;
-    background-color: $color-surface;
-
-    @include retro-push-behavior($color-on-surface, 2px);
-  }
-
-  &__btn-icon {
-    height: 1rem;
-  }
-
   &__status-section {
     display: flex;
     align-items: center;
