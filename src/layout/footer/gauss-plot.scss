@@ -1,5 +1,8 @@
 @import "../../styles/tokens";
 
+$bar-width: 4px;
+$bar-gap: 3px;
+
 .gauss-plot {
   width: 5rem;
   height: 1rem;
@@ -8,42 +11,71 @@
 
   &__curve {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 200%;
+    width: 300%;
     height: 100%;
-    
+
     background-image: repeating-linear-gradient(
       90deg,
-      $color-secondary 0px,
-      $color-secondary 2px,
-      transparent 2px,
-      transparent 3px
+      $color-secondary 0,
+      $color-secondary $bar-width,
+      transparent $bar-width,
+      transparent calc($bar-width + $bar-gap)
     );
-    animation: gaussFluctuate 4s steps(12) infinite;
+
+    transform-origin: bottom center;
+
+    animation:
+      pulseHeight 4s steps(12) infinite,
+      pulseMove 12s linear infinite;
   }
 }
 
-@keyframes gaussFluctuate {
+@keyframes pulseHeight {
   0% {
-    transform: translateX(-25%) translateY(0) scaleY(1);
+    transform: scaleY(0.15);
   }
-  16% {
-    transform: translateX(-22%) translateY(-2px) scaleY(1.3);
+
+  12% {
+    transform: scaleY(0.8);
   }
-  33% {
-    transform: translateX(-28%) translateY(3px) scaleY(0.5);
+
+  25% {
+    transform: scaleY(0.25);
   }
+
+  38% {
+    transform: scaleY(1.8);
+  }
+
   50% {
-    transform: translateX(-20%) translateY(-1px) scaleY(1.1);
+    transform: scaleY(0.35);
   }
-  66% {
-    transform: translateX(-26%) translateY(4px) scaleY(0.3);
+
+  65% {
+    transform: scaleY(1.1);
   }
-  83% {
-    transform: translateX(-23%) translateY(-3px) scaleY(1.4);
+
+  78% {
+    transform: scaleY(0.2);
   }
+
+  90% {
+    transform: scaleY(0.7);
+  }
+
   100% {
-    transform: translateX(-25%) translateY(0) scaleY(1);
+    transform: scaleY(0.15);
+  }
+}
+
+@keyframes pulseMove {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: -33.333% 0;
   }
 }
