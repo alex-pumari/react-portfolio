@@ -21,23 +21,30 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange }) => {
   return (
     <header className="header">
-      <nav className="header__nav">
-        {menuItems.map((item) => {
-          const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[item.id];
+      <div className="header__view-controls-section">
+        <nav className={joinClasses("header__nav", `header__nav--view-${activeView}`)}>
+          {menuItems.map(({ id, label }) => {
+            const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[id];
+            const navItemClassName = joinClasses(
+              "header__nav-item",
+              `header__nav-item--${id}`,
+              activeView === id && "header__nav-item--active",
+            )
 
-          return (
-            <button
-              key={item.id}
-              className={joinClasses("header__nav-item", activeView === item.id && "header__nav-item--active")}
-              onClick={() => onViewChange(item.id)}
-            >
-              {Icon && <Icon className="header__nav-item-icon" />}
-              {item.label}
-            </button>
-          );
-        })}
-      </nav>
-      <div className="header__controls">
+            return (
+              <button
+                key={id}
+                className={navItemClassName}
+                onClick={() => onViewChange(id)}
+              >
+                {Icon && <Icon className="header__nav-item-icon" />}
+                {label}
+              </button>
+            );
+          })}
+        </nav>
+      </div>
+      <div className="header__controls-section">
         <IconButton
           icon={<ThemeIcon />}
           title="Cambiar tema"
