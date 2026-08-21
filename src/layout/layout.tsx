@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import type { MenuItem, ViewId } from "../types/index.js";
-import { Header } from "./header.js";
-import { Footer } from "./footer.js";
+import { Header } from "./header/header.js";
+import { Footer } from "./footer/footer.js";
 import "./layout.scss";
 
 export interface LayoutProps {
