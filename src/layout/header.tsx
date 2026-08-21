@@ -1,6 +1,7 @@
 import type { ComponentType, FC, SVGProps } from "react";
 import type { MenuItem, ViewId } from "../types/index.js";
 import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../components/icons/index.js";
+import { IconButton } from "../components/icon-button/icon-button.js";
 import { joinClasses } from "../logic/join-classes.js";
 import "./header.scss";
 
@@ -37,12 +38,16 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
         })}
       </nav>
       <div className="header__controls">
-        <button className="header__controls-button" title="Cambiar tema" aria-label="Cambiar tema"> {/* TODO: aria-pressed={isDarkMode} */}
-          <ThemeIcon className="header__controls-icon" />
-        </button>
-        <button className="header__controls-button" title="Ayuda" aria-label="Ayuda">
-          <HelpIcon className="header__controls-icon" />
-        </button>
+        <IconButton
+          icon={<ThemeIcon />}
+          title="Cambiar tema"
+          aria-label="Cambiar tema"
+        ></IconButton>
+        <IconButton
+          icon={<HelpIcon />}
+          title="Ayuda"
+          aria-label="Ayuda"
+        ></IconButton>
       </div>
     </header>
   );
