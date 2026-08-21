@@ -1,8 +1,8 @@
 import type { ComponentType, FC, SVGProps } from "react";
-import type { MenuItem, ViewId } from "../types/index.js";
-import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../components/icons/index.js";
-import { IconButton } from "../components/icon-button/icon-button.js";
-import { joinClasses } from "../logic/join-classes.js";
+import type { MenuItem, ViewId } from "../../types/index.js";
+import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../../components/icons/index.js";
+import { IconButton } from "../../components/icon-button/icon-button.js";
+import { joinClasses } from "../../logic/join-classes.js";
 import "./header.scss";
 
 export const viewIcons: Record<ViewId, ComponentType> = {
