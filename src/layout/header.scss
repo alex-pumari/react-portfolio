@@ -12,15 +12,12 @@
   user-select: none;
   z-index: 20;
 
-  &__nav, &__controls {
+  &__nav {
     display: flex;
     height: 100%;
-  }
-  
-  &__nav {
     border-left: $border-width-thin solid $color-on-surface;
   }
-
+  
   &__nav-item, &__controls-button {
     display: flex;
     align-items: center;
@@ -57,20 +54,12 @@
     }
   }
 
-  &__nav-item-icon, &__controls-icon {
+  &__nav-item-icon {
     height: 1rem;
   }
 
-  &__controls-button {
-    aspect-ratio: 1 / 1;
-
-    &:hover {
-      background-color: $color-primary;
-      color: $color-on-primary;
-    }
-    
-    &:active {
-      padding-top: $border-width-thin;
-    }
+  &__controls {
+    display: flex;
+    gap: $space-sm;
   }
 }
