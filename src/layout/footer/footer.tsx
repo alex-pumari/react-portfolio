@@ -1,4 +1,5 @@
-import { useState, type FC } from "react";
+import type { FC } from "react";
+import { useZoomContext } from "../../contexts/zoom.js";
 import { Trackbar } from "../../components/trackbar/trackbar.js";
 import { FullscreenIcon } from "../../components/icons/index.js";
 import { GaussPlot } from "./gauss-plot.js";
@@ -6,7 +7,7 @@ import { IconButton } from "../../components/icon-button/icon-button.js";
 import "./footer.scss";
 
 export const Footer: FC = () => {
-  const [zoom, setZoom] = useState(50);
+  const { zoom, setZoom } = useZoomContext();
 
   return (
     <footer className="footer">

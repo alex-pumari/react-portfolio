@@ -5,7 +5,6 @@ export * from "./get-page-name.js";
 export * from "./get-page.js";
 export * from "./get-next-in-range.js";
 export * from "./change-theme.js";
-export * from "./calculate-zoom.js";
 export * from "./repository-readme-content/index.js";
 export * from "./set-element-zoom.js";
 export * from "./get.size-in-em.js";

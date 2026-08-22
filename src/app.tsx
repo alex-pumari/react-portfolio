@@ -4,8 +4,14 @@ import type { Page, ZoomValue } from "./types/index.js";
 import "./styles/index.scss";
 
 export function App() {
-  const [page, setPage] = useState<Page>(1);
-  const [zoom, setZoom] = useState<ZoomValue>(100);
+  const [zoom, setZoom] = useState<number>(100);
+  useEffect(() => {
+    const viewportContent = document?.getElementById("viewport-content");
+
+    if (!viewportContent) return;
+
+    setElementZoom(viewportContent, zoom);
+  }, [zoom])
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   const isRepositoriesPage = page === 3;
   const isImmersiveMode = isRepositoriesPage || isFullScreen;
