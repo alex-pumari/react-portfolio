@@ -1,10 +1,9 @@
 import { createContext, useContext } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import type { ZoomValue } from "../types/index.js";
 
 interface ZoomContextType {
-  zoom: ZoomValue
-  setZoom: Dispatch<SetStateAction<ZoomValue>>
+  zoom: number
+  setZoom: Dispatch<SetStateAction<number>>
 }
 
 export const ZoomContext = createContext<ZoomContextType | null>(null);

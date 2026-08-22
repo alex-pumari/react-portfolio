@@ -1,6 +1,5 @@
 export const PAGE_NAMES = ["Inicio", "Sobre mi", "Proyectos", "Contacto"] as const; //TODO
 export const THEMES = ["Light", "Dark"] as const;
-export const ZOOM_VALUES = [60, 80, 100, 120, 140] as const;
 
 export const EMAIL = "alexpumari0@gmail.com";
 export const LINKEDIN_USERNAME = "alex-pumari";
