@@ -9,7 +9,7 @@
   height: 48px; 
   padding-left: $space-md;
   padding-right: $space-md;
-  background-color: $color-surface-highest; 
+  background-color: $color-surface-highest;
   border-top: $border-width-thin solid $color-on-surface;
   user-select: none;
   z-index: 20;
@@ -36,6 +36,8 @@
   }
 
   &__time-display, &__telemetry-display {
+  	box-sizing: border-box;
+
     @extend %retro-footer-display;
   }
 }
