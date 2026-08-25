@@ -3,6 +3,7 @@ import { useState } from "react";
 import { WindowCard } from "../../components/window-card/window-card.js";
 import { TextInput } from "../../components/text-input/text-input.js";
 import { Button } from "../../components/button/button.js";
+import { Panel } from "../../components/panel/panel.js";
 import { GITHUB_USERNAME, LINKEDIN_USERNAME, EMAIL } from "../../config/constants.js";
 import cvURL from "../../assets/pdf/cv.pdf";
 import "./contact.scss";
@@ -37,6 +38,7 @@ export const Contact: FC = () => {
               required
             />
             <TextInput
+              className="contact-view__form-reason-input"
               label="Motivo"
               placeholder="Ej. Necesito optimizar mi plataforma de reservas"
               value={formData.reason}
@@ -53,37 +55,33 @@ export const Contact: FC = () => {
       <WindowCard title="CANALES.EXE">
         <p className="contact-view__channels-label">También podés hablarme mediante:</p>
         <div className="contact-view__channels">
-          <Button
-            variant="outline"
-            className="contact-view__channel-button"
+          <Panel
+            className="contact-view__channel"
             onClick={() => window.open(githubProfileURL, "_blank")}
           >
             GITHUB
-          </Button>
+          </Panel>
 
-          <Button
-            variant="outline"
-            className="contact-view__channel-button"
+          <Panel
+            className="contact-view__channel"
             onClick={() => window.open(linkedinProfileURL, "_blank")}
           >
             LINKEDIN
-          </Button>
+          </Panel>
 
-          <Button
-            variant="outline"
-            className="contact-view__channel-button"
+          <Panel
+            className="contact-view__channel"
             onClick={() => window.open(`mailto:${EMAIL}`, "_blank")}
           >
             CORREO
-          </Button>
+          </Panel>
 
-          <Button
-            variant="outline"
-            className="contact-view__channel-button"
+          <Panel
+            className="contact-view__channel"
             onClick={() => window.open(cvURL, "_blank")}
           >
             MI CV
-          </Button>
+          </Panel>
         </div>
       </WindowCard>
     </div>
