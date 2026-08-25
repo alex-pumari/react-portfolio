@@ -13,6 +13,10 @@
     gap: $space-md;
   }
 
+  &__form-reason-input {
+    flex-grow: 1;
+  }
+
   &__form-button {
     margin-top: auto;
   }
@@ -23,17 +27,22 @@
     gap: $space-md;
   }
 
-  &__channel-button {
+  &__channel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     aspect-ratio: 1 / 1;
+    font-family: $font-family-mono;
+    font-weight: $font-weight-bold;
+    color: $color-on-surface;
+    background-color: $color-surface;
+    box-shadow: 1px 1px 0px 0px $color-on-surface; // TODO: Mover esta logica al componente mediante props, ya que se repite demasiado
   }
 
   &__channels-label {
     border-bottom: $border-width-thin solid $color-on-surface;
     padding-bottom: $space-sm;
     margin-bottom: $space-md;
-  }
-
-  &__form-label, &__channels-label {
-    font-size: $font-size-sm;
   }
 }
