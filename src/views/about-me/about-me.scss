@@ -5,7 +5,7 @@
   &__content {
     display: flex;
     gap: $space-xl;
-    padding: $space-xl $space-2xl;
+    padding: $space-xl;
   }
 
   &__bio {
@@ -27,9 +27,8 @@
     display: flex;
     align-items: center;
     gap: $space-md;
-    border: $border-width-thin solid $color-on-surface;
     padding: $space-md;
-    box-shadow: $space-xs $space-xs 0px 0px $color-on-surface;
+    box-shadow: 1px 1px 0px 0px $color-on-surface;
   }
 
   &__info-icon {
@@ -41,11 +40,13 @@
   }
 
   &__info-label {
+    margin-bottom: $space-xs;
+
     font-family: $font-family-mono;
     font-size: $font-size-sm;
-    color: $color-on-surface-variant;
+    font-weight: $font-weight-bold;
     text-transform: uppercase;
-    margin-bottom: $space-xs;
+    color: $color-on-surface;
   }
 
   &__info-value {

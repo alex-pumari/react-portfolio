@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { WindowCard } from "../../components/window-card/window-card.js";
+import { Panel } from "../../components/panel/panel.js";
 import { LocationIcon } from "../../components/icons/location-icon.js";
 import { EducationIcon } from "../../components/icons/education-icon.js";
 import "./about-me.scss";
@@ -10,27 +11,27 @@ export const AboutMe: FC = () => {
         <div className="about-me-view__content">
           <div className="about-me-view__bio">
             <p>
-              Mi interés por la programación empezó en la secundaria y fue creciendo de forma natural con el tiempo. Empecé programando de manera autodidacta, mirando videos y tutoriales en YouTube, hasta que decidí formarme de manera formal y orientar mi camino hacia el perfil full stack.
+              Empecé programando por curiosidad, creando videojuegos y aprendiendo de cada desafío. Con el tiempo, esa curiosidad me llevó al desarrollo web y a las automatizaciones, donde hoy convierto ideas en aplicaciones que aportan valor.
             </p>
             <p>
-              Hoy sigo manteniendo esa misma curiosidad, tanto para aprender cosas nuevas como para compartir lo que voy aprendiendo en mi canal de YouTube, donde creo contenido sobre programación.
+              Si tenés un proceso para mejorar, una idea para desarrollar o un desafío tecnológico por resolver, hablemos.
             </p>
           </div>
           <div className="about-me-view__info">
-            <div className="about-me-view__info-item">
+            <Panel className="about-me-view__info-item" screwOffset="sm">
               <LocationIcon className="about-me-view__info-icon" />
               <div>
                 <p className="about-me-view__info-label">Ubicación</p>
                 <p className="about-me-view__info-value">Buenos Aires, Argentina</p>
               </div>
-            </div>
-            <div className="about-me-view__info-item">
+            </Panel>
+            <Panel className="about-me-view__info-item" screwOffset="sm">
               <EducationIcon className="about-me-view__info-icon" />
               <div>
                 <p className="about-me-view__info-label">Educación</p>
                 <p className="about-me-view__info-value">Lic. en Gestión de la Tecnología</p>
               </div>
-            </div>
+            </Panel>
           </div>
         </div>
       </WindowCard>
