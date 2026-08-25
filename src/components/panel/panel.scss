@@ -1,0 +1,76 @@
+@import "../../styles/tokens";
+@import "../../styles/mixins";
+
+.panel {
+  position: relative;
+
+  border: $border-width-thin solid $color-on-surface;
+
+  font-family: $font-family-mono;
+  color: $color-on-surface;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &--sm {
+    --panel-offset: #{$space-xs};
+  }
+
+  &--md {
+    --panel-offset: #{$space-sm};
+  }
+
+  &--lg {
+    --panel-offset: #{$space-md};
+  }
+
+// TODO: Add clickable styles back in when we have a use case for it
+//   &--clickable {
+//     cursor: pointer;
+//     user-select: none;
+
+//     &:hover {
+//       transform: translateY(-3px);
+
+//       box-shadow:
+//         6px 8px 0 $color-on-surface;
+//     }
+
+//     &:active {
+//       transform: translateY(1px);
+
+//       box-shadow:
+//         2px 2px 0 $color-on-surface;
+//     }
+//   }
+
+  &__screw {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background-color: $color-on-surface;
+
+    &--top-left {
+      top: var(--panel-offset);
+      left: var(--panel-offset);
+    }
+
+    &--top-right {
+      top: var(--panel-offset);
+      right: var(--panel-offset);
+    }
+
+    &--bottom-left {
+      bottom: var(--panel-offset);
+      left: var(--panel-offset);
+    }
+
+    &--bottom-right {
+      bottom: var(--panel-offset);
+      right: var(--panel-offset);
+    }
+  }
+}
