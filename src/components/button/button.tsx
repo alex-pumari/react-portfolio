@@ -1,9 +1,10 @@
 import type { ButtonHTMLAttributes, ReactNode, FC } from "react";
+import type { Size } from "../../types/size.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import "./button.scss";
 
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger" | "soft";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = Size;
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
