@@ -19,23 +19,22 @@
   &__title {
     font-size: clamp($font-size-xl, 5vw, 2.25rem);
     font-weight: $font-weight-bold;
-    color: $color-primary;
-    margin-bottom: $space-md;
+    margin-bottom: $space-sm;
     line-height: 1.1;
   }
 
   &__subtitle {
-    margin-bottom: $space-sm;
+    border-bottom: $border-width-thin solid $color-on-surface;
+    padding-bottom: $space-md;
+    margin-bottom: $space-md;
+
     font-size: $font-size-md;
-    color: $color-outline;
     font-weight: $font-weight-bold;
     letter-spacing: 1px;
   }
 
   &__description {
     flex-grow: 1;
-    font-size: $font-size-lg;
-    color: $color-on-surface-variant;
     line-height: 1.5rem;
   }
 
@@ -50,8 +49,6 @@
   &__image-container {
     padding: $space-md;
     padding-bottom: $space-2xl;
-    border: $border-width-thin solid $color-on-surface;
-    box-shadow: $space-xs $space-xs 0px 0px $color-on-surface;
     background-color: $color-surface;
   }
 
