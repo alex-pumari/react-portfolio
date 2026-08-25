@@ -2,6 +2,7 @@ import type { ComponentType, FC, SVGProps } from "react";
 import type { MenuItem, ViewId } from "../../types/index.js";
 import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../../components/icons/index.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
+import { Panel } from "../../components/panel/panel.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import "./header.scss";
 
@@ -20,8 +21,8 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange }) => {
   return (
-    <header className="header">
-      <div className="header__view-controls-section">
+    <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
+      <Panel className="header__view-controls-panel" screwOffset="sm">
         <nav className={joinClasses("header__nav", `header__nav--view-${activeView}`)}>
           {menuItems.map(({ id, label }) => {
             const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[id];
@@ -43,8 +44,8 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
             );
           })}
         </nav>
-      </div>
-      <div className="header__controls-section">
+      </Panel>
+      <Panel className="header__controls-panel" screwOffset="sm">
         <IconButton
           icon={<ThemeIcon />}
           title="Cambiar tema"
@@ -55,7 +56,7 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
           title="Ayuda"
           aria-label="Ayuda"
         ></IconButton>
-      </div>
+      </Panel>
     </header>
   );
 };

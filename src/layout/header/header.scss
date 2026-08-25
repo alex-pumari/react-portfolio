@@ -8,18 +8,26 @@
   height: 54px;
   background-color: $color-surface-highest;
   border-bottom: $border-width-thin solid $color-on-surface;
-  padding-left: $space-md;
-  padding-right: $space-md;
   user-select: none;
   z-index: 20;
 
-  &__view-controls-section {
+  &__controls-panel, &__view-controls-panel {
     display: flex;
     align-items: center;
+    gap: $space-sm;
 
     height: 100%;
+    padding-left: $space-md;
     padding-right: $space-md;
 
+    border: none;
+  }
+
+  &__controls-panel {
+    @include retro-bevel-border(left);
+  }
+
+  &__view-controls-panel {
     @include retro-bevel-border(right);
   }
 
@@ -69,17 +77,6 @@
 
   &__nav-item-icon {
     height: 1rem;
-  }
-
-  &__controls-section {
-    display: flex;
-    align-items: center;
-    gap: $space-sm;
-
-    height: 100%;
-    padding-left: $space-md;
-
-    @include retro-bevel-border(left);
   }
 }
 
