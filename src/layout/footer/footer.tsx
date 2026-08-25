@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { useState, useEffect } from "react";
 import { useZoomContext } from "../../contexts/zoom.js";
 import { Trackbar } from "../../components/trackbar/trackbar.js";
+import { Panel } from "../../components/panel/panel.js";
 import { FullscreenIcon } from "../../components/icons/index.js";
 import { GaussPlot } from "./gauss-plot.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
@@ -22,7 +23,7 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <section className="footer__status-section">
+      <Panel className="footer__status-panel" screwOffset="sm">
         <span className="footer__time-display">
           {formatTime(time)}
         </span>
@@ -31,8 +32,8 @@ export const Footer: FC = () => {
           <span>CPU:</span>
           <GaussPlot />
         </div>
-      </section>
-      <section className="footer__controls-section">
+      </Panel>
+      <Panel className="footer__controls-panel" screwOffset="sm">
         <Trackbar
           min={10}
           max={100}
@@ -45,7 +46,7 @@ export const Footer: FC = () => {
           title="Pantalla completa"
           aria-label="Pantalla completa"
         ></IconButton>
-      </section>
+      </Panel>
     </footer>
   );
 };
