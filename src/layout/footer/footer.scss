@@ -7,31 +7,29 @@
   justify-content: space-between;
   align-items: center;
   height: 48px; 
-  padding-left: $space-md;
-  padding-right: $space-md;
+
   background-color: $color-surface-highest;
   border-top: $border-width-thin solid $color-on-surface;
   user-select: none;
   z-index: 20;
 
-  &__controls-section {
-    height: 100%;
-    padding-left: $space-md;
-
+  &__controls-panel, &__status-panel {
     display: flex;
     align-items: center;
     gap: $space-sm;
 
+    height: 100%;
+    padding-left: $space-md;
+    padding-right: $space-md;
+    
+    border: none;
+  }
+
+  &__controls-panel {
     @include retro-bevel-border(left);
   }
 
-  &__status-section {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding-right: $space-md;
-    gap: $space-sm;
-    
+  &__status-panel {
     @include retro-bevel-border(right);
   }
 
