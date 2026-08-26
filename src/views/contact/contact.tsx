@@ -58,6 +58,7 @@ export const Contact: FC = () => {
           <Panel
             className="contact-view__channel"
             onClick={() => window.open(githubProfileURL, "_blank")}
+            hasElevation
           >
             GITHUB
           </Panel>
@@ -65,6 +66,7 @@ export const Contact: FC = () => {
           <Panel
             className="contact-view__channel"
             onClick={() => window.open(linkedinProfileURL, "_blank")}
+            hasElevation
           >
             LINKEDIN
           </Panel>
@@ -72,6 +74,7 @@ export const Contact: FC = () => {
           <Panel
             className="contact-view__channel"
             onClick={() => window.open(`mailto:${EMAIL}`, "_blank")}
+            hasElevation
           >
             CORREO
           </Panel>
@@ -79,6 +82,7 @@ export const Contact: FC = () => {
           <Panel
             className="contact-view__channel"
             onClick={() => window.open(cvURL, "_blank")}
+            hasElevation
           >
             MI CV
           </Panel>

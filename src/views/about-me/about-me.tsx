@@ -18,14 +18,14 @@ export const AboutMe: FC = () => {
             </p>
           </div>
           <div className="about-me-view__info">
-            <Panel className="about-me-view__info-item" screwOffset="sm">
+            <Panel className="about-me-view__info-item" screwOffset="sm" hasElevation>
               <LocationIcon className="about-me-view__info-icon" />
               <div>
                 <p className="about-me-view__info-label">Ubicación</p>
                 <p className="about-me-view__info-value">Buenos Aires, Argentina</p>
               </div>
             </Panel>
-            <Panel className="about-me-view__info-item" screwOffset="sm">
+            <Panel className="about-me-view__info-item" screwOffset="sm" hasElevation>
               <EducationIcon className="about-me-view__info-icon" />
               <div>
                 <p className="about-me-view__info-label">Educación</p>

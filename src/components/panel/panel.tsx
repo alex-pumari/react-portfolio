@@ -8,11 +8,18 @@ type OffsetSize = Size;
 export interface PanelProps {
   children: ReactNode;
   screwOffset?: OffsetSize | undefined;
-  onClick?: (() => void) | undefined;
+  hasElevation?: boolean | undefined;
   className?: string | undefined;
+  onClick?: (() => void) | undefined;
 }
 
-export const Panel: FC<PanelProps> = ({ children, onClick, className, screwOffset = "md" }) => {
+export const Panel: FC<PanelProps> = ({
+  children,
+  onClick,
+  className,
+  screwOffset = "md",
+  hasElevation = false,
+}) => {
   const isClickable = !!onClick;
   const baseClass = "panel";
 
@@ -21,6 +28,7 @@ export const Panel: FC<PanelProps> = ({ children, onClick, className, screwOffse
       className={joinClasses(
         baseClass,
         `${baseClass}--${screwOffset}`,
+        hasElevation && `${baseClass}--elevated`,
         isClickable && `${baseClass}--clickable`,
         className
       )}

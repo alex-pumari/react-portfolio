@@ -20,7 +20,7 @@ export const Home: FC = () => {
             <Button variant="outline" size="lg">CONTACTAME</Button>
           </div>
         </div>
-        <Panel className="home-view__image-container">
+        <Panel className="home-view__image-container" hasElevation>
           <img className="home-view__image" src={profileImgPath} alt="Foto de perfil" />
         </Panel>
       </div>
