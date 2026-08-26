@@ -28,7 +28,7 @@ export const Panel: FC<PanelProps> = ({
       className={joinClasses(
         baseClass,
         `${baseClass}--${screwOffset}`,
-        hasElevation && `${baseClass}--elevated`,
+        (hasElevation || isClickable) && `${baseClass}--elevated`,
         isClickable && `${baseClass}--clickable`,
         className
       )}
