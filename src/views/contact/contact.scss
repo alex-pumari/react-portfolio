@@ -37,7 +37,6 @@
     font-weight: $font-weight-bold;
     color: $color-on-surface;
     background-color: $color-surface;
-    box-shadow: 1px 1px 0px 0px $color-on-surface; // TODO: Mover esta logica al componente mediante props, ya que se repite demasiado
   }
 
   &__channels-label {

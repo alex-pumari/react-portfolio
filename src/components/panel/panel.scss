@@ -26,6 +26,10 @@
     --panel-offset: #{$space-md};
   }
 
+  &--elevated {
+    box-shadow: 1px 1px 0px 0px $color-on-surface;
+  }
+
   &--clickable {
     cursor: pointer;
     user-select: none;
