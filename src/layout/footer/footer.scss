@@ -6,7 +6,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 48px; 
+  height: 100%; 
+  max-height: 48px;
+  transition: max-height 0.3s ease;
+  overflow-y: hidden;
 
   background-color: $color-surface-highest;
   border-top: $border-width-thin solid $color-on-surface;
@@ -21,7 +24,7 @@
     height: 100%;
     padding-left: $space-md;
     padding-right: $space-md;
-    
+
     border: none;
   }
 
@@ -37,6 +40,10 @@
   	box-sizing: border-box;
 
     @extend %retro-footer-display;
+  }
+
+  &--full-screen {
+    max-height: 0;
   }
 }
 

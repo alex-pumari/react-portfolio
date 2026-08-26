@@ -1,16 +1,18 @@
 import type { FC } from "react";
 import type { MenuItem, ViewId } from "../types/index.js";
+import { useEffect } from "react";
 import { Header } from "./header/header.js";
 import { Footer } from "./footer/footer.js";
 import { joinClasses } from "../logic/join-classes.js";
 import { setElementZoom } from "../logic/set-element-zoom.js";
+import { useFullScreenContext, useZoomContext } from "../contexts/index.js";
+import { IconButton } from "../components/icon-button/icon-button.js";
+import { FullscreenExitIcon } from "../components/icons/fullscreen-exit.js";
 import "./layout.scss";
 
 export interface LayoutProps {
   children: React.ReactNode;
   activeView: ViewId;
-  zoom: number;
-  isFullScreen: boolean;
   onViewChange: (view: ViewId) => void;
 }
 
@@ -21,7 +23,10 @@ const menuItems: MenuItem<ViewId>[] = [
   { id: "contact", label: "Contacto" }
 ];
 
-export const Layout: FC<LayoutProps> = ({ children, activeView, zoom, isFullScreen, onViewChange }) => {
+export const Layout: FC<LayoutProps> = ({ children, activeView, onViewChange }) => {
+  const { zoom } = useZoomContext();
+  const { isFullScreen, toggleFullScreen } = useFullScreenContext();
+
   const isCollectionView = activeView === "projects";
 
   useEffect(() => {
@@ -44,6 +49,16 @@ export const Layout: FC<LayoutProps> = ({ children, activeView, zoom, isFullScre
       </main>
 
       <Footer />
+
+      {isFullScreen && (
+        <IconButton
+          icon={<FullscreenExitIcon />}
+          className="viewport__full-screen-control"
+          title="Minimizar pantalla"
+          aria-label="Minimizar pantalla"
+          onClick={toggleFullScreen}
+        ></IconButton>
+      )}
     </div>
   );
 };
