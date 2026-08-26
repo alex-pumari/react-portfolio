@@ -4,6 +4,7 @@ import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } f
 import { IconButton } from "../../components/icon-button/icon-button.js";
 import { Panel } from "../../components/panel/panel.js";
 import { joinClasses } from "../../logic/join-classes.js";
+import { useFullScreenContext } from "../../contexts/full-screen.js";
 import "./header.scss";
 
 export const viewIcons: Record<ViewId, ComponentType> = {
@@ -20,6 +21,8 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange }) => {
+  const { isFullScreen } = useFullScreenContext();
+
   return (
     <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
       <Panel className="header__view-controls-panel" screwOffset="sm">

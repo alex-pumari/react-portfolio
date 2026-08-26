@@ -5,7 +5,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 54px;
+
+  height: 100%;
+  max-height: 54px;
+  transition: max-height 0.3s ease, border-bottom 0.3s ease;
+  overflow-y: hidden;
+
   background-color: $color-surface-highest;
   border-bottom: $border-width-thin solid $color-on-surface;
   user-select: none;
@@ -77,6 +82,11 @@
 
   &__nav-item-icon {
     height: 1rem;
+  }
+
+    &--full-screen {
+    max-height: 0;
+    border-bottom: none;
   }
 }
 

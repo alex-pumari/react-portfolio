@@ -33,4 +33,10 @@
     box-sizing: border-box;
     transition: transform 250ms ease;
   }
+
+  &__full-screen-control {
+    position: fixed;
+    top: $space-md;
+    right: $space-md;
+  }
 }

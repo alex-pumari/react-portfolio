@@ -17,9 +17,7 @@ export function App() {
         <FullScreenContext.Provider value={{ isFullScreen, toggleFullScreen }}>
           <Layout
             activeView={view}
-            zoom={zoom}
             onViewChange={setView}
-            isFullScreen={isFullScreen}
           >
             <ViewComponent />
           </Layout>
