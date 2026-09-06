@@ -7,7 +7,7 @@ import "./home.scss";
 
 export const Home: FC = () => {
   return (
-    <WindowCard title="INICIO.EXE" className="home-view">
+    <WindowCard title="INICIO.EXE" className="home-view" isDraggable>
       <div className="home-view__content">
         <div className="home-view__info">
           <h1 className="home-view__title">ALEX PUMARI DIAZ</h1>

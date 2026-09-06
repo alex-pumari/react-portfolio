@@ -26,7 +26,7 @@ export const Contact: FC = () => {
 
   return (
     <div className="contact-view">
-      <WindowCard title="CONSULTA.EXE">
+      <WindowCard title="CONSULTA.EXE" isDraggable>
           <form onSubmit={handleSubmit} className="contact-view__form">
             <p className="contact-view__form-label">Contame qué necesitás o qué idea tenés en mente. Te responderé por correo lo antes posible.</p>
             <TextInput
@@ -52,7 +52,7 @@ export const Contact: FC = () => {
             </Button>
           </form>
       </WindowCard>
-      <WindowCard title="CANALES.EXE">
+      <WindowCard title="CANALES.EXE" isDraggable>
         <p className="contact-view__channels-label">También podés hablarme mediante:</p>
         <div className="contact-view__channels">
           <Panel

@@ -7,7 +7,7 @@ import "./about-me.scss";
 
 export const AboutMe: FC = () => {
   return (
-      <WindowCard title="SOBRE_MI.INF" className="about-me-view">
+      <WindowCard title="SOBRE_MI.INF" className="about-me-view" isDraggable>
         <div className="about-me-view__content">
           <div className="about-me-view__bio">
             <p>
