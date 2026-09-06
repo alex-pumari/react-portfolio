@@ -1,10 +1,13 @@
 import type { FC, ReactNode } from "react";
+import { useRef } from "react";
 import { joinClasses } from "../../logic/join-classes.js";
+import { useDraggable } from "../../hooks/use-draggable/index.js";
 import "./window-card.scss";
 
 interface WindowCardProps {
   title: string;
   children: ReactNode;
+  isDraggable?: boolean;
   controls?: {
     onClose?: () => void;
     onMinimize?: () => void;
@@ -20,12 +23,24 @@ export const WindowCard: FC<WindowCardProps> = ({
   controls,
   footerActions,
   className,
+  isDraggable = false,
 }) => {
   const baseClass = "window-card";
+  const windowCardRef = useRef<HTMLElement | null>(null);
+  const windowCardHeaderRef = useRef<HTMLElement | null>(null);
+
+  useDraggable({
+    handle: windowCardHeaderRef,
+    target: windowCardRef,
+  },
+  {
+    isTouchDevice: false,
+    enabled: isDraggable,
+  });
 
   return (
-    <section className={joinClasses(baseClass, className)}>
-      <header className={`${baseClass}__header`}>
+    <section ref={windowCardRef} className={joinClasses(baseClass, className)}>
+      <header ref={windowCardHeaderRef} className={joinClasses(`${baseClass}__header`, isDraggable && `${baseClass}__header--draggable`)}>
         <span className={`${baseClass}__title`}>{title}</span>
         
         {controls && (
@@ -52,6 +67,10 @@ export const WindowCard: FC<WindowCardProps> = ({
               />
             )}
           </div>
+        )}
+
+        {isDraggable && (
+          <span>□ ■</span>
         )}
       </header>
 

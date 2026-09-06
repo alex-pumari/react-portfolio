@@ -18,6 +18,15 @@
     align-items: center;
     border-bottom: $border-width-thin solid $color-on-surface;
     user-select: none;
+    transition: background-color 150ms ease-in-out;
+
+    &--draggable {
+      cursor: pointer;
+      
+      &:hover {
+        background-color: lighten($color-primary, 10%);
+      }
+    }
   }
 
   &__title {

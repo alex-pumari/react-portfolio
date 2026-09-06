@@ -29,6 +29,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, isExpanded = false,
           {hasDemoUrl && <Button onClick={() => window.open(project.demoUrl, "_blank")} variant="primary" size="sm">VER DEMO</Button>}
         </div>
       }
+      isDraggable
     >
       <div className="project-card__content">
         <p className="project-card__description">{project.description}</p>
