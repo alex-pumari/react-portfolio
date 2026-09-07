@@ -1,10 +1,10 @@
-@import "./tokens";
+@use "./tokens" as tokens;
 
 %view-container { //TODO: revisar en donde se usa
   display: flex;
   flex-direction: column;
-  gap: $space-lg;
-  padding: $space-md;
+  gap: tokens.$space-lg;
+  padding: tokens.$space-md;
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 120px);
@@ -13,31 +13,31 @@
 %retro-grid-bg {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba($color-outline, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba($color-outline, 0.15) 1px, transparent 1px);
+    linear-gradient(to right, rgba(tokens.$color-outline, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(tokens.$color-outline, 0.15) 1px, transparent 1px);
 }
 
 %retro-inset-behavior {
-  border: $border-width-thin solid $color-outline;
-  border-top-color: $color-on-surface;
-  border-left-color: $color-on-surface;
-  border-right-color: $color-surface-highest;
-  border-bottom-color: $color-surface-highest;
-  background-color: $color-surface;
-  border-radius: $border-radius-sharp;
+  border: tokens.$border-width-thin solid tokens.$color-outline;
+  border-top-color: tokens.$color-on-surface;
+  border-left-color: tokens.$color-on-surface;
+  border-right-color: tokens.$color-surface-highest;
+  border-bottom-color: tokens.$color-surface-highest;
+  background-color: tokens.$color-surface;
+  border-radius: tokens.$border-radius-sharp;
 }
 
 %retro-outset-border {
-  border-top: $border-width-thin solid $color-outline;
-  border-left: $border-width-thin solid $color-outline;
-  border-bottom: $border-width-thin solid $color-surface-lowest;
-  border-right: $border-width-thin solid $color-surface-lowest;
+  border-top: tokens.$border-width-thin solid tokens.$color-outline;
+  border-left: tokens.$border-width-thin solid tokens.$color-outline;
+  border-bottom: tokens.$border-width-thin solid tokens.$color-surface-lowest;
+  border-right: tokens.$border-width-thin solid tokens.$color-surface-lowest;
 }
 
 %pixel-grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: $space-lg;
+  gap: tokens.$space-lg;
 }
 
 %retro-display {
@@ -45,12 +45,12 @@
   align-items: center;
   justify-content: center;
 
-  font-family: $font-family-mono;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-bold;
+  font-family: tokens.$font-family-mono;
+  font-size: tokens.$font-size-sm;
+  font-weight: tokens.$font-weight-bold;
   text-transform: uppercase;
-  color: $color-secondary;
-  background-color: $color-surface-dim;
+  color: tokens.$color-secondary;
+  background-color: tokens.$color-surface-dim;
 
   @extend %retro-outset-border;
 }

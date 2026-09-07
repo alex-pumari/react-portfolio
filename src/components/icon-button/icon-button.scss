@@ -1,15 +1,15 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
 
 .icon-button {
-  width: $space-xl;
-  height: $space-xl;
+  width: tokens.$space-xl;
+  height: tokens.$space-xl;
   padding: 0 !important;
 
-  font-weight: $font-weight-bold;
-  font-family: $font-family-mono;
+  font-weight: tokens.$font-weight-bold;
+  font-family: tokens.$font-family-mono;
 
-  @include retro-push-behavior($color-on-surface, 2px);
+  @include mixins.retro-push-behavior(tokens.$color-on-surface, 2px);
 
   &__icon {
     display: flex;

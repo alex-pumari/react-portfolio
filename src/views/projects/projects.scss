@@ -1,14 +1,14 @@
-@import '../../styles/tokens';
-@import '../../styles/placeholders';
+@use "../../styles/tokens" as tokens;
+@use "../../styles/placeholders" as placeholders;
 
 .projects-view {
   display: flex;
   flex-direction: column;
-  gap: $space-lg;
+  gap: tokens.$space-lg;
 
   max-width: 40rem;
   margin: 0 auto;
-  padding: $space-2xl 0;
+  padding: tokens.$space-2xl 0;
 
   &__grid {
     @extend %pixel-grid-layout;

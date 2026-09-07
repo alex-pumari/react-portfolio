@@ -1,6 +1,6 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
-@import "../../styles/placeholders";
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/placeholders" as placeholders;
 
 .footer {
   display: flex;
@@ -11,29 +11,29 @@
   transition: max-height 0.3s ease;
   overflow-y: hidden;
 
-  background-color: $color-surface-highest;
-  border-top: $border-width-thin solid $color-on-surface;
+  background-color: tokens.$color-surface-highest;
+  border-top: tokens.$border-width-thin solid tokens.$color-on-surface;
   user-select: none;
   z-index: 20;
 
   &__controls-panel, &__status-panel {
     display: flex;
     align-items: center;
-    gap: $space-sm;
+    gap: tokens.$space-sm;
 
     height: 100%;
-    padding-left: $space-md;
-    padding-right: $space-md;
+    padding-left: tokens.$space-md;
+    padding-right: tokens.$space-md;
 
     border: none;
   }
 
   &__controls-panel {
-    @include retro-bevel-border(left);
+    @include mixins.retro-bevel-border(left);
   }
 
   &__status-panel {
-    @include retro-bevel-border(right);
+    @include mixins.retro-bevel-border(right);
   }
 
   &__time-display, &__telemetry-display {
@@ -48,11 +48,11 @@
 }
 
 %retro-footer-display {
-  height: $space-xl;
-  padding-left: $space-sm;
-  padding-right: $space-sm;
+  height: tokens.$space-xl;
+  padding-left: tokens.$space-sm;
+  padding-right: tokens.$space-sm;
   
   @extend %retro-display;
 
-  gap: $space-xs;
+  gap: tokens.$space-xs;
 }
