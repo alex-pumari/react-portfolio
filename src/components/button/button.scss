@@ -1,62 +1,63 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
+@use "sass:color";
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
 
 .pixel-button {
-  font-family: $font-family-mono;
-  font-weight: $font-weight-bold;
+  font-family: tokens.$font-family-mono;
+  font-weight: tokens.$font-weight-bold;
   text-transform: uppercase;
   user-select: none;
-  gap: $space-sm;
+  gap: tokens.$space-sm;
 
-  @include retro-push-behavior($color-on-surface, 4px);
+  @include mixins.retro-push-behavior(tokens.$color-on-surface, 4px);
 
   &--sm {
-    font-size: $font-size-sm;
-    padding: $space-xs $space-sm;
+    font-size: tokens.$font-size-sm;
+    padding: tokens.$space-xs tokens.$space-sm;
   }
 
   &--md {
-    font-size: $font-size-md;
-    padding: $space-sm $space-md;
+    font-size: tokens.$font-size-md;
+    padding: tokens.$space-sm tokens.$space-md;
   }
 
   &--lg {
-    font-size: $font-size-lg;
-    padding: $space-md $space-lg;
+    font-size: tokens.$font-size-lg;
+    padding: tokens.$space-md tokens.$space-lg;
   }
 
   &--primary {
-    background-color: $color-primary;
-    color: $color-on-primary;
+    background-color: tokens.$color-primary;
+    color: tokens.$color-on-primary;
     
     &:hover:not(:disabled) {
-      background-color: lighten($color-primary, 10%);
+      background-color: color.adjust(tokens.$color-primary, $lightness: 10%);
     }
   }
 
   &--secondary {
-    background-color: $color-secondary;
-    color: $color-on-secondary;
+    background-color: tokens.$color-secondary;
+    color: tokens.$color-on-secondary;
 
     &:hover:not(:disabled) {
-      background-color: lighten($color-secondary, 8%);
+      background-color: color.adjust(tokens.$color-secondary, $lightness: 8%);
     }
   }
 
   &--outline {
-    background-color: $color-surface;
-    color: $color-on-surface;
-    border-width: $border-width-thin;
+    background-color: tokens.$color-surface;
+    color: tokens.$color-on-surface;
+    border-width: tokens.$border-width-thin;
   }
 
   &--ghost {
     background-color: transparent;
-    color: $color-on-surface;
+    color: tokens.$color-on-surface;
     box-shadow: none;
     border-color: transparent;
 
     &:hover:not(:disabled) {
-      background-color: $color-surface-highest;
+      background-color: tokens.$color-surface-highest;
     }
     &:active:not(:disabled) {
       transform: none;
@@ -64,30 +65,30 @@
   }
 
   &--success {
-    background-color: $color-success-container;
-    color: $color-on-success;
+    background-color: tokens.$color-success-container;
+    color: tokens.$color-on-success;
 
     &:hover:not(:disabled) {
-      background-color: lighten($color-success-container, 5%);
+      background-color: color.adjust(tokens.$color-success-container, $lightness: 5%);
     }
   }
 
   &--danger {
-    background-color: $color-danger-container;
-    color: $color-on-danger-container;
-    border-color: $color-danger;
+    background-color: tokens.$color-danger-container;
+    color: tokens.$color-on-danger-container;
+    border-color: tokens.$color-danger;
 
     &:hover:not(:disabled) {
-      background-color: darken($color-danger-container, 5%);
+      background-color: color.adjust(tokens.$color-danger-container, $lightness: -5%);
     }
   }
 
   &--soft {
-    background-color: $color-soft;
-    color: $color-on-soft;
+    background-color: tokens.$color-soft;
+    color: tokens.$color-on-soft;
 
     &:hover:not(:disabled) {
-      background-color: lighten($color-soft, 5%);
+      background-color: color.adjust(tokens.$color-soft, $lightness: 5%);
     }
   }
 

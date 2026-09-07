@@ -1,13 +1,12 @@
-@import "../../styles/tokens";
-@import "../../styles/placeholders";
+@use "../../styles/tokens" as tokens;
 
 .home-view {
   width: min-content;
   
   &__content {
     display: flex;
-    gap: $space-xl;
-    padding: $space-xl $space-2xl;
+    gap: tokens.$space-xl;
+    padding: tokens.$space-xl tokens.$space-2xl;
   }
 
   &__info {
@@ -17,19 +16,19 @@
   }
 
   &__title {
-    font-size: clamp($font-size-xl, 5vw, 2.25rem);
-    font-weight: $font-weight-bold;
-    margin-bottom: $space-sm;
+    font-size: clamp(tokens.$font-size-xl, 5vw, 2.25rem);
+    font-weight: tokens.$font-weight-bold;
+    margin-bottom: tokens.$space-sm;
     line-height: 1.1;
   }
 
   &__subtitle {
-    border-bottom: $border-width-thin solid $color-on-surface;
-    padding-bottom: $space-md;
-    margin-bottom: $space-md;
+    border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
+    padding-bottom: tokens.$space-md;
+    margin-bottom: tokens.$space-md;
 
-    font-size: $font-size-md;
-    font-weight: $font-weight-bold;
+    font-size: tokens.$font-size-md;
+    font-weight: tokens.$font-weight-bold;
     letter-spacing: 1px;
   }
 
@@ -41,19 +40,19 @@
   &__actions {
     display: flex;
     justify-content: center;
-    gap: $space-md;
+    gap: tokens.$space-md;
     flex-wrap: wrap;
-    margin-top: $space-sm;
+    margin-top: tokens.$space-sm;
   }
 
   &__image-container {
-    padding: $space-md;
-    padding-bottom: $space-2xl;
-    background-color: $color-surface;
+    padding: tokens.$space-md;
+    padding-bottom: tokens.$space-2xl;
+    background-color: tokens.$color-surface;
   }
 
   &__image {
     width: 13.4rem;
-    border: $border-width-thin solid $color-on-surface;
+    border: tokens.$border-width-thin solid tokens.$color-on-surface;
   }
 }

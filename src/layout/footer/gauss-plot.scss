@@ -1,4 +1,4 @@
-@import "../../styles/tokens";
+@use "../../styles/tokens" as tokens;
 
 $bar-width: 4px;
 $bar-gap: 3px;
@@ -18,8 +18,8 @@ $bar-gap: 3px;
 
     background-image: repeating-linear-gradient(
       90deg,
-      $color-secondary 0,
-      $color-secondary $bar-width,
+      tokens.$color-secondary 0,
+      tokens.$color-secondary $bar-width,
       transparent $bar-width,
       transparent calc($bar-width + $bar-gap)
     );

@@ -1,6 +1,5 @@
-@import "../styles/tokens";
-@import "../styles/mixins";
-@import "../styles/placeholders";
+@use "../styles/tokens" as tokens;
+@use "../styles/placeholders" as placeholders;
 
 .frame {
   display: flex;
@@ -8,8 +7,8 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: $color-surface;
-  color: $color-on-surface;
+  background-color: tokens.$color-surface;
+  color: tokens.$color-on-surface;
   box-sizing: border-box;
 }
 
@@ -36,7 +35,7 @@
 
   &__full-screen-control {
     position: fixed;
-    top: $space-md;
-    right: $space-md;
+    top: tokens.$space-md;
+    right: tokens.$space-md;
   }
 }

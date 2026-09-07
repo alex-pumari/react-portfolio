@@ -1,9 +1,9 @@
-@import '../../styles/tokens';
+@use "../../styles/tokens" as tokens;
 
 .project-card {
   &__actions {
     display: flex;
-    gap: $space-sm;
+    gap: tokens.$space-sm;
     width: 100%;
     justify-content: flex-end;
   }
@@ -12,14 +12,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: $space-md;
+    gap: tokens.$space-md;
     height: 100%;
   }
 
   &__description {
     line-height: 1.5;
     margin: 0;
-    font-size: $font-size-md;
+    font-size: tokens.$font-size-md;
   }
 
   &__responsibilities, &__learnings {
@@ -30,13 +30,13 @@
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: $space-xs;
+    gap: tokens.$space-xs;
   }
 
   &__tag-chip {
-    font-family: $font-family-mono;
-    font-size: $font-size-sm;
-    color: $color-secondary;
-    font-weight: $font-weight-bold;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    color: tokens.$color-secondary;
+    font-weight: tokens.$font-weight-bold;
   }
 }

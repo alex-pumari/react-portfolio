@@ -1,5 +1,6 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
+@use "sass:color";
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
 
 .header {
   display: flex;
@@ -11,34 +12,34 @@
   transition: max-height 0.3s ease, border-bottom 0.3s ease;
   overflow-y: hidden;
 
-  background-color: $color-surface-highest;
-  border-bottom: $border-width-thin solid $color-on-surface;
+  background-color: tokens.$color-surface-highest;
+  border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
   user-select: none;
   z-index: 20;
 
   &__controls-panel, &__view-controls-panel {
     display: flex;
     align-items: center;
-    gap: $space-sm;
+    gap: tokens.$space-sm;
 
     height: 100%;
-    padding-left: $space-md;
-    padding-right: $space-md;
+    padding-left: tokens.$space-md;
+    padding-right: tokens.$space-md;
 
     border: none;
   }
 
   &__controls-panel {
-    @include retro-bevel-border(left);
+    @include mixins.retro-bevel-border(left);
   }
 
   &__view-controls-panel {
-    @include retro-bevel-border(right);
+    @include mixins.retro-bevel-border(right);
   }
 
   &__nav {
     display: flex;
-    height: $space-xl;
+    height: tokens.$space-xl;
   }
   
   &__nav-item {
@@ -47,31 +48,31 @@
     justify-content: center;
     gap: 0.6rem;
 
-    padding: 0 $space-lg;
-    border: $border-width-thin solid $color-on-surface;
+    padding: 0 tokens.$space-lg;
+    border: tokens.$border-width-thin solid tokens.$color-on-surface;
     border-left: none;
 
-    background-color: $color-surface;
+    background-color: tokens.$color-surface;
     transition: background-color 0.1s ease, color 0.1s ease, margin-top 0.1s ease, padding-top 0.1s ease;
-    font-family: $font-family-mono;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-regular;
-    color: $color-on-surface-variant;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    font-weight: tokens.$font-weight-regular;
+    color: tokens.$color-on-surface-variant;
     cursor: pointer;
 
     &:hover {
-      background-color: lighten($color-surface-highest, 2%);
+      background-color: color.adjust(tokens.$color-surface-highest, $lightness: 2%);
     }
 
     &--home {
-      border-left: $border-width-thin solid $color-on-surface;
+      border-left: tokens.$border-width-thin solid tokens.$color-on-surface;
     }
 
     &--active {
-      background-color: $color-surface-dim;
-      color: $color-on-surface;
-      font-weight: $font-weight-bold;
-      box-shadow: inset 2px 2px 0 0 $color-primary; 
+      background-color: tokens.$color-surface-dim;
+      color: tokens.$color-on-surface;
+      font-weight: tokens.$font-weight-bold;
+      box-shadow: inset 2px 2px 0 0 tokens.$color-primary; 
     }
 
     &:active:not(&--active) {
@@ -91,10 +92,10 @@
 }
 
 .header__nav {
-  $shadow-primary: 0px 2px 0 0 $color-primary;
+  $shadow-primary: 0px 2px 0 0 tokens.$color-primary;
   $shadow-primary-corner: 
-    0px 2px 0 0 $color-primary,
-    2px 2px 0 0 $color-primary;
+    0px 2px 0 0 tokens.$color-primary,
+    2px 2px 0 0 tokens.$color-primary;
   
   @mixin nav-item-shadow($is-corner: false) {
     @if $is-corner {

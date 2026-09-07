@@ -1,18 +1,17 @@
-@import '../../styles/tokens';
-@import '../../styles/placeholders';
+@use "../../styles/tokens" as tokens;
 
 .about-me-view {
   &__content {
     display: flex;
-    gap: $space-xl;
-    padding: $space-xl;
+    gap: tokens.$space-xl;
+    padding: tokens.$space-xl;
   }
 
   &__bio {
     width: 22rem;
     display: flex;
     flex-direction: column;
-    gap: $space-md;
+    gap: tokens.$space-md;
 
     line-height: 1.6;
   }
@@ -20,37 +19,37 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: $space-md;
+    gap: tokens.$space-md;
   }
 
   &__info-item {
     display: flex;
     align-items: center;
-    gap: $space-md;
-    padding: $space-md;
+    gap: tokens.$space-md;
+    padding: tokens.$space-md;
   }
 
   &__info-icon {
     box-sizing: content-box;
     width: 1rem;
-    padding: $space-sm;
-    background: $color-on-surface;
-    color: $color-surface;
+    padding: tokens.$space-sm;
+    background: tokens.$color-on-surface;
+    color: tokens.$color-surface;
   }
 
   &__info-label {
-    margin-bottom: $space-xs;
+    margin-bottom: tokens.$space-xs;
 
-    font-family: $font-family-mono;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-bold;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    font-weight: tokens.$font-weight-bold;
     text-transform: uppercase;
-    color: $color-on-surface;
+    color: tokens.$color-on-surface;
   }
 
   &__info-value {
-    font-family: $font-family-mono;
-    font-size: $font-size-md;
-    color: $color-on-surface;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-md;
+    color: tokens.$color-on-surface;
   }
 }

@@ -1,32 +1,31 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
-@import "../../styles/placeholders";
+@use "sass:color";
+@use "../../styles/tokens" as tokens;
 
 .pixel-input {
   &-wrapper {
     display: flex;
     flex-direction: column;
-    gap: $space-xs;
+    gap: tokens.$space-xs;
     width: 100%;
 
     &--error {
       .pixel-input__field {
-        border-color: $color-danger;
-        border-top-color: $color-danger;
-        border-left-color: $color-danger;
+        border-color: tokens.$color-danger;
+        border-top-color: tokens.$color-danger;
+        border-left-color: tokens.$color-danger;
       }
       .pixel-input__label {
-        color: darken($color-danger, 10%);
+        color: color.adjust(tokens.$color-danger, $lightness: -10%);
       }
     }
   }
 
   &__label {
-    font-family: $font-family-mono;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-bold;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    font-weight: tokens.$font-weight-bold;
     text-transform: uppercase;
-    color: $color-on-surface;
+    color: tokens.$color-on-surface;
   }
 
   &__container {
@@ -40,43 +39,43 @@
     @extend %retro-inset-behavior;
 
     width: 100%;
-    font-family: $font-family-mono;
-    font-size: $font-size-md;
-    padding: $space-sm;
-    color: $color-on-surface;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-md;
+    padding: tokens.$space-sm;
+    color: tokens.$color-on-surface;
     outline: none;
     resize: vertical;
 
     &:focus {
-      border-color: $color-outline;
-      background-color: lighten($color-surface-highest, 4%);
+      border-color: tokens.$color-outline;
+      background-color: color.adjust(tokens.$color-surface-highest, $lightness: 4%);
     }
 
     &:disabled {
-      background-color: $color-surface-dim;
-      color: $color-on-surface-variant;
+      background-color: tokens.$color-surface-dim;
+      color: tokens.$color-on-surface-variant;
       cursor: not-allowed;
     }
 
     &::placeholder {
-      color: $color-outline;
+      color: tokens.$color-outline;
       opacity: 0.7;
     }
   }
 
   &__error-message, &__hint-message {
-    font-family: $font-family-mono;
-    font-size: $font-size-sm;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
     margin: 0;
     margin-top: 2px;
   }
 
   &__error-message {
-    color: darken($color-danger, 10%);
-    font-weight: $font-weight-bold;
+    color: color.adjust(tokens.$color-danger, $lightness: -10%);
+    font-weight: tokens.$font-weight-bold;
   }
 
   &__hint-message {
-    color: $color-on-surface-variant;
+    color: tokens.$color-on-surface-variant;
   }
 }

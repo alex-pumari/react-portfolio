@@ -1,13 +1,12 @@
-@import "../../styles/tokens";
-@import "../../styles/mixins";
+@use "../../styles/tokens" as tokens;
 
 .panel {
   position: relative;
 
-  border: $border-width-thin solid $color-on-surface;
+  border: tokens.$border-width-thin solid tokens.$color-on-surface;
 
-  font-family: $font-family-mono;
-  color: $color-on-surface;
+  font-family: tokens.$font-family-mono;
+  color: tokens.$color-on-surface;
 
   transition:
     transform 0.15s ease,
@@ -15,19 +14,19 @@
     background-color 0.15s ease;
 
   &--sm {
-    --panel-offset: #{$space-xs};
+    --panel-offset: #{tokens.$space-xs};
   }
 
   &--md {
-    --panel-offset: #{$space-sm};
+    --panel-offset: #{tokens.$space-sm};
   }
 
   &--lg {
-    --panel-offset: #{$space-md};
+    --panel-offset: #{tokens.$space-md};
   }
 
   &--elevated {
-    box-shadow: 1px 1px 0px 0px $color-on-surface;
+    box-shadow: 1px 1px 0px 0px tokens.$color-on-surface;
   }
 
   &--clickable {
@@ -35,12 +34,12 @@
     user-select: none;
 
     &:hover {
-      background-color: $color-surface-highest;
+      background-color: tokens.$color-surface-highest;
     }
 
     &:active {
       transform: translate(1px, 1px);
-      box-shadow: 0 0 0 $color-on-surface;
+      box-shadow: 0 0 0 tokens.$color-on-surface;
     }
   }
 
@@ -50,7 +49,7 @@
     width: 3px;
     height: 3px;
 
-    background-color: $color-on-surface;
+    background-color: tokens.$color-on-surface;
 
     &--top-left {
       top: var(--panel-offset);
