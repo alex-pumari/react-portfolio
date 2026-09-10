@@ -1,5 +1,5 @@
-@use "sass:color";
 @use "../../styles/tokens" as tokens;
+@use "../../styles/placeholders" as placeholders;
 
 .pixel-input {
   &-wrapper {
@@ -10,12 +10,12 @@
 
     &--error {
       .pixel-input__field {
-        border-color: tokens.$color-danger;
-        border-top-color: tokens.$color-danger;
-        border-left-color: tokens.$color-danger;
+        border-color: var(--color-danger);
+        border-top-color: var(--color-danger);
+        border-left-color: var(--color-danger);
       }
       .pixel-input__label {
-        color: color.adjust(tokens.$color-danger, $lightness: -10%);
+        color: color-mix(in srgb, var(--color-danger) 90%, black);
       }
     }
   }
@@ -25,7 +25,7 @@
     font-size: tokens.$font-size-sm;
     font-weight: tokens.$font-weight-bold;
     text-transform: uppercase;
-    color: tokens.$color-on-surface;
+    color: var(--color-on-surface);
   }
 
   &__container {
@@ -42,23 +42,23 @@
     font-family: tokens.$font-family-mono;
     font-size: tokens.$font-size-md;
     padding: tokens.$space-sm;
-    color: tokens.$color-on-surface;
+    color: var(--color-on-surface);
     outline: none;
     resize: vertical;
 
     &:focus {
-      border-color: tokens.$color-outline;
-      background-color: color.adjust(tokens.$color-surface-highest, $lightness: 4%);
+      border-color: var(--color-outline);
+      background-color: color-mix(in srgb, var(--color-surface-highest) 96%, white);
     }
 
     &:disabled {
-      background-color: tokens.$color-surface-dim;
-      color: tokens.$color-on-surface-variant;
+      background-color: var(--color-surface-dim);
+      color: var(--color-on-surface-variant);
       cursor: not-allowed;
     }
 
     &::placeholder {
-      color: tokens.$color-outline;
+      color: var(--color-outline);
       opacity: 0.7;
     }
   }
@@ -71,11 +71,11 @@
   }
 
   &__error-message {
-    color: color.adjust(tokens.$color-danger, $lightness: -10%);
+    color: color-mix(in srgb, var(--color-danger) 90%, black);
     font-weight: tokens.$font-weight-bold;
   }
 
   &__hint-message {
-    color: tokens.$color-on-surface-variant;
+    color: var(--color-on-surface-variant);
   }
 }

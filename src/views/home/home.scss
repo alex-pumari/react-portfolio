@@ -23,7 +23,7 @@
   }
 
   &__subtitle {
-    border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
+    border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
     padding-bottom: tokens.$space-md;
     margin-bottom: tokens.$space-md;
 
@@ -48,11 +48,11 @@
   &__image-container {
     padding: tokens.$space-md;
     padding-bottom: tokens.$space-2xl;
-    background-color: tokens.$color-surface;
+    background-color: var(--color-surface);
   }
 
   &__image {
     width: 13.4rem;
-    border: tokens.$border-width-thin solid tokens.$color-on-surface;
+    border: tokens.$border-width-thin solid var(--color-on-surface);
   }
 }

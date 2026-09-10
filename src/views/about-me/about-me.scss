@@ -33,8 +33,8 @@
     box-sizing: content-box;
     width: 1rem;
     padding: tokens.$space-sm;
-    background: tokens.$color-on-surface;
-    color: tokens.$color-surface;
+    background: var(--color-on-surface);
+    color: var(--color-surface);
   }
 
   &__info-label {
@@ -44,12 +44,12 @@
     font-size: tokens.$font-size-sm;
     font-weight: tokens.$font-weight-bold;
     text-transform: uppercase;
-    color: tokens.$color-on-surface;
+    color: var(--color-on-surface);
   }
 
   &__info-value {
     font-family: tokens.$font-family-mono;
     font-size: tokens.$font-size-md;
-    color: tokens.$color-on-surface;
+    color: var(--color-on-surface);
   }
 }

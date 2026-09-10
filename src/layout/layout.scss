@@ -7,8 +7,8 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: tokens.$color-surface;
-  color: tokens.$color-on-surface;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
   box-sizing: border-box;
 }
 

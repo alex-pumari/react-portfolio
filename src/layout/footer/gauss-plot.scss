@@ -18,8 +18,8 @@ $bar-gap: 3px;
 
     background-image: repeating-linear-gradient(
       90deg,
-      tokens.$color-secondary 0,
-      tokens.$color-secondary $bar-width,
+      var(--color-secondary) 0,
+      var(--color-secondary) $bar-width,
       transparent $bar-width,
       transparent calc($bar-width + $bar-gap)
     );
