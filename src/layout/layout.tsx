@@ -36,7 +36,7 @@ export const Layout: FC<LayoutProps> = ({ children, activeView, onViewChange }) 
 
     const zoomOrigin = activeView === "projects" ? "top" : "center";
     setElementZoom(viewportContent, zoom, 100, zoomOrigin);
-  }, [zoom, activeView])
+  }, [zoom, activeView]);
 
   return (
     <div className="frame">

@@ -10,4 +10,4 @@ export const HelpIcon: FC<IconProps> = (props) => {
       />
     </svg>
   );
-}
+};

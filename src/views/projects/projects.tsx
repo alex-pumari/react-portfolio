@@ -13,7 +13,7 @@ export const Projects: FC = () => {
     if (!expandedProjectId) return;
 
     document.getElementById("viewport")!.scrollTo(0, 0);
-  }, [expandedProjectId])
+  }, [expandedProjectId]);
 
   return (
     <div className="projects-view">
@@ -32,7 +32,7 @@ export const Projects: FC = () => {
               project={currentProject}
               onToggleExpand={() => setExpandedProjectId(currentProject.id)}
             />
-          )
+          );
         })}
       </div>
     </div>

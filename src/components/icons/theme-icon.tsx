@@ -7,4 +7,4 @@ export const ThemeIcon: FC<IconProps> = (props) => {
       <path fill="currentColor" fillRule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 1.5v13a6.5 6.5 0 100-13z" clipRule="evenodd"/>
     </svg>
   );
-}
+};
