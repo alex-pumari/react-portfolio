@@ -13,25 +13,25 @@
 %retro-grid-bg {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(tokens.$color-outline, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(tokens.$color-outline, 0.15) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in srgb, var(--color-outline) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-outline) 15%, transparent) 1px, transparent 1px);
 }
 
 %retro-inset-behavior {
-  border: tokens.$border-width-thin solid tokens.$color-outline;
-  border-top-color: tokens.$color-on-surface;
-  border-left-color: tokens.$color-on-surface;
-  border-right-color: tokens.$color-surface-highest;
-  border-bottom-color: tokens.$color-surface-highest;
-  background-color: tokens.$color-surface;
+  border: tokens.$border-width-thin solid var(--color-outline);
+  border-top-color: var(--color-on-surface);
+  border-left-color: var(--color-on-surface);
+  border-right-color: var(--color-surface-highest);
+  border-bottom-color: var(--color-surface-highest);
+  background-color: var(--color-surface);
   border-radius: tokens.$border-radius-sharp;
 }
 
 %retro-outset-border {
-  border-top: tokens.$border-width-thin solid tokens.$color-outline;
-  border-left: tokens.$border-width-thin solid tokens.$color-outline;
-  border-bottom: tokens.$border-width-thin solid tokens.$color-surface-lowest;
-  border-right: tokens.$border-width-thin solid tokens.$color-surface-lowest;
+  border-top: tokens.$border-width-thin solid var(--color-outline);
+  border-left: tokens.$border-width-thin solid var(--color-outline);
+  border-bottom: tokens.$border-width-thin solid var(--color-surface-lowest);
+  border-right: tokens.$border-width-thin solid var(--color-surface-lowest);
 }
 
 %pixel-grid-layout {
@@ -49,8 +49,8 @@
   font-size: tokens.$font-size-sm;
   font-weight: tokens.$font-weight-bold;
   text-transform: uppercase;
-  color: tokens.$color-secondary;
-  background-color: tokens.$color-surface-dim;
+  color: var(--color-secondary);
+  background-color: var(--color-surface-dim);
 
   @extend %retro-outset-border;
 }

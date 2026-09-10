@@ -9,7 +9,7 @@
   font-weight: tokens.$font-weight-bold;
   font-family: tokens.$font-family-mono;
 
-  @include mixins.retro-push-behavior(tokens.$color-on-surface, 2px);
+  @include mixins.retro-push-behavior(var(--color-on-surface), 2px);
 
   &__icon {
     display: flex;

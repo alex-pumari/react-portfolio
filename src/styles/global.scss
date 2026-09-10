@@ -1,5 +1,65 @@
+@use "./tokens" as tokens;
+
+:root,
+:root[data-scheme="light"] {
+  --color-surface-lowest: #{tokens.$color-surface-lowest};
+  --color-surface: #{tokens.$color-surface};
+  --color-surface-dim: #{tokens.$color-surface-dim};
+  --color-surface-highest: #{tokens.$color-surface-highest};
+  --color-on-surface: #{tokens.$color-on-surface};
+  --color-on-surface-variant: #{tokens.$color-on-surface-variant};
+  --color-outline: #{tokens.$color-outline};
+
+  --color-primary: #{tokens.$color-primary};
+  --color-on-primary: #{tokens.$color-on-primary};
+
+  --color-secondary: #{tokens.$color-secondary};
+  --color-on-secondary: #{tokens.$color-on-secondary};
+
+  --color-soft: #{tokens.$color-soft};
+  --color-on-soft: #{tokens.$color-on-soft};
+
+  --color-success: #{tokens.$color-success};
+  --color-success-container: #{tokens.$color-success-container};
+  --color-on-success: #{tokens.$color-on-success};
+
+  --color-danger: #{tokens.$color-danger};
+  --color-danger-container: #{tokens.$color-danger-container};
+  --color-on-danger: #{tokens.$color-on-danger};
+  --color-on-danger-container: #{tokens.$color-on-danger-container};
+}
+
+:root[data-scheme="dark"] {
+  --color-surface-lowest: #151617;
+  --color-surface: #1b1d1e;
+  --color-surface-dim: #242627;
+  --color-surface-highest: #2d2f30;
+  --color-on-surface: #d0d1d1;
+  --color-on-surface-variant: #9b9d9e;
+  --color-outline: #626566;
+
+  --color-primary: #aeb1b2;
+  --color-on-primary: #1b1d1e;
+
+  --color-secondary: #999c9d;
+  --color-on-secondary: #1b1d1e;
+
+  --color-soft: #383a3b;
+  --color-on-soft: #c5c7c7;
+
+  --color-success: #83a889;
+  --color-success-container: #304236;
+  --color-on-success: #d0d8d2;
+
+  --color-danger: #c68181;
+  --color-danger-container: #493030;
+  --color-on-danger: #decaca;
+  --color-on-danger-container: #dfbcbc;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }

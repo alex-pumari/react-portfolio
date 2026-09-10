@@ -1,4 +1,3 @@
-@use "sass:color";
 @use "../../styles/tokens" as tokens;
 @use "../../styles/mixins" as mixins;
 
@@ -12,8 +11,8 @@
   transition: max-height 0.3s ease, border-bottom 0.3s ease;
   overflow-y: hidden;
 
-  background-color: tokens.$color-surface-highest;
-  border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
+  background-color: var(--color-surface-highest);
+  border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
   user-select: none;
   z-index: 20;
 
@@ -49,30 +48,30 @@
     gap: 0.6rem;
 
     padding: 0 tokens.$space-lg;
-    border: tokens.$border-width-thin solid tokens.$color-on-surface;
+    border: tokens.$border-width-thin solid var(--color-on-surface);
     border-left: none;
 
-    background-color: tokens.$color-surface;
+    background-color: var(--color-surface);
     transition: background-color 0.1s ease, color 0.1s ease, margin-top 0.1s ease, padding-top 0.1s ease;
     font-family: tokens.$font-family-mono;
     font-size: tokens.$font-size-sm;
     font-weight: tokens.$font-weight-regular;
-    color: tokens.$color-on-surface-variant;
+    color: var(--color-on-surface-variant);
     cursor: pointer;
 
     &:hover {
-      background-color: color.adjust(tokens.$color-surface-highest, $lightness: 2%);
+      background-color: color-mix(in srgb, var(--color-surface-highest) 98%, white);
     }
 
     &--home {
-      border-left: tokens.$border-width-thin solid tokens.$color-on-surface;
+      border-left: tokens.$border-width-thin solid var(--color-on-surface);
     }
 
     &--active {
-      background-color: tokens.$color-surface-dim;
-      color: tokens.$color-on-surface;
+      background-color: var(--color-surface-dim);
+      color: var(--color-on-surface);
       font-weight: tokens.$font-weight-bold;
-      box-shadow: inset 2px 2px 0 0 tokens.$color-primary; 
+      box-shadow: inset 2px 2px 0 0 var(--color-primary); 
     }
 
     &:active:not(&--active) {
@@ -92,10 +91,10 @@
 }
 
 .header__nav {
-  $shadow-primary: 0px 2px 0 0 tokens.$color-primary;
+  $shadow-primary: 0px 2px 0 0 var(--color-primary);
   $shadow-primary-corner: 
-    0px 2px 0 0 tokens.$color-primary,
-    2px 2px 0 0 tokens.$color-primary;
+    0px 2px 0 0 var(--color-primary),
+    2px 2px 0 0 var(--color-primary);
   
   @mixin nav-item-shadow($is-corner: false) {
     @if $is-corner {

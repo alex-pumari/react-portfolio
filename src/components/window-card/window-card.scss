@@ -1,23 +1,22 @@
-@use "sass:color";
 @use "../../styles/tokens" as tokens;
 
 .window-card {
-  background-color: tokens.$color-surface;
-  border: tokens.$border-width-thin solid tokens.$color-on-surface;
+  background-color: var(--color-surface);
+  border: tokens.$border-width-thin solid var(--color-on-surface);
   border-radius: tokens.$border-radius-sharp;
-  box-shadow: 6px 6px 0px 0px tokens.$color-on-surface;
+  box-shadow: 6px 6px 0px 0px var(--color-on-surface);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
   &__header {
-    background-color: tokens.$color-primary;
-    color: tokens.$color-on-primary;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
     padding: tokens.$space-sm tokens.$space-md;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
+    border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
     user-select: none;
     transition: background-color 150ms ease-in-out;
 
@@ -25,7 +24,7 @@
       cursor: pointer;
       
       &:hover {
-        background-color: color.adjust(tokens.$color-primary, $lightness: 10%);
+        background-color: color-mix(in srgb, var(--color-primary) 90%, white);
       }
     }
   }
@@ -46,14 +45,14 @@
   &__control-btn { // TODO: improve control buttons styles
     width: 14px;
     height: 14px;
-    border: tokens.$border-width-thin solid tokens.$color-on-primary;
+    border: tokens.$border-width-thin solid var(--color-on-primary);
     background-color: transparent;
     cursor: pointer;
     position: relative;
     padding: 0;
 
     &:hover {
-      background-color: rgba(tokens.$color-on-primary, 0.2);
+      background-color: color-mix(in srgb, var(--color-on-primary) 20%, transparent);
     }
 
     &--close {
@@ -62,7 +61,7 @@
         position: absolute;
         width: 8px;
         height: 2px;
-        background-color: tokens.$color-on-primary;
+        background-color: var(--color-on-primary);
         top: 4px;
         left: 1px;
       }
@@ -76,7 +75,7 @@
         position: absolute;
         width: 6px;
         height: 2px;
-        background-color: tokens.$color-on-primary;
+        background-color: var(--color-on-primary);
         bottom: 2px;
         left: 2px;
       }
@@ -88,7 +87,7 @@
         position: absolute;
         width: 6px;
         height: 6px;
-        border: 1px solid tokens.$color-on-primary;
+        border: 1px solid var(--color-on-primary);
         top: 2px;
         left: 2px;
       }
@@ -98,14 +97,14 @@
   &__content {
     padding: tokens.$space-md;
     flex: 1;
-    color: tokens.$color-on-surface;
+    color: var(--color-on-surface);
     font-family: tokens.$font-family-mono;
     font-size: tokens.$font-size-md;
   }
 
   &__footer {
-    background-color: tokens.$color-surface-highest;
-    border-top: tokens.$border-width-thin solid tokens.$color-on-surface;
+    background-color: var(--color-surface-highest);
+    border-top: tokens.$border-width-thin solid var(--color-on-surface);
     padding: tokens.$space-sm tokens.$space-md;
     display: flex;
     justify-content: flex-end;

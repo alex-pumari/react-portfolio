@@ -11,8 +11,8 @@
   transition: max-height 0.3s ease;
   overflow-y: hidden;
 
-  background-color: tokens.$color-surface-highest;
-  border-top: tokens.$border-width-thin solid tokens.$color-on-surface;
+  background-color: var(--color-surface-highest);
+  border-top: tokens.$border-width-thin solid var(--color-on-surface);
   user-select: none;
   z-index: 20;
 

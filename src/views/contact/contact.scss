@@ -35,12 +35,12 @@
     aspect-ratio: 1 / 1;
     font-family: tokens.$font-family-mono;
     font-weight: tokens.$font-weight-bold;
-    color: tokens.$color-on-surface;
-    background-color: tokens.$color-surface;
+    color: var(--color-on-surface);
+    background-color: var(--color-surface);
   }
 
   &__channels-label {
-    border-bottom: tokens.$border-width-thin solid tokens.$color-on-surface;
+    border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
     padding-bottom: tokens.$space-sm;
     margin-bottom: tokens.$space-md;
   }
