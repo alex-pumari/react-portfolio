@@ -1,10 +1,12 @@
+import type { MenuItem, Theme, ViewId } from "../../types/index.js";
 import type { ComponentType, FC, SVGProps } from "react";
-import type { MenuItem, ViewId } from "../../types/index.js";
+import { useEffect, useState } from "react";
 import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../../components/icons/index.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
 import { Panel } from "../../components/panel/panel.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import { useFullScreenContext } from "../../contexts/full-screen.js";
+import { changeTheme } from "../../logic/change-theme.js";
 import "./header.scss";
 
 export const viewIcons: Record<ViewId, ComponentType> = {
@@ -21,7 +23,14 @@ interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange }) => {
+  const [theme, setTheme] = useState<Theme>("Light");
   const { isFullScreen } = useFullScreenContext();
+
+  useEffect(() => {
+    changeTheme(theme);
+  }, [theme]);
+
+  const toggleTheme = () => { setTheme(currentTheme => currentTheme === "Light" ? "Dark" : "Light"); };
 
   return (
     <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
@@ -52,6 +61,7 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
         <IconButton
           icon={<ThemeIcon />}
           title="Cambiar tema"
+          onClick={toggleTheme}
           aria-label="Cambiar tema"
         ></IconButton>
         <IconButton
