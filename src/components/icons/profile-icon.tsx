@@ -7,4 +7,4 @@ export const ProfileIcon: FC<IconProps> = (props) => {
       <path d="M6 2h4v1h1v4h-1v1H6V7H5V3h1zm-2 8h8v1h1v4H3v-4h1z" />
     </svg>
   );
-}
+};

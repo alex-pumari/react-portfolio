@@ -1,7 +1,7 @@
 import type { ReactElement, FC } from "react";
 import type { ButtonProps } from "../button/button.js";
 import type { IconProps } from "../icons/icon-props.js";
-import { cloneElement } from "react"
+import { cloneElement } from "react";
 import { Button } from "../button/button.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import "./icon-button.scss";

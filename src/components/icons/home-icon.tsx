@@ -7,4 +7,4 @@ export const HomeIcon: FC<IconProps> = (props) => {
       <path d="M7 1h2v1h1v1h1v1h1v1h1v1h1v2h-1v7H9v-4H7v4H3V8H2V6h1V5h1V4h1V3h1V2h1z"/>
     </svg>
   );
-}
+};

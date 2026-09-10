@@ -1,20 +1,14 @@
 import type { MenuItem, Theme, ViewId } from "../../types/index.js";
 import type { ComponentType, FC, SVGProps } from "react";
 import { useEffect, useState } from "react";
-import { HomeIcon, MailIcon, PortfolioIcon, ProfileIcon, HelpIcon, ThemeIcon } from "../../components/icons/index.js";
+import { HelpIcon, ThemeIcon } from "../../components/icons/index.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
 import { Panel } from "../../components/panel/panel.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import { useFullScreenContext } from "../../contexts/full-screen.js";
 import { changeTheme } from "../../logic/change-theme.js";
+import { viewIcons } from "./view-icons.js";
 import "./header.scss";
-
-export const viewIcons: Record<ViewId, ComponentType> = {
-  ["home"]: HomeIcon,
-  ["about-me"]: ProfileIcon,
-  ["projects"]: PortfolioIcon,
-  ["contact"]: MailIcon,
-};
 
 interface HeaderProps {
   menuItems: MenuItem<ViewId>[];
@@ -42,7 +36,7 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
               "header__nav-item",
               `header__nav-item--${id}`,
               activeView === id && "header__nav-item--active",
-            )
+            );
 
             return (
               <button

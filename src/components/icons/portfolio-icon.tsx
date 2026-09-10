@@ -27,4 +27,4 @@ export const PortfolioIcon: FC<IconProps> = (props) => {
       </g>
     </svg>
   );
-}
+};

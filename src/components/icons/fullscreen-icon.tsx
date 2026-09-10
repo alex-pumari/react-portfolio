@@ -10,4 +10,4 @@ export const FullscreenIcon: FC<IconProps> = (props) => {
       />
     </svg>
   );
-}
+};

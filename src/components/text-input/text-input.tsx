@@ -29,7 +29,7 @@ export const TextInput: FC<TextInputProps> = (props) => {
 
   const wrapperClass = joinClasses(`${baseClass}-wrapper`, error && `${baseClass}-wrapper--error`, className);
 
-  const textInput = createTextInput({ ...props, id: inputId })
+  const textInput = createTextInput({ ...props, id: inputId });
 
   return (
     <div className={wrapperClass}>

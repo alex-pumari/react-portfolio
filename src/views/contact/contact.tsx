@@ -16,7 +16,7 @@ export const Contact: FC = () => {
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
 
-    const mailSubject = `Consulta`;
+    const mailSubject = "Consulta";
     const mailBody = `Hola Alex, ¿cómo estás?\n\nSoy ${formData.name} y quería hablarte sobre:\n\n${formData.reason}\n\nMe gustaría recibir más información cuando puedas. ¡De antemano, gracias!`;
 
     const mailtoURL = `mailto:${EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
