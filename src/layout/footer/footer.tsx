@@ -6,9 +6,11 @@ import { Panel } from "../../components/panel/panel.js";
 import { FullscreenIcon } from "../../components/icons/index.js";
 import { GaussPlot } from "./gauss-plot.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
+import { DownloadIcon } from "../../components/button/button-icons.js";
 import { formatTime } from "../../logic/format-time.js";
 import { joinClasses } from "../../logic/join-classes.js";
 import { useFullScreenContext } from "../../contexts/full-screen.js";
+import cvPath from "../../assets/pdf/cv.pdf";
 import "./footer.scss";
 
 export const Footer: FC = () => {
@@ -35,6 +37,13 @@ export const Footer: FC = () => {
           <span>CPU:</span>
           <GaussPlot />
         </div>
+
+        <IconButton
+          icon={<DownloadIcon />}
+          title="Descargar CV"
+          aria-label="Descargar CV"
+          onClick={() => window.open(cvPath, "_blank")}
+        ></IconButton>
       </Panel>
       <Panel className="footer__controls-panel" screwOffset="sm">
         <Trackbar
