@@ -1,6 +1,7 @@
+import type { FC, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { useId } from "react";
 import { joinClasses } from "../../logic/join-classes.js";
-import type { FC, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
+import { omit } from "../../logic/omit.js";
 import "./text-input.scss";
 
 interface CommonTextInputProps {
@@ -56,24 +57,24 @@ function createTextInput (props: TextInputProps) {
   const baseClass = "pixel-input";
 
   if (props.multiline) {
-    const { multiline, label, hint, error, ...textareaProps } = props;
+    const textareaProps = omit(props, ["multiline", "label", "hint", "error"]);
 
     return (
       <textarea
         {...textareaProps}
         className={`${baseClass}__field`}
-        aria-invalid={!!error}
+        aria-invalid={!!props.error}
       />
     );
   }
 
-  const { multiline, label, hint, error, ...inputProps } = props;
+  const inputProps = omit(props, ["multiline", "label", "hint", "error"]);
 
   return (
     <input
       {...inputProps}
       className={`${baseClass}__field`}
-      aria-invalid={!!error}
+      aria-invalid={!!props.error}
     />
   );
 }

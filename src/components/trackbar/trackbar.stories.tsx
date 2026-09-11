@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Trackbar, type TrackbarProps } from "./trackbar.js";
 
 const meta: Meta<typeof Trackbar> = {
