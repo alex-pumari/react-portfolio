@@ -1,6 +1,6 @@
 export const PAGE_NAMES = ["Inicio", "Sobre mi", "Proyectos", "Contacto"] as const;
 export const THEMES = ["Light", "Dark"] as const;
-export const ZOOM_VALUES = [60, 80, 100, 120, 140] as const;
+export const ZOOM_VALUES: string [] = [60, 80, 100, 120, 140];
 
 export const GITHUB_USERNAME = "AlexRubenPumari";
 export const GITHUB_API_BASE = "https://api.github.com";
