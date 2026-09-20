@@ -1,4 +1,4 @@
-export type MenuItem<TId extends string = string> = {
-  id: TId;
+export type MenuItem<IdType extends string = string> = {
+  id: IdType;
   label: string;
 };
