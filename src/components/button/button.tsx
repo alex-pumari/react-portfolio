@@ -5,10 +5,12 @@ import "./button.scss";
 
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger" | "soft";
 export type ButtonSize = Size;
+export type ButtonShadow = Size;
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  shadow?: ButtonShadow;
   loading?: boolean;
   icon?: ReactNode;
 }
@@ -17,6 +19,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   variant = "primary",
   size = "md",
+  shadow = "md",
   loading = false,
   disabled,
   icon,
@@ -24,9 +27,11 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClass = "pixel-button";
+
   const modifierClasses = [
     `${baseClass}--${variant}`,
     `${baseClass}--${size}`,
+    `${baseClass}--shadow-${shadow}`,
     loading && `${baseClass}--loading`,
   ];
 

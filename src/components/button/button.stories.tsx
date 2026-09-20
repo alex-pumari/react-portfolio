@@ -16,10 +16,14 @@ const meta: Meta<typeof Button> = {
         "ghost",
         "success",
         "danger",
-        "soft"
+        "soft",
       ],
     },
     size: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
+    shadow: {
       control: "inline-radio",
       options: ["sm", "md", "lg"],
     },
@@ -29,6 +33,9 @@ const meta: Meta<typeof Button> = {
     disabled: {
       control: "boolean",
     },
+    icon: {
+      control: false,
+    },
     onClick: {
       action: "clicked",
     },
@@ -37,6 +44,7 @@ const meta: Meta<typeof Button> = {
     children: "Button",
     variant: "primary",
     size: "md",
+    shadow: "md",
     loading: false,
     disabled: false,
   },
@@ -117,5 +125,55 @@ export const WithIcon: Story = {
   args: {
     children: "Download",
     icon: <DownloadIcon />,
+  },
+};
+
+export const Small: Story = {
+  args: {
+    children: "Small",
+    size: "sm",
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    children: "Medium",
+    size: "md",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: "Large",
+    size: "lg",
+  },
+};
+
+export const ShadowSmall: Story = {
+  args: {
+    children: "Small Shadow",
+    shadow: "sm",
+  },
+};
+
+export const ShadowMedium: Story = {
+  args: {
+    children: "Medium Shadow",
+    shadow: "md",
+  },
+};
+
+export const ShadowLarge: Story = {
+  args: {
+    children: "Large Shadow",
+    shadow: "lg",
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
+    icon: <DownloadIcon />,
+    "aria-label": "Download",
+    children: null,
   },
 };
