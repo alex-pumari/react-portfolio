@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { MenuItem, ViewId } from "../types/index.js";
+import type { ViewId } from "../types/index.js";
 import { useEffect } from "react";
 import { Header } from "./header/header.js";
 import { Footer } from "./footer/footer.js";
@@ -8,6 +8,7 @@ import { setElementZoom } from "../logic/set-element-zoom.js";
 import { useFullScreenContext, useZoomContext } from "../contexts/index.js";
 import { IconButton } from "../components/icon-button/icon-button.js";
 import { FullscreenExitIcon } from "../components/icons/fullscreen-exit.js";
+import { viewItems } from "./views-items.js";
 import "./layout.scss";
 
 export interface LayoutProps {
@@ -15,13 +16,6 @@ export interface LayoutProps {
   activeView: ViewId;
   onViewChange: (view: ViewId | ((currentView: ViewId) => ViewId)) => void;
 }
-
-const menuItems: MenuItem<ViewId>[] = [
-  { id: "home", label: "Inicio" },
-  { id: "about-me", label: "Sobre mí" },
-  { id: "projects", label: "Proyectos" },
-  { id: "contact", label: "Contacto" }
-];
 
 const viewNavigation: Record<ViewId, { next: ViewId | null; previous: ViewId | null }> = {
   "home": { next: "about-me", previous: null },
@@ -71,7 +65,7 @@ export const Layout: FC<LayoutProps> = ({ children, activeView, onViewChange }) 
 
   return (
     <div className="frame">
-      <Header menuItems={menuItems} activeView={activeView} onViewChange={onViewChange} />
+      <Header menuItems={viewItems} activeView={activeView} onViewChange={onViewChange} />
 
       <main className={joinClasses("viewport", isCollectionView && "viewport--collection")} id="viewport">
         <div className="viewport__content" id="viewport-content">
