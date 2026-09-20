@@ -46,7 +46,10 @@ export const Footer: FC = () => {
         ></IconButton>
       </Panel>
       <Panel className="footer__controls-panel" screwOffset="sm">
+        <span className="footer__zoom-display">{zoom}%</span>
+
         <Trackbar
+          className="hidden-sm"
           min={40}
           max={120}
           value={zoom}
