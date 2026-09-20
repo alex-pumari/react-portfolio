@@ -8,6 +8,11 @@ const meta: Meta<typeof IconButton> = {
   tags: ["autodocs"],
 
   argTypes: {
+    shadow: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
+
     loading: {
       control: "boolean",
     },
@@ -23,6 +28,7 @@ const meta: Meta<typeof IconButton> = {
 
   args: {
     icon: <TrashIcon />,
+    shadow: "md",
     loading: false,
     disabled: false,
     title: "Delete",
@@ -44,5 +50,23 @@ export const Loading: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+export const ShadowSmall: Story = {
+  args: {
+    shadow: "sm",
+  },
+};
+
+export const ShadowMedium: Story = {
+  args: {
+    shadow: "md",
+  },
+};
+
+export const ShadowLarge: Story = {
+  args: {
+    shadow: "lg",
   },
 };

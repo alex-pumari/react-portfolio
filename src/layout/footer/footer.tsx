@@ -39,6 +39,7 @@ export const Footer: FC = () => {
         </div>
 
         <IconButton
+          shadow="sm"
           icon={<DownloadIcon />}
           title="Descargar CV"
           aria-label="Descargar CV"
@@ -57,6 +58,7 @@ export const Footer: FC = () => {
         />
 
         <IconButton
+          shadow="sm"
           icon={<FullscreenIcon />}
           title="Maximizar pantalla"
           aria-label="Maximizar pantalla"

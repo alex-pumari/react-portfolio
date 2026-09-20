@@ -53,12 +53,14 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
       </Panel>
       <Panel className="header__controls-panel" screwOffset="sm">
         <IconButton
+          shadow="sm"
           icon={<ThemeIcon />}
           title="Cambiar tema"
           onClick={toggleTheme}
           aria-label="Cambiar tema"
         ></IconButton>
         <IconButton
+          shadow="sm"
           icon={<HelpIcon />}
           title="Ayuda"
           aria-label="Ayuda"

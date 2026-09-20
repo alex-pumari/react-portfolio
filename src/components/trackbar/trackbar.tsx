@@ -32,6 +32,7 @@ export const Trackbar: FC<TrackbarProps> = ({
     <div className={joinClasses("trackbar", className)}>      
       <div className="trackbar__control">
         <IconButton
+          shadow="sm"
           icon={<span>-</span>}
           onClick={handleDecrease}
           disabled={value <= min}
@@ -60,6 +61,7 @@ export const Trackbar: FC<TrackbarProps> = ({
         </div>
 
         <IconButton
+          shadow="sm"
           icon={<span>+</span>}
           onClick={handleIncrease}
           disabled={value >= max}
