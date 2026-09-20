@@ -7,7 +7,6 @@ export * from "./view-id.js";
 export * from "./repository.js";
 export * from "./size.js";
 export * from "./theme.js";
-export * from "./zoom-value.js";
 export * from "./repository-details.js";
 export * from "./repository-readme.js";
 export * from "./badge.js";
