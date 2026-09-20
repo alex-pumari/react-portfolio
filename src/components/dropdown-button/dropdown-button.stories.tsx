@@ -14,6 +14,7 @@ const meta: Meta<typeof DropdownButton> = {
   title: "Components/DropdownButton",
   component: DropdownButton,
   tags: ["autodocs"],
+
   argTypes: {
     variant: {
       control: "select",
@@ -27,25 +28,40 @@ const meta: Meta<typeof DropdownButton> = {
         "soft",
       ],
     },
+
     size: {
       control: "inline-radio",
       options: ["sm", "md", "lg"],
     },
+
+    shadow: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
+
     loading: {
       control: "boolean",
     },
+
     disabled: {
       control: "boolean",
     },
+
+    menuLabel: {
+      control: "text",
+    },
+
     onSelect: {
       action: "selected",
     },
   },
+
   args: {
     children: "Select Option",
     items: mockItems,
     variant: "primary",
     size: "md",
+    shadow: "md",
     loading: false,
     disabled: false,
     menuLabel: "Available options",
@@ -122,9 +138,37 @@ export const Small: Story = {
   render: renderDropdownButton,
 };
 
+export const Medium: Story = {
+  args: {
+    size: "md",
+  },
+  render: renderDropdownButton,
+};
+
 export const Large: Story = {
   args: {
     size: "lg",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowSmall: Story = {
+  args: {
+    shadow: "sm",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowMedium: Story = {
+  args: {
+    shadow: "md",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowLarge: Story = {
+  args: {
+    shadow: "lg",
   },
   render: renderDropdownButton,
 };
