@@ -10,15 +10,6 @@
   user-select: none;
   min-width: 15rem;
 
-  &__value-display {
-    height: tokens.$space-xl;
-    min-width: tokens.$space-2xl;
-
-    box-sizing: border-box;
-    
-    @extend %retro-display;
-  }
-
   &__control {
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { IconButton } from "../icon-button/icon-button.js";
+import { joinClasses } from "../../logic/join-classes.js";
 import "./trackbar.scss";
 
 export interface TrackbarProps {
@@ -7,6 +8,7 @@ export interface TrackbarProps {
   min?: number;
   max?: number;
   step?: number;
+  className?: string;
   onChange: (value: number) => void;
 }
 
@@ -15,6 +17,7 @@ export const Trackbar: FC<TrackbarProps> = ({
   min = 50,
   max = 200,
   step = 10,
+  className,
   onChange,
 }) => {
   const handleDecrease = () => {
@@ -26,9 +29,7 @@ export const Trackbar: FC<TrackbarProps> = ({
   };
 
   return (
-    <div className="trackbar">
-      <span className="trackbar__value-display">{value}%</span>
-      
+    <div className={joinClasses("trackbar", className)}>      
       <div className="trackbar__control">
         <IconButton
           icon={<span>-</span>}

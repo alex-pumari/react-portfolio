@@ -42,6 +42,15 @@
     @extend %retro-footer-display;
   }
 
+  &__zoom-display {
+    height: tokens.$space-xl;
+    min-width: tokens.$space-2xl;
+
+    box-sizing: border-box;
+    
+    @extend %retro-display;
+  }
+
   &--full-screen {
     max-height: 0;
   }
