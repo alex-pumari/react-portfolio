@@ -8,8 +8,6 @@
   user-select: none;
   gap: tokens.$space-sm;
 
-  @include mixins.retro-push-behavior(var(--color-on-surface), 4px);
-
   &--sm {
     font-size: tokens.$font-size-sm;
     padding: tokens.$space-xs tokens.$space-sm;
@@ -23,6 +21,18 @@
   &--lg {
     font-size: tokens.$font-size-lg;
     padding: tokens.$space-md tokens.$space-lg;
+  }
+
+  &--shadow-sm {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 2px);
+  }
+
+  &--shadow-md {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 4px);
+  }
+
+  &--shadow-lg {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 6px);
   }
 
   &--primary {
