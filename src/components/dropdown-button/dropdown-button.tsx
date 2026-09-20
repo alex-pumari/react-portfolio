@@ -1,14 +1,17 @@
-import type { FC, ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { MenuItem } from "../../types/menu-item.js";
-import type { ButtonVariant, ButtonSize } from "../button/button.js";
+import type { ButtonVariant } from "../button/button.js";
+import type { Size } from "../../types/size.js";
 import { useRef, useState } from "react";
 import { Button } from "../button/button.js";
 import { getChevronIcon } from "../../logic/get-chevron-icon.js";
 import { useClickOutside } from "../../hooks/use-click-outside.js";
+import { joinClasses } from "../../logic/join-classes.js";
 import "./dropdown-button.scss";
 
 type DropdownButtonVariant = ButtonVariant;
-type DropdownButtonSize = ButtonSize;
+type DropdownButtonSize = Size;
+type DropdownButtonShadow = Size;
 
 export interface DropdownButtonProps<ItemIdType extends string> {
   items: MenuItem<ItemIdType>[];
@@ -17,6 +20,7 @@ export interface DropdownButtonProps<ItemIdType extends string> {
   menuLabel?: string;
   variant?: DropdownButtonVariant;
   size?: DropdownButtonSize;
+  shadow?: DropdownButtonShadow;
   loading?: boolean;
   disabled?: boolean;
   children?: ReactNode;
@@ -30,6 +34,7 @@ export const DropdownButton = <ItemIdType extends string>({
   selectedId,
   menuLabel,
   variant = "primary",
+  shadow = "md",
   size = "md",
   loading = false,
   disabled = false,
@@ -51,6 +56,7 @@ export const DropdownButton = <ItemIdType extends string>({
     <div className="dropdown-button__container" ref={containerRef}>
       <Button
         variant={variant}
+        shadow={shadow}
         size={size}
         loading={loading}
         disabled={disabled}
@@ -69,7 +75,7 @@ export const DropdownButton = <ItemIdType extends string>({
 
       {isOpen && (
         <div
-          className="dropdown-button__menu"
+          className={joinClasses("dropdown-button__menu", `dropdown-button__menu--shadow-${shadow}`)}
           role="menu"
           aria-label={menuLabel}
         >
