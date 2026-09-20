@@ -1,3 +1,4 @@
+import type { ViewId } from "./types/index.js";
 import { useState } from "react";
 import { PageContext, ZoomContext, FullScreenContext } from "./contexts/index.js";
 import type { Page, ZoomValue } from "./types/index.js";
@@ -10,9 +11,10 @@ export function App() {
   const isRepositoriesPage = page === 3;
   const isImmersiveMode = isRepositoriesPage || isFullScreen;
   const toggleFullScreen = () => setIsFullScreen((isFullScreen) =>!isFullScreen);
+  const ViewComponent = views[view];
 
   return (
-    <PageContext.Provider value={{ page, setPage }}>
+    <ViewContext.Provider value={{ view, setView }}>
       <ZoomContext.Provider value={{ zoom, setZoom }}>
         <FullScreenContext.Provider value={{ isFullScreen, toggleFullScreen }}>
           <Layout
@@ -23,6 +25,6 @@ export function App() {
           </Layout>
         </FullScreenContext.Provider>
       </ZoomContext.Provider>
-    </PageContext.Provider>
+    </ViewContext.Provider>
   );
 }
