@@ -6,11 +6,6 @@
   height: tokens.$space-xl;
   padding: 0 !important;
 
-  font-weight: tokens.$font-weight-bold;
-  font-family: tokens.$font-family-mono;
-
-  @include mixins.retro-push-behavior(var(--color-on-surface), 2px);
-
   &__icon {
     display: flex;
     justify-content: center;
