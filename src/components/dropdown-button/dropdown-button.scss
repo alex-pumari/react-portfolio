@@ -22,21 +22,51 @@
     border: tokens.$border-width-thin solid var(--color-on-surface);
     z-index: 100;
     overflow: hidden;
-    animation: dropdown-slide-in 0.15s ease-out;
     
+    &--bottom {
+      bottom: auto;
+      animation: dropdown-slide-in-buttom 0.15s ease-out;
+    }
+
+    &--top {
+      top: auto;
+      animation: dropdown-slide-in-top 0.15 ease-out;
+    }
+
     &--shadow-sm {
-      top: calc(100% + tokens.$space-xs);
       box-shadow: 2px 2px 0px 0px var(--color-on-surface);
     }
 
     &--shadow-md {
-      top: calc(100% + tokens.$space-sm);
       box-shadow: 4px 4px 0px 0px var(--color-on-surface);
     }
 
     &--shadow-lg {
-      top: calc(100% + tokens.$space-md);
       box-shadow: 6px 6px 0px 0px var(--color-on-surface);
+    }
+
+    &--bottom.dropdown-button__menu--shadow-sm {
+      top: calc(100% + tokens.$space-xs);
+    }
+
+    &--bottom.dropdown-button__menu--shadow-md {
+      top: calc(100% + tokens.$space-sm);
+    }
+
+    &--bottom.dropdown-button__menu--shadow-lg {
+      top: calc(100% + tokens.$space-md);
+    }
+
+    &--top.dropdown-button__menu--shadow-sm {
+      bottom: calc(100% + tokens.$space-xs);
+    }
+
+    &--top.dropdown-button__menu--shadow-md {
+      bottom: calc(100% + tokens.$space-sm);
+    }
+
+    &--top.dropdown-button__menu--shadow-lg {
+      bottom: calc(100% + tokens.$space-md);
     }
   }
 
@@ -47,22 +77,22 @@
     justify-content: flex-start;
     gap: tokens.$space-sm;
     text-align: left;
-    
+
     position: relative;
     padding: tokens.$space-sm tokens.$space-lg;
     border: none;
     box-shadow: none;
     transform: none;
-  
+
     text-transform: none;
     font-weight: initial;
     background-color: transparent;
     color: var(--color-on-surface);
-  
+
     &:hover:not(:disabled) {
       background-color: var(--color-surface-highest);
     }
-  
+
     &:active:not(:disabled) {
       background-color: var(--color-surface-high);
       transform: none;
@@ -84,10 +114,22 @@
   }
 }
 
-@keyframes dropdown-slide-in {
+@keyframes dropdown-slide-in-buttom {
   from {
     opacity: 0;
     transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdown-slide-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
   }
 
   to {

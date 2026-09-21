@@ -15,6 +15,10 @@ const meta: Meta<typeof DropdownButton> = {
   component: DropdownButton,
   tags: ["autodocs"],
 
+  parameters: {
+    layout: "centered",
+  },
+
   argTypes: {
     variant: {
       control: "select",
@@ -37,6 +41,11 @@ const meta: Meta<typeof DropdownButton> = {
     shadow: {
       control: "inline-radio",
       options: ["sm", "md", "lg"],
+    },
+
+    direction: {
+      control: "inline-radio",
+      options: ["top", "bottom"],
     },
 
     loading: {
@@ -62,6 +71,7 @@ const meta: Meta<typeof DropdownButton> = {
     variant: "primary",
     size: "md",
     shadow: "md",
+    direction: "bottom",
     loading: false,
     disabled: false,
     menuLabel: "Available options",
@@ -169,6 +179,20 @@ export const ShadowMedium: Story = {
 export const ShadowLarge: Story = {
   args: {
     shadow: "lg",
+  },
+  render: renderDropdownButton,
+};
+
+export const DirectionTop: Story = {
+  args: {
+    direction: "top",
+  },
+  render: renderDropdownButton,
+};
+
+export const DirectionBottom: Story = {
+  args: {
+    direction: "bottom",
   },
   render: renderDropdownButton,
 };
