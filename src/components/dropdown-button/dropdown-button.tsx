@@ -12,6 +12,7 @@ import "./dropdown-button.scss";
 type DropdownButtonVariant = ButtonVariant;
 type DropdownButtonSize = Size;
 type DropdownButtonShadow = Size;
+type DropdownButtonDirection = "top" | "bottom";
 
 export interface DropdownButtonProps<ItemIdType extends string> {
   items: MenuItem<ItemIdType>[];
@@ -21,6 +22,7 @@ export interface DropdownButtonProps<ItemIdType extends string> {
   variant?: DropdownButtonVariant;
   size?: DropdownButtonSize;
   shadow?: DropdownButtonShadow;
+  direction?: DropdownButtonDirection;
   loading?: boolean;
   disabled?: boolean;
   children?: ReactNode;
@@ -36,6 +38,7 @@ export const DropdownButton = <ItemIdType extends string>({
   variant = "primary",
   shadow = "md",
   size = "md",
+  direction = "bottom",
   loading = false,
   disabled = false,
   className,
@@ -50,7 +53,7 @@ export const DropdownButton = <ItemIdType extends string>({
     setIsOpen(false);
   };
 
-  const chevronIcon = getChevronIcon(isOpen, "bottom");
+  const chevronIcon = getChevronIcon(isOpen, direction);
 
   return (
     <div className="dropdown-button__container" ref={containerRef}>
@@ -75,7 +78,11 @@ export const DropdownButton = <ItemIdType extends string>({
 
       {isOpen && (
         <div
-          className={joinClasses("dropdown-button__menu", `dropdown-button__menu--shadow-${shadow}`)}
+          className={joinClasses(
+            "dropdown-button__menu",
+            `dropdown-button__menu--${direction}`,
+            `dropdown-button__menu--shadow-${shadow}`,
+          )}
           role="menu"
           aria-label={menuLabel}
         >
