@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { MenuItem } from "../../types/menu-item.js";
+import type { Item } from "../../types/item.js";
 import type { ButtonVariant } from "../button/button.js";
 import type { Size } from "../../types/size.js";
 import { useRef, useState } from "react";
@@ -14,22 +14,23 @@ type DropdownButtonSize = Size;
 type DropdownButtonShadow = Size;
 type DropdownButtonDirection = "top" | "bottom";
 
-export interface DropdownButtonProps<ItemIdType extends string> {
-  items: MenuItem<ItemIdType>[];
-  onSelect: (itemId: ItemIdType) => void;
-  selectedId?: ItemIdType;
+export interface DropdownButtonProps<ItemType extends Item = Item> {
+  items: ItemType[];
+  onSelect: (item: ItemType) => void;
+  selectedId?: ItemType["id"];
   menuLabel?: string;
   variant?: DropdownButtonVariant;
   size?: DropdownButtonSize;
   shadow?: DropdownButtonShadow;
   direction?: DropdownButtonDirection;
+  formatValue?: (value: ItemType["value"]) => string;
   loading?: boolean;
   disabled?: boolean;
   children?: ReactNode;
   className?: string;
 }
 
-export const DropdownButton = <ItemIdType extends string>({
+export const DropdownButton = <ItemType extends Item>({
   children,
   items,
   onSelect,
@@ -39,17 +40,18 @@ export const DropdownButton = <ItemIdType extends string>({
   shadow = "md",
   size = "md",
   direction = "bottom",
+  formatValue,
   loading = false,
   disabled = false,
   className,
-}: DropdownButtonProps<ItemIdType>) => {
+}: DropdownButtonProps<ItemType>) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(containerRef, () => setIsOpen(false));
 
-  const handleSelectItem = (itemId: ItemIdType) => {
-    onSelect(itemId);
+  const handleSelectItem = (item: ItemType) => {
+    onSelect(item);
     setIsOpen(false);
   };
 
@@ -86,25 +88,30 @@ export const DropdownButton = <ItemIdType extends string>({
           role="menu"
           aria-label={menuLabel}
         >
-          {items.map((item) => (
-            <Button
-              key={item.id}
-              className="dropdown-button__item"
-              variant="ghost"
-              size={size}
-              role="menuitem"
-              aria-selected={item.id === selectedId}
-              onClick={() => handleSelectItem(item.id)}
-            >
-              {item.id === selectedId && (
-                <span className="dropdown-button__check" aria-hidden="true">
-                  ✓
-                </span>
-              )}
+          {items.map((item) => {
+            const formattedValue = formatValue?.(item.value);
+            const isSelectedItem = item.id === selectedId;
 
-              <span>{item.label}</span>
-            </Button>
-          ))}
+            return (
+              <Button
+                key={item.id}
+                className="dropdown-button__item"
+                variant="ghost"
+                size={size}
+                role="menuitem"
+                aria-selected={isSelectedItem}
+                onClick={() => handleSelectItem(item)}
+              >
+                {isSelectedItem && (
+                  <span className="dropdown-button__check" aria-hidden="true">
+                    ✓
+                  </span>
+                )}
+
+                <span>{formattedValue || item.value}</span>
+              </Button>
+            );
+          })}
         </div>
       )}
     </div>

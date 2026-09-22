@@ -2,7 +2,7 @@ export * from "./coordinates.js";
 export * from "./direction.js";
 export * from "./github-repository.js";
 export * from "./github-service.js";
-export * from "./menu-item.js";
+export * from "./item.js";
 export * from "./view-id.js";
 export * from "./repository.js";
 export * from "./size.js";
