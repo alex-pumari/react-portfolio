@@ -6,8 +6,9 @@
   flex-direction: column;
   gap: tokens.$space-lg;
 
-  max-width: 40rem;
-  margin: 0 auto;
+  width: calc(100vw - tokens.$space-xl);
+  max-width: 48rem;
+
   padding: tokens.$space-2xl 0;
 
   &__grid {

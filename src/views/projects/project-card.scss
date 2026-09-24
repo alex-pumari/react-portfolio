@@ -8,12 +8,17 @@
     justify-content: flex-end;
   }
 
-    &__content {
+  &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: tokens.$space-md;
+    padding: tokens.$space-sm 0;
     height: 100%;
+    
+    &--expanded {
+      padding: tokens.$space-xl tokens.$space-lg;
+    }
   }
 
   &__description {
