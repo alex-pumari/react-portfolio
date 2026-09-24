@@ -15,7 +15,7 @@ export const Home: FC = () => {
         <div className="home-view__info">
           <h1 className="home-view__title">ALEX PUMARI DIAZ</h1>
           <p className="home-view__subtitle">ANALISTA DE SISTEMAS & DESARROLLADOR FULL STACK</p>
-          <p className="home-view__description">
+          <p className="home-view__description hidden-xs">
             Creo que el buen software nace de la simplicidad. Por eso diseño y desarrollo soluciones pensadas para ser rápidas, escalables y fáciles de mantener.
           </p>
           <div className="home-view__actions">
@@ -23,7 +23,7 @@ export const Home: FC = () => {
             <Button variant="outline" size="lg" onClick={() => setPage("contact")}>CONTACTAME</Button>
           </div>
         </div>
-        <Panel className="home-view__image-container" hasElevation>
+        <Panel className="home-view__image-container hidden-xs hidden-sm" hasElevation>
           <img className="home-view__image" src={profileImgPath} alt="Foto de perfil" />
         </Panel>
       </div>
