@@ -15,7 +15,7 @@ export const Home: FC = () => {
         <div className="home-view__info">
           <h1 className="home-view__title">ALEX PUMARI DIAZ</h1>
           <p className="home-view__subtitle">ANALISTA DE SISTEMAS & DESARROLLADOR FULL STACK</p>
-          <p className="home-view__description hidden-xs">
+          <p className="home-view__description">
             Creo que el buen software nace de la simplicidad. Por eso diseño y desarrollo soluciones pensadas para ser rápidas, escalables y fáciles de mantener.
           </p>
           <div className="home-view__actions">

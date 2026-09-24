@@ -1,14 +1,17 @@
 @use "../../styles/tokens" as tokens;
 
 .about-me-view {
+  width: calc(100vw - tokens.$space-xl);
+  max-width: 48rem;
+
   &__content {
     display: flex;
+    flex-direction: column;
     gap: tokens.$space-xl;
     padding: tokens.$space-xl;
   }
 
   &__bio {
-    width: 22rem;
     display: flex;
     flex-direction: column;
     gap: tokens.$space-md;
@@ -18,11 +21,13 @@
 
   &__info {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: tokens.$space-md;
   }
 
   &__info-item {
+    flex-grow: 1;
+    flex-basis: 18.75rem;
     display: flex;
     align-items: center;
     gap: tokens.$space-md;
