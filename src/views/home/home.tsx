@@ -2,12 +2,12 @@ import type { FC } from "react";
 import { Panel } from "../../components/panel/panel.js";
 import { Button } from "../../components/button/button.js";
 import { WindowCard } from "../../components/window-card/window-card.js";
-import { usePageContext } from "../../contexts/page.js";
+import { useViewContext } from "../../contexts/view.js";
 import profileImgPath from "../../assets/images/profile.webp";
 import "./home.scss";
 
 export const Home: FC = () => {
-  const { setPage } = usePageContext();
+  const { setView } = useViewContext();
 
   return (
     <WindowCard title="INICIO.EXE" className="home-view" isDraggable>
@@ -19,8 +19,8 @@ export const Home: FC = () => {
             Creo que el buen software nace de la simplicidad. Por eso diseño y desarrollo soluciones pensadas para ser rápidas, escalables y fáciles de mantener.
           </p>
           <div className="home-view__actions">
-            <Button variant="primary" size="lg" onClick={() => setPage("projects")}>VER PROYECTOS</Button>
-            <Button variant="outline" size="lg" onClick={() => setPage("contact")}>CONTACTAME</Button>
+            <Button variant="primary" size="lg" onClick={() => setView("projects")}>VER PROYECTOS</Button>
+            <Button variant="outline" size="lg" onClick={() => setView("contact")}>CONTACTAME</Button>
           </div>
         </div>
         <Panel className="home-view__image-container hidden-xs hidden-sm" hasElevation>
