@@ -2,6 +2,7 @@ import type { FC } from "react";
 import type { Project } from "./project.js";
 import { WindowCard } from "../../components/window-card/window-card.js";
 import { Button } from "../../components/button/button.js";
+import { joinClasses } from "../../logic/join-classes.js";
 import "./project-card.scss";
 
 interface ProjectCardProps {
@@ -31,7 +32,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, isExpanded = false,
       }
       isDraggable
     >
-      <div className="project-card__content">
+      <div className={joinClasses("project-card__content", isExpanded && "project-card__content--expanded")}>
         <p className="project-card__description">{project.description}</p>
         {isExpanded && project.responsibilities && (
           <>
