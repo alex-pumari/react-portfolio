@@ -1,9 +1,9 @@
-import type { MenuItem } from "../types/menu-item.js";
+import type { Item } from "../types/item.js";
 import type { ViewId } from "../types/view-id.js";
 
-export const viewItems: MenuItem<ViewId>[] = [
-  { id: "home", label: "Inicio" },
-  { id: "about-me", label: "Sobre mí" },
-  { id: "projects", label: "Proyectos" },
-  { id: "contact", label: "Contacto" }
+export const viewItems: Item<ViewId, ViewId>[] = [
+  { id: "home", value: "home" },
+  { id: "about-me", value: "about-me" },
+  { id: "projects", value: "projects" },
+  { id: "contact", value: "contact" }
 ];
