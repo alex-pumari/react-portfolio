@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { MenuItem } from "../../types/menu-item.js";
+import type { Item } from "../../types/item.js";
 import { useState } from "react";
 import { DropdownButton } from "./dropdown-button.js";
 
-const mockItems: MenuItem[] = [
-  { id: "option1", label: "Option 1" },
-  { id: "option2", label: "Option 2" },
-  { id: "option3", label: "Option 3" },
-  { id: "option4", label: "Option 4" },
+const mockItems: Item<string, string>[] = [
+  { id: "option1", value: "Option 1" },
+  { id: "option2", value: "Option 2" },
+  { id: "option3", value: "Option 3" },
+  { id: "option4", value: "Option 4" },
 ];
 
 const meta: Meta<typeof DropdownButton> = {
@@ -60,6 +60,14 @@ const meta: Meta<typeof DropdownButton> = {
       control: "text",
     },
 
+    formatValue: {
+      control: false,
+    },
+
+    selectedId: {
+      control: false,
+    },
+
     onSelect: {
       action: "selected",
     },
@@ -83,14 +91,14 @@ export default meta;
 type Story = StoryObj<typeof DropdownButton>;
 
 const renderDropdownButton = (args: Story["args"]) => {
-  const [selectedItem, setSelectedItem] = useState<string>("option1");
+  const [selectedItem, setSelectedItem] = useState<string | number>("option1");
 
   return (
     <DropdownButton
       {...args}
       items={args?.items || mockItems}
       selectedId={selectedItem}
-      onSelect={setSelectedItem}
+      onSelect={(item) => setSelectedItem(item.id)}
     />
   );
 };
@@ -207,6 +215,19 @@ export const Loading: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+  render: renderDropdownButton,
+};
+
+export const FormattedValues: Story = {
+  args: {
+    items: mockItems,
+    formatValue: (value) => {
+      const parsedValue = String(value);
+      const formattedValue = `"${parsedValue.toUpperCase()}"`;
+
+      return formattedValue;
+    },
   },
   render: renderDropdownButton,
 };
