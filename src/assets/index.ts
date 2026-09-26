@@ -1,1 +1,0 @@
-export { default as cv } from "./pdf/cv.pdf"; // TODO: update CV

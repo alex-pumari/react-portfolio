@@ -11,7 +11,7 @@ import { FullscreenExitIcon } from "../components/icons/fullscreen-exit.js";
 import { viewItems } from "./views-items.js";
 import "./layout.scss";
 
-export interface LayoutProps {
+interface LayoutProps {
   children: React.ReactNode;
   activeView: ViewId;
   onViewChange: (view: ViewId | ((currentView: ViewId) => ViewId)) => void;

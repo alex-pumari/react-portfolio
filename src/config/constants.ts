@@ -1,5 +1,4 @@
-export const PAGE_NAMES = ["Inicio", "Sobre mi", "Proyectos", "Contacto"] as const; //TODO
-export const THEMES = ["Light", "Dark"] as const;
+export const THEMES = ["Light", "Dark"] as const;//TODO
 
 export const EMAIL = "alexpumari0@gmail.com";
 export const LINKEDIN_USERNAME = "alex-pumari";
