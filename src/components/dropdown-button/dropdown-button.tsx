@@ -14,7 +14,7 @@ type DropdownButtonSize = Size;
 type DropdownButtonShadow = Size;
 type DropdownButtonDirection = "top" | "bottom";
 
-export interface DropdownButtonProps<ItemType extends Item = Item> {
+interface DropdownButtonProps<ItemType extends Item = Item> {
   items: ItemType[];
   onSelect: (item: ItemType) => void;
   selectedId?: ItemType["id"];

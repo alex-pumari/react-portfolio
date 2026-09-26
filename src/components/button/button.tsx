@@ -4,8 +4,8 @@ import { joinClasses } from "../../logic/join-classes.js";
 import "./button.scss";
 
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "success" | "danger" | "soft";
-export type ButtonSize = Size;
-export type ButtonShadow = Size;
+type ButtonSize = Size;
+type ButtonShadow = Size;
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

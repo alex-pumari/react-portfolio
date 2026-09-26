@@ -5,7 +5,7 @@ import "./panel.scss";
 
 type OffsetSize = Size;
 
-export interface PanelProps {
+interface PanelProps {
   children: ReactNode;
   screwOffset?: OffsetSize | undefined;
   hasElevation?: boolean | undefined;
