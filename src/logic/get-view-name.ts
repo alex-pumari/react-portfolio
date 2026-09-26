@@ -1,12 +1,16 @@
 import type { ViewId } from "../types/index.js";
-import { viewItems } from "../layout/views-items.js";
+
+const VIEW_NAMES: Record<ViewId, string> = {
+  home: "Inicio",
+  "about-me": "Sobre mí",
+  projects: "Proyectos",
+  contact: "Contacto",
+};
 
 export function getViewName(viewId: ViewId): string {
-  const view = viewItems.find(view => view.id === viewId);
+  const viewName = VIEW_NAMES[viewId];
 
-  if (!view) throw new Error("View not found");
-
-  const viewName = view.label;
+  if (!viewName) throw new Error("View not found");
 
   return viewName;
 }
