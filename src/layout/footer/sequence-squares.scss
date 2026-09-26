@@ -1,4 +1,4 @@
-$square-size: 6px;
+$square-size: .5rem;
 $square-gap: 3px;
 $square-cycle: 1.2s;
 
@@ -9,8 +9,10 @@ $square-cycle: 1.2s;
   &__square {
     width: $square-size;
     height: $square-size;
-    background-color: var(--color-secondary);
-    opacity: 0.2;
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-secondary);
+    background-color: transparent;
 
     animation: squareSequence $square-cycle step-end infinite;
 
@@ -26,14 +28,14 @@ $square-cycle: 1.2s;
 
 @keyframes squareSequence {
   0% {
-    opacity: 1;
+    background-color: var(--color-secondary);
   }
 
   33.333% {
-    opacity: 0.2;
+    background-color: transparent;
   }
 
   100% {
-    opacity: 0.2;
+    background-color: transparent;
   }
 }
