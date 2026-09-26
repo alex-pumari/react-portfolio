@@ -4,10 +4,17 @@
   display: flex;
   gap: tokens.$space-lg;
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-xl;
+    height: 100%;
+  }
+
   &__form {
-    min-height: 100%;
     width: 45ch;
 
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: tokens.$space-md;
@@ -43,5 +50,20 @@
     border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
     padding-bottom: tokens.$space-sm;
     margin-bottom: tokens.$space-md;
+  }
+
+  &__mobile-channels {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-xs;
+  }
+
+  &__contact-buttons {
+    display: flex;
+
+    & > * {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
   }
 }

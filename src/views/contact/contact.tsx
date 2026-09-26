@@ -8,10 +8,34 @@ import { GITHUB_USERNAME, LINKEDIN_USERNAME, EMAIL } from "../../config/constant
 import cvURL from "../../assets/pdf/cv.pdf";
 import "./contact.scss";
 
+const githubProfileURL = `https://github.com/${GITHUB_USERNAME}`;
+const linkedinProfileURL = `https://www.linkedin.com/in/${LINKEDIN_USERNAME}`;
+
+const contactChannels = [
+  {
+    id: "github",
+    label: "GITHUB",
+    onClick: () => window.open(githubProfileURL, "_blank"),
+  },
+  {
+    id: "linkedin",
+    label: "LINKEDIN",
+    onClick: () => window.open(linkedinProfileURL, "_blank"),
+  },
+  {
+    id: "email",
+    label: "CORREO",
+    onClick: () => window.open(`mailto:${EMAIL}`, "_blank"),
+  },
+  {
+    id: "cv",
+    label: "MI CV",
+    onClick: () => window.open(cvURL, "_blank"),
+  },
+];
+
 export const Contact: FC = () => {
   const [formData, setFormData] = useState({ name: "", reason: "" });
-  const githubProfileURL = `https://github.com/${GITHUB_USERNAME}`;
-  const linkedinProfileURL = `https://www.linkedin.com/in/${LINKEDIN_USERNAME}`;
 
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
@@ -27,8 +51,13 @@ export const Contact: FC = () => {
   return (
     <div className="contact-view">
       <WindowCard title="CONSULTA.EXE" isDraggable>
+        <div className="contact-view__content">
           <form onSubmit={handleSubmit} className="contact-view__form">
-            <p className="contact-view__form-label">Contame qué necesitás o qué idea tenés en mente. Te responderé por correo lo antes posible.</p>
+            <p className="contact-view__form-label">
+              Contame qué necesitás o qué idea tenés en mente. Te responderé por
+              correo lo antes posible.
+            </p>
+
             <TextInput
               label="Nombre"
               placeholder="Ej. Juan Perez"
@@ -37,6 +66,7 @@ export const Contact: FC = () => {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
             />
+
             <TextInput
               className="contact-view__form-reason-input"
               label="Motivo"
@@ -47,45 +77,54 @@ export const Contact: FC = () => {
               multiline
               required
             />
-            <Button type="submit" variant="primary" className="contact-view__form-button">
+
+            <Button
+              type="submit"
+              variant="primary"
+              className="contact-view__form-button"
+            >
               ENVIAR MENSAJE
             </Button>
           </form>
+
+          <div className="contact-view__mobile-channels hidden-md hidden-lg">
+            <p>También podés hablarme mediante:</p>
+
+            <div className="contact-view__contact-buttons">
+              {contactChannels.map((channel) => (
+                <Button
+                  key={channel.id}
+                  variant="outline"
+                  onClick={channel.onClick}
+                >
+                  {channel.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
       </WindowCard>
-      <WindowCard title="CANALES.EXE" isDraggable>
-        <p className="contact-view__channels-label">También podés hablarme mediante:</p>
+
+      <WindowCard
+        title="CANALES.EXE"
+        className="hidden-xs hidden-sm"
+        isDraggable
+      >
+        <p className="contact-view__channels-label">
+          También podés hablarme mediante:
+        </p>
+
         <div className="contact-view__channels">
-          <Panel
-            className="contact-view__channel"
-            onClick={() => window.open(githubProfileURL, "_blank")}
-            hasElevation
-          >
-            GITHUB
-          </Panel>
-
-          <Panel
-            className="contact-view__channel"
-            onClick={() => window.open(linkedinProfileURL, "_blank")}
-            hasElevation
-          >
-            LINKEDIN
-          </Panel>
-
-          <Panel
-            className="contact-view__channel"
-            onClick={() => window.open(`mailto:${EMAIL}`, "_blank")}
-            hasElevation
-          >
-            CORREO
-          </Panel>
-
-          <Panel
-            className="contact-view__channel"
-            onClick={() => window.open(cvURL, "_blank")}
-            hasElevation
-          >
-            MI CV
-          </Panel>
+          {contactChannels.map((channel) => (
+            <Panel
+              key={channel.id}
+              className="contact-view__channel"
+              onClick={channel.onClick}
+              hasElevation
+            >
+              {channel.label}
+            </Panel>
+          ))}
         </div>
       </WindowCard>
     </div>
