@@ -36,11 +36,15 @@ react-portfolio/
 │   ├── 📁 config/               # Ajustes y constantes
 │   ├── 📁 contexts/             # Contextos de React
 │   ├── 📁 hooks/                # Customs Hooks de React
+│   ├── 📁 layout/               # Header, Footer y el switch de vistas
 │   ├── 📁 logic/                # Lógica de negocio
 │   ├── 📁 services/             # Servicios de datos
 │   ├── 📁 styles/               # Estilos y configuraciones del mismo
-│   ├── app.jsx 
-│   └── main.jsx 
+│   ├── 📁 types/                # Tipos compartidos
+│   ├── 📁 use-cases/            # Casos de uso
+│   ├── 📁 views/                # Vistas (home, about-me, projects, contact)
+│   ├── app.tsx 
+│   └── main.tsx 
 └── README.md
 ```
 
@@ -71,10 +75,16 @@ npm install
 ```bash
 npm run dev
 ```
-El servidor se aloja por defecto en: `http://localhost:5137`
+El servidor se aloja por defecto en: `http://localhost:5173`
 
-### Inicializar el Servidor de Desarrollo con Host Binding
+### Inicializar el Servidor de Desarrollo fuera del contenedor
 ```bash
-npm run host
+npm run dev:container
 ```
-El servidor se aloja por defecto en: `http://localhost:5500`
+El servidor se aloja por defecto en: `http://localhost:5173`
+
+### Inicializar Storybook
+```bash
+npm run storybook
+```
+Storybook se aloja en: `http://localhost:6006`
