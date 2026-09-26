@@ -61,7 +61,7 @@ export const Layout: FC<LayoutProps> = ({ children, activeView, onViewChange }) 
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [onViewChange]);
 
   return (
     <div className="frame">
