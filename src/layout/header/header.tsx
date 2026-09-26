@@ -1,17 +1,19 @@
-import type { MenuItem, Theme, ViewId } from "../../types/index.js";
+import type { Item, Theme, ViewId } from "../../types/index.js";
 import type { ComponentType, FC, SVGProps } from "react";
 import { useEffect, useState } from "react";
+import { useFullScreenContext } from "../../contexts/full-screen.js";
 import { HelpIcon, ThemeIcon } from "../../components/icons/index.js";
 import { IconButton } from "../../components/icon-button/icon-button.js";
+import { DropdownButton } from "../../components/dropdown-button/dropdown-button.js";
 import { Panel } from "../../components/panel/panel.js";
 import { joinClasses } from "../../logic/join-classes.js";
-import { useFullScreenContext } from "../../contexts/full-screen.js";
+import { getViewName } from "../../logic/get-view-name.js";
 import { changeTheme } from "../../logic/change-theme.js";
 import { viewIcons } from "./view-icons.js";
 import "./header.scss";
 
 interface HeaderProps {
-  menuItems: MenuItem<ViewId>[];
+  menuItems: Item<ViewId, ViewId>[];
   activeView: ViewId;
   onViewChange: (view: ViewId) => void;
 }
@@ -24,13 +26,28 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
     changeTheme(theme);
   }, [theme]);
 
+  const activeViewName = getViewName(activeView);
   const toggleTheme = () => { setTheme(currentTheme => currentTheme === "Light" ? "Dark" : "Light"); };
 
   return (
     <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
       <Panel className="header__view-controls-panel" screwOffset="sm">
-        <nav className={joinClasses("header__nav", `header__nav--view-${activeView}`)}>
-          {menuItems.map(({ id, label }) => {
+        <nav className="hidden-md hidden-lg">
+          <DropdownButton
+            className="header__dropdown-button"
+            variant="outline"
+            shadow="sm"
+            items={menuItems}
+            selectedId={activeView}
+            formatValue={(value) => getViewName(value)}
+            onSelect={(item) => onViewChange(item.value)}
+          >
+            <span className="header__dropdown-button-label">{activeViewName}</span>
+          </DropdownButton>
+        </nav>
+
+        <nav className={joinClasses("header__nav", `header__nav--view-${activeView} hidden-xs hidden-sm`)}>
+          {menuItems.map(({ id, value }) => {
             const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[id];
             const navItemClassName = joinClasses(
               "header__nav-item",
@@ -39,13 +56,13 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
             );
 
             return (
-              <button
+              <button // TODO: Reemplazar por un el componente botón
                 key={id}
                 className={navItemClassName}
                 onClick={() => onViewChange(id)}
               >
                 {Icon && <Icon className="header__nav-item-icon" />}
-                {label}
+                {getViewName(value)}
               </button>
             );
           })}
