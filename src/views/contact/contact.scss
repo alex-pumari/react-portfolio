@@ -1,0 +1,69 @@
+@use "../../styles/tokens" as tokens;
+
+.contact-view {
+  display: flex;
+  gap: tokens.$space-lg;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-xl;
+    height: 100%;
+  }
+
+  &__form {
+    width: 45ch;
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-md;
+  }
+
+  &__form-reason-input {
+    flex-grow: 1;
+  }
+
+  &__form-button {
+    margin-top: auto;
+  }
+
+  &__channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: tokens.$space-md;
+  }
+
+  &__channel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    font-family: tokens.$font-family-mono;
+    font-weight: tokens.$font-weight-bold;
+    color: var(--color-on-surface);
+    background-color: var(--color-surface);
+  }
+
+  &__channels-label {
+    border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
+    padding-bottom: tokens.$space-sm;
+    margin-bottom: tokens.$space-md;
+  }
+
+  &__mobile-channels {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-xs;
+  }
+
+  &__contact-buttons {
+    display: flex;
+
+    & > * {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+}

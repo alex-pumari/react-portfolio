@@ -1,0 +1,68 @@
+@use "../../styles/tokens" as tokens;
+
+.home-view {
+  width: calc(100vw - tokens.$space-xl);
+  max-width: 48rem;
+  
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: tokens.$space-xl;
+    padding: tokens.$space-xl tokens.$space-2xl;
+  }
+
+  &__info {
+    flex-basis: 21.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: clamp(tokens.$font-size-xl, 5vw, 2.25rem);
+    font-weight: tokens.$font-weight-bold;
+    margin-bottom: tokens.$space-sm;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
+    padding-bottom: tokens.$space-md;
+    margin-bottom: tokens.$space-md;
+
+    font-size: tokens.$font-size-md;
+    font-weight: tokens.$font-weight-bold;
+    letter-spacing: 1px;
+  }
+
+  &__description {
+    flex-grow: 1;
+    line-height: 1.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: tokens.$space-md;
+    flex-wrap: wrap;
+    margin-top: tokens.$space-md;
+
+    & > * {
+      flex-grow: 1;
+    }
+  }
+
+  &__image-container {
+    flex-basis: 14rem;
+    flex-grow: 1;
+
+    padding: tokens.$space-md;
+    padding-bottom: tokens.$space-2xl;
+    background-color: var(--color-surface);
+  }
+
+  &__image {
+    width: 100%;
+    border: tokens.$border-width-thin solid var(--color-on-surface);
+  }
+}

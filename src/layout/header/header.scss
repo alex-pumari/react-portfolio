@@ -1,0 +1,165 @@
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  max-height: 54px;
+  transform-origin: top;
+  transition:
+    max-height 0.3s ease,
+    transform 0.3s ease;
+
+  background-color: var(--color-surface-highest);
+  border-bottom: tokens.$border-width-thin solid var(--color-on-surface);
+  user-select: none;
+  z-index: 20;
+
+  &__controls-panel, &__view-controls-panel {
+    display: flex;
+    align-items: center;
+    gap: tokens.$space-sm;
+
+    height: 100%;
+    padding-left: tokens.$space-md;
+    padding-right: tokens.$space-md;
+
+    border: none;
+  }
+
+  &__controls-panel {
+    @include mixins.retro-bevel-border(left);
+  }
+
+  &__view-controls-panel {
+    @include mixins.retro-bevel-border(right);
+  }
+
+  &__dropdown-button {
+    height: tokens.$space-xl;
+  }
+
+  &__dropdown-button-label {
+    display: block;
+    width: 5rem;
+  }
+
+  &__nav {
+    display: flex;
+    height: tokens.$space-xl;
+  }
+  
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    padding: 0 tokens.$space-lg;
+    border: tokens.$border-width-thin solid var(--color-on-surface);
+    border-left: none;
+
+    background-color: var(--color-surface);
+    transition: background-color 0.1s ease, color 0.1s ease, margin-top 0.1s ease, padding-top 0.1s ease;
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    font-weight: tokens.$font-weight-regular;
+    color: var(--color-on-surface-variant);
+    cursor: pointer;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--color-surface-highest) 98%, white);
+    }
+
+    &--home {
+      border-left: tokens.$border-width-thin solid var(--color-on-surface);
+    }
+
+    &--active {
+      background-color: var(--color-surface-dim);
+      color: var(--color-on-surface);
+      font-weight: tokens.$font-weight-bold;
+      box-shadow: inset 2px 2px 0 0 var(--color-primary); 
+    }
+
+    &:active:not(&--active) {
+      margin-top: 2px;
+      padding-top: 2px;
+    }
+  }
+
+  &__nav-item-icon {
+    height: 1rem;
+  }
+
+  &--full-screen {
+    max-height: 0;
+    transform: scaleY(0);
+  }
+}
+
+.header__nav {
+  $shadow-primary: 0px 2px 0 0 var(--color-primary);
+  $shadow-primary-corner: 
+    0px 2px 0 0 var(--color-primary),
+    2px 2px 0 0 var(--color-primary);
+  
+  @mixin nav-item-shadow($is-corner: false) {
+    @if $is-corner {
+      box-shadow: $shadow-primary-corner;
+    } @else {
+      box-shadow: $shadow-primary;
+    }
+  }
+
+  &--view-home {
+    .header__nav-item {
+      &--about-me, &--projects {
+        @include nav-item-shadow();
+      }
+
+      &--contact {
+        @include nav-item-shadow($is-corner: true);
+      }
+    }
+  }
+
+  &--view-about-me {
+    .header__nav-item {
+      &--projects {
+        @include nav-item-shadow();
+      }
+
+      &--home, &--contact {
+        @include nav-item-shadow($is-corner: true);
+      }
+    }
+  }
+
+  &--view-projects {
+    .header__nav-item {
+      &--home {
+        @include nav-item-shadow();
+      }
+
+      &--about-me, &--contact {
+        @include nav-item-shadow($is-corner: true);
+      }
+    }
+  }
+
+  &--view-contact {
+    .header__nav-item {
+      &--home, &--about-me {
+        @include nav-item-shadow();
+      }
+
+      &--projects {
+        @include nav-item-shadow($is-corner: true);
+      }
+    }
+  }
+}

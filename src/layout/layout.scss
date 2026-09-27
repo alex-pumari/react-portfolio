@@ -1,0 +1,41 @@
+@use "../styles/tokens" as tokens;
+@use "../styles/placeholders" as placeholders;
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  box-sizing: border-box;
+}
+
+.viewport {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  @extend %retro-grid-bg;
+
+  &--collection {
+    align-items: flex-start;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    transition: transform 250ms ease;
+  }
+
+  &__full-screen-control {
+    position: fixed;
+    top: tokens.$space-md;
+    right: tokens.$space-md;
+  }
+}

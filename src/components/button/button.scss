@@ -1,0 +1,121 @@
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+
+.pixel-button {
+  font-family: tokens.$font-family-mono;
+  font-weight: tokens.$font-weight-bold;
+  text-transform: uppercase;
+  user-select: none;
+  gap: tokens.$space-sm;
+
+  &--sm {
+    font-size: tokens.$font-size-sm;
+    padding: tokens.$space-xs tokens.$space-sm;
+  }
+
+  &--md {
+    font-size: tokens.$font-size-md;
+    padding: tokens.$space-sm tokens.$space-md;
+  }
+
+  &--lg {
+    font-size: tokens.$font-size-lg;
+    padding: tokens.$space-md tokens.$space-lg;
+  }
+
+  &--shadow-sm {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 2px);
+  }
+
+  &--shadow-md {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 4px);
+  }
+
+  &--shadow-lg {
+    @include mixins.retro-push-behavior(var(--color-on-surface), 6px);
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    
+    &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--color-primary) 90%, white);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+
+    &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--color-secondary) 92%, white);
+    }
+  }
+
+  &--outline {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    border-width: tokens.$border-width-thin;
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: var(--color-on-surface);
+    box-shadow: none;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-surface-highest);
+    }
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  &--success {
+    background-color: var(--color-success-container);
+    color: var(--color-on-success);
+
+    &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--color-success-container) 95%, white);
+    }
+  }
+
+  &--danger {
+    background-color: var(--color-danger-container);
+    color: var(--color-on-danger-container);
+    border-color: var(--color-danger);
+
+    &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--color-danger-container) 95%, black);
+    }
+  }
+
+  &--soft {
+    background-color: var(--color-soft);
+    color: var(--color-on-soft);
+
+    &:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--color-soft) 95%, white);
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+  }
+
+  &__label {
+    line-height: 1;
+  }
+
+  &__loader {
+    animation: pixel-blink 0.6s steps(2, start) infinite;
+  }
+}
+
+@keyframes pixel-blink {
+  to { visibility: hidden; }
+}

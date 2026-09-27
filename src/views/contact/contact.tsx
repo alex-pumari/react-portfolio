@@ -1,0 +1,132 @@
+import type { FC, SubmitEvent } from "react";
+import { useState } from "react";
+import { WindowCard } from "../../components/window-card/window-card.js";
+import { TextInput } from "../../components/text-input/text-input.js";
+import { Button } from "../../components/button/button.js";
+import { Panel } from "../../components/panel/panel.js";
+import { GITHUB_USERNAME, LINKEDIN_USERNAME, EMAIL } from "../../config/constants.js";
+import cvURL from "../../assets/pdf/cv.pdf";
+import "./contact.scss";
+
+const githubProfileURL = `https://github.com/${GITHUB_USERNAME}`;
+const linkedinProfileURL = `https://www.linkedin.com/in/${LINKEDIN_USERNAME}`;
+
+const contactChannels = [
+  {
+    id: "github",
+    label: "GITHUB",
+    onClick: () => window.open(githubProfileURL, "_blank"),
+  },
+  {
+    id: "linkedin",
+    label: "LINKEDIN",
+    onClick: () => window.open(linkedinProfileURL, "_blank"),
+  },
+  {
+    id: "email",
+    label: "CORREO",
+    onClick: () => window.open(`mailto:${EMAIL}`, "_blank"),
+  },
+  {
+    id: "cv",
+    label: "MI CV",
+    onClick: () => window.open(cvURL, "_blank"),
+  },
+];
+
+export const Contact: FC = () => {
+  const [formData, setFormData] = useState({ name: "", reason: "" });
+
+  const handleSubmit = (e: SubmitEvent) => {
+    e.preventDefault();
+
+    const mailSubject = "Consulta";
+    const mailBody = `Hola Alex, ¿cómo estás?\n\nSoy ${formData.name} y quería hablarte sobre:\n\n${formData.reason}\n\nMe gustaría recibir más información cuando puedas. ¡De antemano, gracias!`;
+
+    const mailtoURL = `mailto:${EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+    window.open(mailtoURL, "_blank");
+  };
+
+  return (
+    <div className="contact-view">
+      <WindowCard title="CONSULTA.EXE" isDraggable>
+        <div className="contact-view__content">
+          <form onSubmit={handleSubmit} className="contact-view__form">
+            <p className="contact-view__form-label">
+              Contame qué necesitás o qué idea tenés en mente. Te responderé por
+              correo lo antes posible.
+            </p>
+
+            <TextInput
+              label="Nombre"
+              placeholder="Ej. Juan Perez"
+              value={formData.name}
+              maxLength={50}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+            />
+
+            <TextInput
+              className="contact-view__form-reason-input"
+              label="Motivo"
+              placeholder="Ej. Necesito optimizar mi plataforma de reservas"
+              value={formData.reason}
+              maxLength={800}
+              onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+              multiline
+              required
+            />
+
+            <Button
+              type="submit"
+              variant="primary"
+              className="contact-view__form-button"
+            >
+              ENVIAR MENSAJE
+            </Button>
+          </form>
+
+          <div className="contact-view__mobile-channels hidden-md hidden-lg">
+            <p>También podés hablarme mediante:</p>
+
+            <div className="contact-view__contact-buttons">
+              {contactChannels.map((channel) => (
+                <Button
+                  key={channel.id}
+                  variant="outline"
+                  onClick={channel.onClick}
+                >
+                  {channel.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </WindowCard>
+
+      <WindowCard
+        title="CANALES.EXE"
+        className="hidden-xs hidden-sm"
+        isDraggable
+      >
+        <p className="contact-view__channels-label">
+          También podés hablarme mediante:
+        </p>
+
+        <div className="contact-view__channels">
+          {contactChannels.map((channel) => (
+            <Panel
+              key={channel.id}
+              className="contact-view__channel"
+              onClick={channel.onClick}
+              hasElevation
+            >
+              {channel.label}
+            </Panel>
+          ))}
+        </div>
+      </WindowCard>
+    </div>
+  );
+};

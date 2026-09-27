@@ -1,0 +1,233 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { Item } from "../../types/item.js";
+import { useState } from "react";
+import { DropdownButton } from "./dropdown-button.js";
+
+const mockItems: Item<string, string>[] = [
+  { id: "option1", value: "Option 1" },
+  { id: "option2", value: "Option 2" },
+  { id: "option3", value: "Option 3" },
+  { id: "option4", value: "Option 4" },
+];
+
+const meta: Meta<typeof DropdownButton> = {
+  title: "Components/DropdownButton",
+  component: DropdownButton,
+  tags: ["autodocs"],
+
+  parameters: {
+    layout: "centered",
+  },
+
+  argTypes: {
+    variant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost",
+        "success",
+        "danger",
+        "soft",
+      ],
+    },
+
+    size: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
+
+    shadow: {
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+    },
+
+    direction: {
+      control: "inline-radio",
+      options: ["top", "bottom"],
+    },
+
+    loading: {
+      control: "boolean",
+    },
+
+    disabled: {
+      control: "boolean",
+    },
+
+    menuLabel: {
+      control: "text",
+    },
+
+    formatValue: {
+      control: false,
+    },
+
+    selectedId: {
+      control: false,
+    },
+
+    onSelect: {
+      action: "selected",
+    },
+  },
+
+  args: {
+    children: "Select Option",
+    items: mockItems,
+    variant: "primary",
+    size: "md",
+    shadow: "md",
+    direction: "bottom",
+    loading: false,
+    disabled: false,
+    menuLabel: "Available options",
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof DropdownButton>;
+
+const renderDropdownButton = (args: Story["args"]) => {
+  const [selectedItem, setSelectedItem] = useState<string | number>("option1");
+
+  return (
+    <DropdownButton
+      {...args}
+      items={args?.items || mockItems}
+      selectedId={selectedItem}
+      onSelect={(item) => setSelectedItem(item.id)}
+    />
+  );
+};
+
+export const Playground: Story = {
+  render: renderDropdownButton,
+};
+
+export const Primary: Story = {
+  args: {
+    variant: "primary",
+  },
+  render: renderDropdownButton,
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: "secondary",
+  },
+  render: renderDropdownButton,
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline",
+  },
+  render: renderDropdownButton,
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: "ghost",
+  },
+  render: renderDropdownButton,
+};
+
+export const Success: Story = {
+  args: {
+    variant: "success",
+  },
+  render: renderDropdownButton,
+};
+
+export const Danger: Story = {
+  args: {
+    variant: "danger",
+  },
+  render: renderDropdownButton,
+};
+
+export const Small: Story = {
+  args: {
+    size: "sm",
+  },
+  render: renderDropdownButton,
+};
+
+export const Medium: Story = {
+  args: {
+    size: "md",
+  },
+  render: renderDropdownButton,
+};
+
+export const Large: Story = {
+  args: {
+    size: "lg",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowSmall: Story = {
+  args: {
+    shadow: "sm",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowMedium: Story = {
+  args: {
+    shadow: "md",
+  },
+  render: renderDropdownButton,
+};
+
+export const ShadowLarge: Story = {
+  args: {
+    shadow: "lg",
+  },
+  render: renderDropdownButton,
+};
+
+export const DirectionTop: Story = {
+  args: {
+    direction: "top",
+  },
+  render: renderDropdownButton,
+};
+
+export const DirectionBottom: Story = {
+  args: {
+    direction: "bottom",
+  },
+  render: renderDropdownButton,
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+  render: renderDropdownButton,
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  render: renderDropdownButton,
+};
+
+export const FormattedValues: Story = {
+  args: {
+    items: mockItems,
+    formatValue: (value) => {
+      const parsedValue = String(value);
+      const formattedValue = `"${parsedValue.toUpperCase()}"`;
+
+      return formattedValue;
+    },
+  },
+  render: renderDropdownButton,
+};

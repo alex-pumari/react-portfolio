@@ -1,0 +1,41 @@
+$square-size: .5rem;
+$square-gap: 3px;
+$square-cycle: 1.2s;
+
+.sequence-squares {
+  display: flex;
+  gap: $square-gap;
+
+  &__square {
+    width: $square-size;
+    height: $square-size;
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-secondary);
+    background-color: transparent;
+
+    animation: squareSequence $square-cycle step-end infinite;
+
+    &:nth-child(2) {
+      animation-delay: calc($square-cycle / 3);
+    }
+
+    &:nth-child(3) {
+      animation-delay: calc($square-cycle / 3 * 2);
+    }
+  }
+}
+
+@keyframes squareSequence {
+  0% {
+    background-color: var(--color-secondary);
+  }
+
+  33.333% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}

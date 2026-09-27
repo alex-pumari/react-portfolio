@@ -1,0 +1,79 @@
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+@use "../../styles/placeholders" as placeholders;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; 
+  max-height: 48px;
+  transform-origin: bottom;
+  transition:
+    max-height 0.3s ease,
+    transform 0.3s ease;
+
+  background-color: var(--color-surface-highest);
+  border-top: tokens.$border-width-thin solid var(--color-on-surface);
+  user-select: none;
+  z-index: 20;
+
+  &__controls-panel, &__status-panel {
+    display: flex;
+    align-items: center;
+    gap: tokens.$space-sm;
+
+    height: 100%;
+    padding-left: tokens.$space-md;
+    padding-right: tokens.$space-md;
+
+    border: none;
+  }
+
+  &__controls-panel {
+    @include mixins.retro-bevel-border(left);
+  }
+
+  &__status-panel {
+    @include mixins.retro-bevel-border(right);
+  }
+
+  &__time-display, &__telemetry-display {
+  	box-sizing: border-box;
+
+    @extend %retro-footer-display;
+  }
+
+  &__zoom-display {
+    height: tokens.$space-xl;
+    min-width: tokens.$space-2xl;
+
+    box-sizing: border-box;
+    
+    @extend %retro-display;
+  }
+
+  &__cv-button, &__dropdown-button {
+    height: tokens.$space-xl;
+  }
+
+  &__dropdown-button-label {
+    display: block;
+    width: 5rem;
+  }
+
+  &--full-screen {
+    max-height: 0;
+    transform: scaleY(0);
+  }
+}
+
+%retro-footer-display {
+  height: tokens.$space-xl;
+  padding-left: tokens.$space-sm;
+  padding-right: tokens.$space-sm;
+  
+  @extend %retro-display;
+
+  gap: tokens.$space-xs;
+}

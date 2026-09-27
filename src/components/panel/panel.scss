@@ -1,0 +1,74 @@
+@use "../../styles/tokens" as tokens;
+
+.panel {
+  position: relative;
+
+  border: tokens.$border-width-thin solid var(--color-on-surface);
+
+  font-family: tokens.$font-family-mono;
+  color: var(--color-on-surface);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+
+  &--sm {
+    --panel-offset: #{tokens.$space-xs};
+  }
+
+  &--md {
+    --panel-offset: #{tokens.$space-sm};
+  }
+
+  &--lg {
+    --panel-offset: #{tokens.$space-md};
+  }
+
+  &--elevated {
+    box-shadow: 1px 1px 0px 0px var(--color-on-surface);
+  }
+
+  &--clickable {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: var(--color-surface-highest);
+    }
+
+    &:active {
+      transform: translate(1px, 1px);
+      box-shadow: 0 0 0 var(--color-on-surface);
+    }
+  }
+
+  &__screw {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background-color: var(--color-on-surface);
+
+    &--top-left {
+      top: var(--panel-offset);
+      left: var(--panel-offset);
+    }
+
+    &--top-right {
+      top: var(--panel-offset);
+      right: var(--panel-offset);
+    }
+
+    &--bottom-left {
+      bottom: var(--panel-offset);
+      left: var(--panel-offset);
+    }
+
+    &--bottom-right {
+      bottom: var(--panel-offset);
+      right: var(--panel-offset);
+    }
+  }
+}

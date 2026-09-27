@@ -1,0 +1,20 @@
+@use "../../styles/tokens" as tokens;
+@use "../../styles/placeholders" as placeholders;
+
+.projects-view {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-lg;
+
+  width: calc(100vw - tokens.$space-xl);
+  max-width: 48rem;
+
+  padding: tokens.$space-2xl 0;
+
+  &__grid {
+    @extend %pixel-grid-layout;
+    justify-content: center;
+    
+    width: 100%;
+  }
+}

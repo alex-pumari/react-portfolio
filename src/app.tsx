@@ -1,26 +1,30 @@
+import type { ViewId } from "./types/index.js";
 import { useState } from "react";
-import { Header, Footer, Viewport } from "./components/interface/index.js";
-import { PageContext, ZoomContext, FullScreenContext } from "./contexts/index.js";
-import type { Page, ZoomValue } from "./types/index.js";
-import "./styles/index.scss";
+import { ViewContext, ZoomContext, FullScreenContext } from "./contexts/index.js";
+import { Layout } from "./layout/layout.js";
+import { views } from "./layout/views.js";
+import "./styles/global.scss";
 
-export default function App() {
-  const [page, setPage] = useState<Page>(1);
-  const [zoom, setZoom] = useState<ZoomValue>(100);
+export function App() {
+  const [view, setView] = useState<ViewId>("home");
+  const [zoom, setZoom] = useState<number>(100);
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
-  const isRepositoriesPage = page === 3;
-  const isImmersiveMode = isRepositoriesPage || isFullScreen;
+
   const toggleFullScreen = () => setIsFullScreen((isFullScreen) =>!isFullScreen);
+  const ViewComponent = views[view];
 
   return (
-    <PageContext.Provider value={{ page, setPage }}>
+    <ViewContext.Provider value={{ view, setView }}>
       <ZoomContext.Provider value={{ zoom, setZoom }}>
         <FullScreenContext.Provider value={{ isFullScreen, toggleFullScreen }}>
-          <Header isCompact={isImmersiveMode} />
-          <Viewport page={page} isFullScreen={isImmersiveMode} />
-          <Footer isHidden={isImmersiveMode} />
+          <Layout
+            activeView={view}
+            onViewChange={setView}
+          >
+            <ViewComponent />
+          </Layout>
         </FullScreenContext.Provider>
       </ZoomContext.Provider>
-    </PageContext.Provider>
+    </ViewContext.Provider>
   );
 }

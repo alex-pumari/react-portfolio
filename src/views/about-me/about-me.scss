@@ -1,0 +1,60 @@
+@use "../../styles/tokens" as tokens;
+
+.about-me-view {
+  width: calc(100vw - tokens.$space-xl);
+  max-width: 48rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-xl;
+    padding: tokens.$space-xl;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: tokens.$space-md;
+
+    line-height: 1.6;
+  }
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: tokens.$space-md;
+  }
+
+  &__info-item {
+    flex-grow: 1;
+    flex-basis: 18.75rem;
+    display: flex;
+    align-items: center;
+    gap: tokens.$space-md;
+    padding: tokens.$space-md;
+  }
+
+  &__info-icon {
+    box-sizing: content-box;
+    width: 1rem;
+    padding: tokens.$space-sm;
+    background: var(--color-on-surface);
+    color: var(--color-surface);
+  }
+
+  &__info-label {
+    margin-bottom: tokens.$space-xs;
+
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-sm;
+    font-weight: tokens.$font-weight-bold;
+    text-transform: uppercase;
+    color: var(--color-on-surface);
+  }
+
+  &__info-value {
+    font-family: tokens.$font-family-mono;
+    font-size: tokens.$font-size-md;
+    color: var(--color-on-surface);
+  }
+}

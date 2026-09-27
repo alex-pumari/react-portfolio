@@ -1,0 +1,16 @@
+@use "../../styles/tokens" as tokens;
+@use "../../styles/mixins" as mixins;
+
+.icon-button {
+  width: tokens.$space-xl;
+  height: tokens.$space-xl;
+  padding: 0 !important;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 1rem;
+  }
+}

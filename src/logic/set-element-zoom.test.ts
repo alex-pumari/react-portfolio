@@ -11,32 +11,50 @@ describe("set-element-zoom", () => {
 
   test("should set scale to 1 when zoom equals base-zoom", () => {
     setElementZoom(element, 100);
+
     expect(element.style.transform).toBe("scale(1)");
-    expect(element.style.transformOrigin).toBe("center center");
+    expect(element.style.transformOrigin).toBe("top center");
   });
 
   test("should scale correctly for zoom less than base-zoom", () => {
     setElementZoom(element, 50);
+
     expect(element.style.transform).toBe("scale(0.5)");
   });
 
   test("should scale correctly for zoom greater than base-zoom", () => {
     setElementZoom(element, 150);
+
     expect(element.style.transform).toBe("scale(1.5)");
   });
 
   test("should use a custom base-zoom", () => {
     setElementZoom(element, 75, 50);
+
     expect(element.style.transform).toBe("scale(1.5)");
   });
 
   test("should handle zero zoom", () => {
     setElementZoom(element, 0);
+
     expect(element.style.transform).toBe("scale(0)");
   });
 
   test("should handle decimal zoom values", () => {
     setElementZoom(element, 125.5);
+
     expect(element.style.transform).toBe("scale(1.255)");
+  });
+
+  test("should set custom zoom origin", () => {
+    setElementZoom(element, 100, 100, "center");
+
+    expect(element.style.transformOrigin).toBe("center center");
+  });
+
+  test("should use default zoom origin when not provided", () => {
+    setElementZoom(element, 100);
+
+    expect(element.style.transformOrigin).toBe("top center");
   });
 });

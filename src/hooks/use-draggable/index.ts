@@ -2,31 +2,38 @@ import { attachEvents, detachEvents } from "./draggable-events.js";
 import { useEffect, useRef, type RefObject } from "react";
 import { calculateDelta, calculateNewPosition, createInitialState } from "./logic/index.js";
 import { getPointerCoords, isMultiTouch, isSingleTouch, isTouchEvent } from "./utils/index.js";
-import { applyDraggingStyles, getTransform, resetDraggingStyles, setTransform } from "./dom/index.js";
+import { applyDraggingStyles, getAncestorScale, getTransform, resetDraggingStyles, setTransform } from "./dom/index.js";
 import type { DragState } from "./drag-state.js";
 
-interface UseDraggableOptions<DraggableElement extends HTMLElement> {
-  ref?: RefObject<DraggableElement>
-  isTouchDevice: boolean
+interface UseDraggableOptions {
+  isTouchDevice: boolean;
+  enabled?: boolean;
 }
 
-export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>(
-  { ref, isTouchDevice }: UseDraggableOptions<DraggableElement>
+export function useDraggable<
+  HandleElement extends HTMLElement = HTMLElement,
+  TargetElement extends HTMLElement = HTMLElement
+>(
+  refs: {
+    handle: RefObject<HandleElement | null>;
+    target: RefObject<TargetElement | null>;
+  },
+  { isTouchDevice, enabled = true }: UseDraggableOptions
 ) {
-  const internalRef = useRef<DraggableElement | null>(null);
-  const elementRef = ref ?? internalRef;
-
   const state = useRef<DragState>(createInitialState());
 
   useEffect(() => {
-    const element = elementRef.current;
-    if (!element) return;
+    if (!enabled) return;
+
+    const handleElement = refs.handle.current;
+    const targetElement = refs.target.current;
+    if (!handleElement || !targetElement) return;
 
     const handleStart = (event: TouchEvent | MouseEvent) => {
       if (isMultiTouch(event)) return stop();
 
       const pointer = getPointerCoords(event);
-      const transform = getTransform(element);
+      const transform = getTransform(targetElement);
 
       state.current.isDragging = true;
       state.current.startPointer = pointer;
@@ -40,12 +47,17 @@ export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>
 
       const currentCoords = getPointerCoords(event);
       const delta = calculateDelta(currentCoords, state.current.startPointer);
-      const nextCoords = calculateNewPosition(state.current.startElement, delta);
+      const zoomScale = getAncestorScale(targetElement);
+      const adjustedDelta = {
+        x: delta.x / zoomScale,
+        y: delta.y / zoomScale,
+      };
+      const nextCoords = calculateNewPosition(state.current.startElement, adjustedDelta);
 
-      const scale = getTransform(element).scale;
-      setTransform(element, { position: nextCoords, scale });
+      const scale = getTransform(targetElement).scale;
+      setTransform(targetElement, { position: nextCoords, scale });
 
-      applyDraggingStyles(element);
+      applyDraggingStyles(targetElement);
     };
 
     const handleEnd = (event: TouchEvent | MouseEvent) => {
@@ -53,7 +65,7 @@ export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>
         const pointer = getPointerCoords(event);
 
         state.current.startPointer = pointer;
-        state.current.startElement = getTransform(element).position;
+        state.current.startElement = getTransform(targetElement).position;
         state.current.isDragging = true;
         return;
       }
@@ -63,11 +75,11 @@ export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>
 
     const stop = () => {
       state.current.isDragging = false;
-      resetDraggingStyles(element);
+      resetDraggingStyles(targetElement);
     };
 
     attachEvents({
-      element,
+      element: handleElement,
       isTouchDevice,
       handlers: {
         onStart: handleStart,
@@ -77,7 +89,7 @@ export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>
     });
 
     return () => detachEvents({
-      element,
+      element: handleElement,
       isTouchDevice,
       handlers: {
         onStart: handleStart,
@@ -85,7 +97,5 @@ export function useDraggable<DraggableElement extends HTMLElement = HTMLElement>
         onEnd: handleEnd,
       }
     });
-  }, [elementRef, isTouchDevice]);
-
-  return elementRef;
+  }, [refs.handle, refs.target, isTouchDevice, enabled]);
 }
