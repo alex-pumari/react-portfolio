@@ -76,12 +76,12 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
           onClick={toggleTheme}
           aria-label="Cambiar tema"
         ></IconButton>
-        <IconButton
+        {/* <IconButton
           shadow="sm"
           icon={<HelpIcon />}
           title="Ayuda"
           aria-label="Ayuda"
-        ></IconButton>
+        ></IconButton> */}
       </Panel>
     </header>
   );
