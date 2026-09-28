@@ -21,4 +21,10 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - run: npm run deploy
