@@ -77,6 +77,7 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
           aria-label="Cambiar tema"
         ></IconButton>
         <IconButton
+         className="hidden-xs hidden-sm hidden-md hidden-lg"
           shadow="sm"
           icon={<HelpIcon />}
           title="Ayuda"

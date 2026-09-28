@@ -13,7 +13,7 @@ const dirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(file
 export default defineConfig({
   plugins: [react()],
   // base: "https://alexpumaridev.com.ar/",
-  base: "/",
+  base: "/react-portfolio/",
   test: {
     projects: [
       {
