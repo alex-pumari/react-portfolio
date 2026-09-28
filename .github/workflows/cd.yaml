@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
     types: [ closed ]
 
+permissions:
+  contents: write
+
 jobs:
   deployment:
     if: github.event.pull_request.merged == true
@@ -17,8 +20,8 @@ jobs:
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          cache: 'npm'
+          node-version: "20.x"
+          cache: "npm"
 
       - run: npm ci
 
@@ -27,4 +30,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - run: npm run deploy
+      - name: Configure GitHub authentication
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Deploy
+        run: npm run deploy
