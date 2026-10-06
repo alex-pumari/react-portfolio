@@ -1,17 +1,14 @@
 name: React Portfolio CD
 
 on:
-  pull_request:
-    branches: [ "main" ]
-    types: [ closed ]
+  push:
+    branches: ["main"]
 
 permissions:
   contents: write
 
 jobs:
   deployment:
-    if: github.event.pull_request.merged == true
-
     runs-on: ubuntu-latest
 
     steps:
