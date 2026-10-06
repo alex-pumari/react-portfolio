@@ -22,7 +22,7 @@
 
     &--draggable {
       cursor: pointer;
-      
+
       &:hover {
         background-color: color-mix(in srgb, var(--color-primary) 90%, white);
       }
@@ -42,31 +42,36 @@
     gap: tokens.$space-xs;
   }
 
-  &__control-btn { // TODO: improve control buttons styles
-    width: 14px;
-    height: 14px;
-    border: tokens.$border-width-thin solid var(--color-on-primary);
+  &__control-btn {
+    width: 1rem;
+    height: 1rem;
+    padding: 0 !important;
     background-color: transparent;
     cursor: pointer;
     position: relative;
-    padding: 0;
 
     &:hover {
-      background-color: color-mix(in srgb, var(--color-on-primary) 20%, transparent);
+      background-color: color-mix(in srgb, var(--color-on-primary) 30%, transparent) !important;
     }
 
     &--close {
       &::before, &::after {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 2px;
+        width: 12px;
+        height: 3px;
         background-color: var(--color-on-primary);
-        top: 4px;
-        left: 1px;
+        top: 50%;
+        left: 50%;
       }
-      &::before { transform: rotate(45deg); }
-      &::after { transform: rotate(-45deg); }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
     }
 
     &--minimize {
@@ -87,7 +92,6 @@
         position: absolute;
         width: 6px;
         height: 6px;
-        border: 1px solid var(--color-on-primary);
         top: 2px;
         left: 2px;
       }
@@ -95,7 +99,7 @@
   }
 
   &__content {
-    padding: tokens.$space-md;
+    padding: tokens.$space-md; // TODO: q cada content administre por su cuenta el padding?
     flex: 1;
     color: var(--color-on-surface);
     font-family: tokens.$font-family-mono;

@@ -2,7 +2,10 @@
 
 .contact-view {
   display: flex;
+  justify-content: center;
   gap: tokens.$space-lg;
+  width: calc(100vw - tokens.$space-xl);
+
 
   &__content {
     display: flex;
@@ -13,6 +16,7 @@
 
   &__form {
     width: 45ch;
+    max-width: 100%;
 
     flex-grow: 1;
     display: flex;
@@ -60,9 +64,10 @@
 
   &__contact-buttons {
     display: flex;
+    flex-wrap: wrap;
 
     & > * {
-      flex-basis: 0;
+      flex-basis: 9rem;
       flex-grow: 1;
     }
   }
