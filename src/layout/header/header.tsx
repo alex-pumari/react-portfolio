@@ -10,6 +10,7 @@ import { joinClasses } from "../../logic/join-classes.js";
 import { getViewName } from "../../logic/get-view-name.js";
 import { changeTheme } from "../../logic/change-theme.js";
 import { viewIcons } from "./view-icons.js";
+import { HelpModal } from "./help-modal.js";
 import "./header.scss";
 
 interface HeaderProps {
@@ -20,6 +21,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange }) => {
   const [theme, setTheme] = useState<Theme>("Light");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { isFullScreen } = useFullScreenContext();
 
   useEffect(() => {
@@ -28,62 +30,66 @@ export const Header: FC<HeaderProps> = ({ menuItems, activeView, onViewChange })
 
   const activeViewName = getViewName(activeView);
   const toggleTheme = () => { setTheme(currentTheme => currentTheme === "Light" ? "Dark" : "Light"); };
+  const toggleModal = () => { setIsModalOpen(currentIsOpen => !currentIsOpen);; };
 
   return (
-    <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
-      <Panel className="header__view-controls-panel" screwOffset="sm">
-        <nav className="hidden-md hidden-lg">
-          <DropdownButton
-            className="header__dropdown-button"
-            variant="outline"
+    <>
+      <header className={joinClasses("header", isFullScreen && "header--full-screen")}>
+        <Panel className="header__view-controls-panel" screwOffset="sm">
+          <nav className="hidden-md hidden-lg">
+            <DropdownButton
+              className="header__dropdown-button"
+              variant="outline"
+              shadow="sm"
+              items={menuItems}
+              selectedId={activeView}
+              formatValue={(value) => getViewName(value)}
+              onSelect={(item) => onViewChange(item.value)}
+            >
+              <span className="header__dropdown-button-label">{activeViewName}</span>
+            </DropdownButton>
+          </nav>
+
+          <nav className={joinClasses("header__nav", `header__nav--view-${activeView} hidden-xs hidden-sm`)}>
+            {menuItems.map(({ id, value }) => {
+              const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[id];
+              const navItemClassName = joinClasses(
+                "header__nav-item",
+                `header__nav-item--${id}`,
+                activeView === id && "header__nav-item--active",
+              );
+
+              return (
+                <button // TODO: Reemplazar por un el componente botón
+                  key={id}
+                  className={navItemClassName}
+                  onClick={() => onViewChange(id)}
+                >
+                  {Icon && <Icon className="header__nav-item-icon" />}
+                  {getViewName(value)}
+                </button>
+              );
+            })}
+          </nav>
+        </Panel>
+        <Panel className="header__controls-panel" screwOffset="sm">
+          <IconButton
             shadow="sm"
-            items={menuItems}
-            selectedId={activeView}
-            formatValue={(value) => getViewName(value)}
-            onSelect={(item) => onViewChange(item.value)}
-          >
-            <span className="header__dropdown-button-label">{activeViewName}</span>
-          </DropdownButton>
-        </nav>
-
-        <nav className={joinClasses("header__nav", `header__nav--view-${activeView} hidden-xs hidden-sm`)}>
-          {menuItems.map(({ id, value }) => {
-            const Icon: ComponentType<SVGProps<SVGSVGElement>> = viewIcons[id];
-            const navItemClassName = joinClasses(
-              "header__nav-item",
-              `header__nav-item--${id}`,
-              activeView === id && "header__nav-item--active",
-            );
-
-            return (
-              <button // TODO: Reemplazar por un el componente botón
-                key={id}
-                className={navItemClassName}
-                onClick={() => onViewChange(id)}
-              >
-                {Icon && <Icon className="header__nav-item-icon" />}
-                {getViewName(value)}
-              </button>
-            );
-          })}
-        </nav>
-      </Panel>
-      <Panel className="header__controls-panel" screwOffset="sm">
-        <IconButton
-          shadow="sm"
-          icon={<ThemeIcon />}
-          title="Cambiar tema"
-          onClick={toggleTheme}
-          aria-label="Cambiar tema"
-        ></IconButton>
-        <IconButton
-         className="hidden-xs hidden-sm hidden-md hidden-lg"
-          shadow="sm"
-          icon={<HelpIcon />}
-          title="Ayuda"
-          aria-label="Ayuda"
-        ></IconButton>
-      </Panel>
-    </header>
+            icon={<ThemeIcon />}
+            title="Cambiar tema"
+            onClick={toggleTheme}
+            aria-label="Cambiar tema"
+          ></IconButton>
+          <IconButton
+            shadow="sm"
+            icon={<HelpIcon />}
+            title="Ayuda"
+            onClick={toggleModal}
+            aria-label="Ayuda"
+          ></IconButton>
+        </Panel>
+      </header>
+      {isModalOpen && <HelpModal isOpen={isModalOpen} onClose={toggleModal} />}
+    </>
   );
 };
