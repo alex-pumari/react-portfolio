@@ -21,6 +21,8 @@ jobs:
           cache: "npm"
 
       - run: npm ci
+      - run: npm run check:code
+      - run: npm run check:types
 
       - name: Configure Git
         run: |
