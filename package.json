@@ -13,7 +13,7 @@
     "check:types": "tsc --noEmit",
     "check:code": "eslint .",
     "storybook": "storybook dev -p 6006 --host localhost --no-open",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",

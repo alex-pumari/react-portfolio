@@ -23,6 +23,10 @@ jobs:
       - run: npm ci
       - run: npm run check:code
       - run: npm run check:types
+      - run: npm run build
+
+      - name: Create CNAME
+        run: echo "alex-pumari.com.ar" > dist/CNAME
 
       - name: Configure Git
         run: |
