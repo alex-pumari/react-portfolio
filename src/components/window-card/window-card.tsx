@@ -29,13 +29,14 @@ export const WindowCard: FC<WindowCardProps> = ({
   const baseClass = "window-card";
   const windowCardRef = useRef<HTMLElement | null>(null);
   const windowCardHeaderRef = useRef<HTMLElement | null>(null);
+  const isTouchDevice = navigator.maxTouchPoints > 0;
 
   useDraggable({
     handle: windowCardHeaderRef,
     target: windowCardRef,
   },
   {
-    isTouchDevice: false,
+    isTouchDevice,
     enabled: isDraggable,
   });
 
